@@ -1,0 +1,1478 @@
+
+.sprite_sheet{
+	position: absolute;
+	background-image: url("../../media/sprite_sheet.png");
+	background-repeat: no-repeat;
+}
+
+.sprite_sheet[name="bullet0"]{
+	width: 6px;
+	height: 8px;
+}
+
+.sprite_sheet[name="bullet0"][data-x-frame="0"]{
+	background-position:-5px -5px;
+}
+
+.sprite_sheet[name="bullet0"][data-x-frame="1"]{
+	background-position:-16px -5px;
+}
+
+.sprite_sheet[name="bullet0"][data-x-frame="2"]{
+	background-position:-27px -5px;
+}
+
+.sprite_sheet[name="bullet0"][data-x-frame="3"]{
+	background-position:-38px -5px;
+}
+
+.sprite_sheet[name="bullet1"]{
+	width: 12px;
+	height: 14px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-49px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-202px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-66px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-221px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-83px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-240px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="3"][data-z-frame="0"]{
+	background-position:-100px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="3"][data-z-frame="1"]{
+	background-position:-259px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="4"][data-z-frame="0"]{
+	background-position:-117px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="4"][data-z-frame="1"]{
+	background-position:-278px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="5"][data-z-frame="0"]{
+	background-position:-134px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="5"][data-z-frame="1"]{
+	background-position:-297px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="6"][data-z-frame="0"]{
+	background-position:-151px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="6"][data-z-frame="1"]{
+	background-position:-316px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="7"][data-z-frame="0"]{
+	background-position:-168px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="7"][data-z-frame="1"]{
+	background-position:-335px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="8"][data-z-frame="0"]{
+	background-position:-185px -5px;
+}
+
+.sprite_sheet[name="bullet1"][data-x-frame="8"][data-z-frame="1"]{
+	background-position:-354px -5px;
+}
+
+.sprite_sheet[name="enemyplane0"]{
+	width: 32px;
+	height: 33px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-373px -5px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-375px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-410px -5px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-412px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-447px -5px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-449px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="3"][data-z-frame="0"]{
+	background-position:-5px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="3"][data-z-frame="1"]{
+	background-position:-5px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="4"][data-z-frame="0"]{
+	background-position:-42px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="4"][data-z-frame="1"]{
+	background-position:-42px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="5"][data-z-frame="0"]{
+	background-position:-79px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="5"][data-z-frame="1"]{
+	background-position:-79px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="6"][data-z-frame="0"]{
+	background-position:-116px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="6"][data-z-frame="1"]{
+	background-position:-116px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="7"][data-z-frame="0"]{
+	background-position:-153px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="7"][data-z-frame="1"]{
+	background-position:-153px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="8"][data-z-frame="0"]{
+	background-position:-190px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="8"][data-z-frame="1"]{
+	background-position:-190px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="9"][data-z-frame="0"]{
+	background-position:-227px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="9"][data-z-frame="1"]{
+	background-position:-227px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="10"][data-z-frame="0"]{
+	background-position:-264px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="10"][data-z-frame="1"]{
+	background-position:-264px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="11"][data-z-frame="0"]{
+	background-position:-301px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="11"][data-z-frame="1"]{
+	background-position:-301px -81px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="12"][data-z-frame="0"]{
+	background-position:-338px -43px;
+}
+
+.sprite_sheet[name="enemyplane0"][data-x-frame="12"][data-z-frame="1"]{
+	background-position:-338px -81px;
+}
+
+.sprite_sheet[name="enemyplane1"]{
+	width: 30px;
+	height: 23px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="0"]{
+	background-position:-375px -81px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="1"]{
+	background-position:-410px -81px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="2"]{
+	background-position:-445px -81px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="3"]{
+	background-position:-5px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="4"]{
+	background-position:-40px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="5"]{
+	background-position:-75px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="6"]{
+	background-position:-110px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="7"]{
+	background-position:-145px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="8"]{
+	background-position:-180px -119px;
+}
+
+.sprite_sheet[name="enemyplane1"][data-x-frame="9"]{
+	background-position:-215px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"]{
+	width: 26px;
+	height: 19px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="0"]{
+	background-position:-250px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="1"]{
+	background-position:-281px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="2"]{
+	background-position:-312px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="3"]{
+	background-position:-343px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="4"]{
+	background-position:-374px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="5"]{
+	background-position:-405px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="6"]{
+	background-position:-436px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="7"]{
+	background-position:-467px -119px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="8"]{
+	background-position:-5px -147px;
+}
+
+.sprite_sheet[name="enemyplane2"][data-x-frame="9"]{
+	background-position:-36px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"]{
+	width: 30px;
+	height: 14px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="0"]{
+	background-position:-67px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="1"]{
+	background-position:-102px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="2"]{
+	background-position:-137px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="3"]{
+	background-position:-172px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="4"]{
+	background-position:-207px -147px;
+}
+
+.sprite_sheet[name="enemyplane3"][data-x-frame="5"]{
+	background-position:-242px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"]{
+	width: 25px;
+	height: 15px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-277px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-215px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-307px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-245px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-337px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-275px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="3"][data-z-frame="0"]{
+	background-position:-367px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="3"][data-z-frame="1"]{
+	background-position:-305px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="4"][data-z-frame="0"]{
+	background-position:-397px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="4"][data-z-frame="1"]{
+	background-position:-335px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="5"][data-z-frame="0"]{
+	background-position:-427px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="5"][data-z-frame="1"]{
+	background-position:-365px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="6"][data-z-frame="0"]{
+	background-position:-457px -147px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="6"][data-z-frame="1"]{
+	background-position:-395px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="7"][data-z-frame="0"]{
+	background-position:-5px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="7"][data-z-frame="1"]{
+	background-position:-425px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="8"][data-z-frame="0"]{
+	background-position:-35px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="8"][data-z-frame="1"]{
+	background-position:-455px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="9"][data-z-frame="0"]{
+	background-position:-65px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="9"][data-z-frame="1"]{
+	background-position:-5px -191px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="10"][data-z-frame="0"]{
+	background-position:-95px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="10"][data-z-frame="1"]{
+	background-position:-35px -191px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="11"][data-z-frame="0"]{
+	background-position:-125px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="11"][data-z-frame="1"]{
+	background-position:-65px -191px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="12"][data-z-frame="0"]{
+	background-position:-155px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="12"][data-z-frame="1"]{
+	background-position:-95px -191px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="13"][data-z-frame="0"]{
+	background-position:-185px -171px;
+}
+
+.sprite_sheet[name="enemyplane4"][data-x-frame="13"][data-z-frame="1"]{
+	background-position:-125px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"]{
+	width: 26px;
+	height: 13px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="0"]{
+	background-position:-155px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="1"]{
+	background-position:-186px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="2"]{
+	background-position:-217px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="3"]{
+	background-position:-248px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="4"]{
+	background-position:-279px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="5"]{
+	background-position:-310px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="6"]{
+	background-position:-341px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="7"]{
+	background-position:-372px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="8"]{
+	background-position:-403px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="9"]{
+	background-position:-434px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="10"]{
+	background-position:-465px -191px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="11"]{
+	background-position:-5px -211px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="12"]{
+	background-position:-36px -211px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="13"]{
+	background-position:-67px -211px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="14"]{
+	background-position:-98px -211px;
+}
+
+.sprite_sheet[name="enemyplane5"][data-x-frame="15"]{
+	background-position:-129px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"]{
+	width: 26px;
+	height: 13px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="0"]{
+	background-position:-160px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="1"]{
+	background-position:-191px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="2"]{
+	background-position:-222px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="3"]{
+	background-position:-253px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="4"]{
+	background-position:-284px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="5"]{
+	background-position:-315px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="6"]{
+	background-position:-346px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="7"]{
+	background-position:-377px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="8"]{
+	background-position:-408px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="9"]{
+	background-position:-439px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="10"]{
+	background-position:-470px -211px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="11"]{
+	background-position:-5px -229px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="12"]{
+	background-position:-36px -229px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="13"]{
+	background-position:-67px -229px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="14"]{
+	background-position:-98px -229px;
+}
+
+.sprite_sheet[name="enemyplane6"][data-x-frame="15"]{
+	background-position:-129px -229px;
+}
+
+.sprite_sheet[name="enemyplane7"]{
+	width: 107px;
+	height: 39px;
+}
+
+.sprite_sheet[name="enemyplane7"][data-x-frame="0"]{
+	background-position:-160px -229px;
+}
+
+.sprite_sheet[name="enemyplane7"][data-x-frame="1"]{
+	background-position:-272px -229px;
+}
+
+.sprite_sheet[name="helicopter0"]{
+	width: 31px;
+	height: 16px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="0"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-384px -229px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="0"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-473px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="0"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-185px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="0"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-257px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="1"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-420px -229px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="1"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-5px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="1"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-221px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="1"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-293px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="2"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-456px -229px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="2"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-41px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="2"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-257px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="2"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-329px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="3"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-5px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="3"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-77px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="3"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-293px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="3"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-365px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="4"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-41px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="4"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-113px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="4"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-329px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="4"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-401px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="5"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-77px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="5"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-149px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="5"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-365px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="5"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-437px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="6"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-113px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="6"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-185px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="6"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-401px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="6"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-473px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="7"][data-y-frame="0"][data-z-frame="0"]{
+	background-position:-149px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="7"][data-y-frame="0"][data-z-frame="1"]{
+	background-position:-221px -294px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="7"][data-y-frame="1"][data-z-frame="0"]{
+	background-position:-437px -273px;
+}
+
+.sprite_sheet[name="helicopter0"][data-x-frame="7"][data-y-frame="1"][data-z-frame="1"]{
+	background-position:-5px -315px;
+}
+
+.sprite_sheet[name="plane0"]{
+	width: 32px;
+	height: 13px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-41px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-152px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="0"][data-z-frame="2"]{
+	background-position:-263px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-78px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-189px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="1"][data-z-frame="2"]{
+	background-position:-300px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-115px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-226px -315px;
+}
+
+.sprite_sheet[name="plane0"][data-x-frame="2"][data-z-frame="2"]{
+	background-position:-337px -315px;
+}
+
+.sprite_sheet[name="plane1"]{
+	width: 30px;
+	height: 14px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-374px -315px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-5px -336px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-409px -315px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-40px -336px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-444px -315px;
+}
+
+.sprite_sheet[name="plane1"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-75px -336px;
+}
+
+.sprite_sheet[name="plane2"]{
+	width: 32px;
+	height: 16px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-110px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-221px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="0"][data-z-frame="2"]{
+	background-position:-332px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-147px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-258px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="1"][data-z-frame="2"]{
+	background-position:-369px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-184px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-295px -336px;
+}
+
+.sprite_sheet[name="plane2"][data-x-frame="2"][data-z-frame="2"]{
+	background-position:-406px -336px;
+}
+
+.sprite_sheet[name="plane3"]{
+	width: 32px;
+	height: 17px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-443px -336px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-79px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="0"][data-z-frame="2"]{
+	background-position:-190px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-5px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-116px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="1"][data-z-frame="2"]{
+	background-position:-227px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-42px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-153px -358px;
+}
+
+.sprite_sheet[name="plane3"][data-x-frame="2"][data-z-frame="2"]{
+	background-position:-264px -358px;
+}
+
+.sprite_sheet[name="plane4"]{
+	width: 32px;
+	height: 17px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-301px -358px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-412px -358px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-338px -358px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-449px -358px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-375px -358px;
+}
+
+.sprite_sheet[name="plane4"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-5px -380px;
+}
+
+.sprite_sheet[name="plane5"]{
+	width: 32px;
+	height: 19px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-42px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-153px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="0"][data-z-frame="2"]{
+	background-position:-264px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-79px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-190px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="1"][data-z-frame="2"]{
+	background-position:-301px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-116px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-227px -380px;
+}
+
+.sprite_sheet[name="plane5"][data-x-frame="2"][data-z-frame="2"]{
+	background-position:-338px -380px;
+}
+
+.sprite_sheet[name="playericon0"]{
+	width: 42px;
+	height: 34px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="0"]{
+	background-position:-375px -380px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="1"]{
+	background-position:-422px -380px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="2"]{
+	background-position:-5px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="3"]{
+	background-position:-52px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="4"]{
+	background-position:-99px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="5"]{
+	background-position:-146px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="6"]{
+	background-position:-193px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="7"]{
+	background-position:-240px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="8"]{
+	background-position:-287px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="9"]{
+	background-position:-334px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="10"]{
+	background-position:-381px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="11"]{
+	background-position:-428px -419px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="12"]{
+	background-position:-5px -458px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="13"]{
+	background-position:-52px -458px;
+}
+
+.sprite_sheet[name="playericon0"][data-x-frame="14"]{
+	background-position:-99px -458px;
+}
+
+.sprite_sheet[name="playericon1"]{
+	width: 42px;
+	height: 34px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="0"]{
+	background-position:-146px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="1"]{
+	background-position:-193px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="2"]{
+	background-position:-240px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="3"]{
+	background-position:-287px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="4"]{
+	background-position:-334px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="5"]{
+	background-position:-381px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="6"]{
+	background-position:-428px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="7"]{
+	background-position:-240px -419px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="8"]{
+	background-position:-287px -419px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="9"]{
+	background-position:-334px -419px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="10"]{
+	background-position:-381px -419px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="11"]{
+	background-position:-428px -419px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="12"]{
+	background-position:-5px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="13"]{
+	background-position:-52px -458px;
+}
+
+.sprite_sheet[name="playericon1"][data-x-frame="14"]{
+	background-position:-99px -458px;
+}
+
+.sprite_sheet[name="playericon2"]{
+	width: 42px;
+	height: 34px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="0"]{
+	background-position:-5px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="1"]{
+	background-position:-52px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="2"]{
+	background-position:-99px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="3"]{
+	background-position:-146px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="4"]{
+	background-position:-193px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="5"]{
+	background-position:-240px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="6"]{
+	background-position:-287px -497px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="7"]{
+	background-position:-240px -419px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="8"]{
+	background-position:-287px -419px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="9"]{
+	background-position:-334px -419px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="10"]{
+	background-position:-381px -419px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="11"]{
+	background-position:-428px -419px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="12"]{
+	background-position:-5px -458px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="13"]{
+	background-position:-52px -458px;
+}
+
+.sprite_sheet[name="playericon2"][data-x-frame="14"]{
+	background-position:-99px -458px;
+}
+
+.sprite_sheet[name="tank0"]{
+	width: 51px;
+	height: 33px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="0"][data-y-frame="0"]{
+	background-position:-334px -497px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="0"][data-y-frame="1"]{
+	background-position:-341px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="0"][data-y-frame="2"]{
+	background-position:-341px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="1"][data-y-frame="0"]{
+	background-position:-390px -497px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="1"][data-y-frame="1"]{
+	background-position:-397px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="1"][data-y-frame="2"]{
+	background-position:-397px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="2"][data-y-frame="0"]{
+	background-position:-446px -497px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="2"][data-y-frame="1"]{
+	background-position:-453px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="2"][data-y-frame="2"]{
+	background-position:-453px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="3"][data-y-frame="0"]{
+	background-position:-5px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="3"][data-y-frame="1"]{
+	background-position:-5px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="3"][data-y-frame="2"]{
+	background-position:-5px -612px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="4"][data-y-frame="0"]{
+	background-position:-61px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="4"][data-y-frame="1"]{
+	background-position:-61px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="4"][data-y-frame="2"]{
+	background-position:-61px -612px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="5"][data-y-frame="0"]{
+	background-position:-117px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="5"][data-y-frame="1"]{
+	background-position:-117px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="5"][data-y-frame="2"]{
+	background-position:-117px -612px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="6"][data-y-frame="0"]{
+	background-position:-173px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="6"][data-y-frame="1"]{
+	background-position:-173px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="6"][data-y-frame="2"]{
+	background-position:-173px -612px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="7"][data-y-frame="0"]{
+	background-position:-229px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="7"][data-y-frame="1"]{
+	background-position:-229px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="7"][data-y-frame="2"]{
+	background-position:-229px -612px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="8"][data-y-frame="0"]{
+	background-position:-285px -536px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="8"][data-y-frame="1"]{
+	background-position:-285px -574px;
+}
+
+.sprite_sheet[name="tank0"][data-x-frame="8"][data-y-frame="2"]{
+	background-position:-285px -612px;
+}
+
+.sprite_sheet[name="turrent0"]{
+	width: 29px;
+	height: 29px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-341px -612px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-141px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-375px -612px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-174px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-409px -612px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-207px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="3"][data-z-frame="0"]{
+	background-position:-443px -612px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="3"][data-z-frame="1"]{
+	background-position:-240px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="4"][data-z-frame="0"]{
+	background-position:-477px -612px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="4"][data-z-frame="1"]{
+	background-position:-273px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="5"][data-z-frame="0"]{
+	background-position:-5px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="5"][data-z-frame="1"]{
+	background-position:-306px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="6"][data-z-frame="0"]{
+	background-position:-39px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="6"][data-z-frame="1"]{
+	background-position:-339px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="7"][data-z-frame="0"]{
+	background-position:-73px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="7"][data-z-frame="1"]{
+	background-position:-372px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="8"][data-z-frame="0"]{
+	background-position:-107px -650px;
+}
+
+.sprite_sheet[name="turrent0"][data-x-frame="8"][data-z-frame="1"]{
+	background-position:-405px -650px;
+}
+
+.sprite_sheet[name="turrent1"]{
+	width: 40px;
+	height: 40px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="0"][data-y-frame="0"]{
+	background-position:-435px -648px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="0"][data-y-frame="1"]{
+	background-position:-317px -695px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="1"][data-y-frame="0"]{
+	background-position:-2px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="1"][data-y-frame="1"]{
+	background-position:-362px -695px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="2"][data-y-frame="0"]{
+	background-position:-41px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="2"][data-y-frame="1"]{
+	background-position:-407px -695px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="3"][data-y-frame="0"]{
+	background-position:-80px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="3"][data-y-frame="1"]{
+	background-position:-452px -695px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="4"][data-y-frame="0"]{
+	background-position:-119px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="4"][data-y-frame="1"]{
+	background-position:-5px -742px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="5"][data-y-frame="0"]{
+	background-position:-158px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="5"][data-y-frame="1"]{
+	background-position:-50px -742px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="6"][data-y-frame="0"]{
+	background-position:-197px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="6"][data-y-frame="1"]{
+	background-position:-95px -742px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="7"][data-y-frame="0"]{
+	background-position:-236px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="7"][data-y-frame="1"]{
+	background-position:-140px -742px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="8"][data-y-frame="0"]{
+	background-position:-275px -691px;
+}
+
+.sprite_sheet[name="turrent1"][data-x-frame="8"][data-y-frame="1"]{
+	background-position:-185px -742px;
+}
+
+.sprite_sheet[name="turrent2"]{
+	width: 24px;
+	height: 31px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="0"][data-z-frame="0"]{
+	background-position:-230px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="0"][data-z-frame="1"]{
+	background-position:-433px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="1"][data-z-frame="0"]{
+	background-position:-259px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="1"][data-z-frame="1"]{
+	background-position:-462px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="2"][data-z-frame="0"]{
+	background-position:-288px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="2"][data-z-frame="1"]{
+	background-position:-5px -787px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="3"][data-z-frame="0"]{
+	background-position:-317px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="3"][data-z-frame="1"]{
+	background-position:-34px -787px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="4"][data-z-frame="0"]{
+	background-position:-346px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="4"][data-z-frame="1"]{
+	background-position:-63px -787px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="5"][data-z-frame="0"]{
+	background-position:-375px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="5"][data-z-frame="1"]{
+	background-position:-92px -787px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="6"][data-z-frame="0"]{
+	background-position:-404px -740px;
+}
+
+.sprite_sheet[name="turrent2"][data-x-frame="6"][data-z-frame="1"]{
+	background-position:-121px -787px;
+}

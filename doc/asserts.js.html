@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: asserts.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: asserts.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>goog.require('qcurve');
+goog.require('goog.asserts');
+goog.require('goog.string');
+
+goog.provide('qcurve.asserts');
+
+qcurve.asserts.ENABLE_ASSERTS = goog.asserts.ENABLE_ASSERTS;
+
+/**
+ * Throws an exception with the given message and "Assertion failed" prefixed
+ * onto it.
+ * @param {string} defaultMessage The message to use if givenMessage is empty.
+ * @param {Array.&lt;*>} defaultArgs The substitution arguments for defaultMessage.
+ * @param {string|undefined} givenMessage Message supplied by the caller.
+ * @param {Array.&lt;*>} givenArgs The substitution arguments for givenMessage.
+ * @throws {goog.asserts.AssertionError} When the value is not a number.
+ * @private
+ */
+qcurve.asserts.doAssertFailure_ = function(defaultMessage, defaultArgs, givenMessage, givenArgs) {
+	var message = 'Assertion failed';
+	var args;
+
+	if (givenMessage) {
+		message += ': ' + givenMessage;
+		args = givenArgs;
+	}
+	else if (defaultMessage) {
+		message += ': ' + defaultMessage;
+		args = defaultArgs;
+	}
+
+	// The '' + works around an Opera 10 bug in the unit tests. Without it,
+	// a stack trace is added to var message above. With this, a stack trace is
+	// not added until this line (it causes the extra garbage to be added after
+	// the assertion message instead of in the middle of it).
+	throw new goog.asserts.AssertionError('' + message, args || []);
+};
+
+/**
+* Checks if the value is a number if qcurve.asserts.ENABLE_ASSERTS is true.
+* @param {*} value The value to check.
+* @param {string=} opt_message Error message in case of failure.
+* @param {...number} var_args The items to substitute into the failure message.
+* @return {number} The value, guaranteed to be a number when asserts enabled.
+* @throws {qcurve.asserts.AssertionError} When the value is not a number.
+*/
+qcurve.asserts.assertInt = function (value, opt_message, var_args) {
+	if (qcurve.asserts.ENABLE_ASSERTS){
+		var intValue = qcurve.asInt(value);
+
+		if(intValue !== value) {
+			qcurve.asserts.doAssertFailure_('Expected int but got %s: %s.', [goog.typeOf(value), value], opt_message,
+			Array.prototype.slice.call(arguments, 2));
+		}
+	}
+	return /** @type {number} */ (value);
+};
+
+/**
+ * Checks if the value is a number if qcurve.asserts.ENABLE_ASSERTS is true.
+ * @param {number} value The value to check.
+ * @param {number} low
+ * @param {number=} opt_high
+ * @param {string=} opt_message Error message in case of failure.
+ * @param {...number} var_args The items to substitute into the failure message.
+ * @return {number} The value, guaranteed to be a number when asserts enabled.
+ * @throws {qcurve.asserts.AssertionError} When the value is not a number.
+ */
+qcurve.asserts.assertBounds = function (value, low, opt_high, opt_message, var_args) {
+	if (qcurve.asserts.ENABLE_ASSERTS ){
+
+		if(value &lt; low || goog.isNumber(opt_high) && value >= opt_high) {
+			qcurve.asserts.doAssertFailure_('Expected value to be greater than or equal to %s and less than %s but got %s.', [low, opt_high, value], opt_message,
+			Array.prototype.slice.call(arguments, 3));
+		}
+	}
+	return /** @type {number} */ (value);
+};
+
+/**
+ * Checks if the value is a string if qcurve.asserts.ENABLE_ASSERTS is true.
+ * @param {*} value The value to check.
+ * @param {string=} opt_message Error message in case of failure.
+ * @param {...number} var_args The items to substitute into the failure message.
+ * @return {string} The value, guaranteed to be a string when asserts enabled.
+ * @throws {qcurve.asserts.AssertionError} When the value is not a string.
+ */
+qcurve.asserts.assertNonEmptyString = function (value, opt_message, var_args) {
+	if (qcurve.asserts.ENABLE_ASSERTS && (!goog.isString(value) || !value)) {
+		qcurve.asserts.doAssertFailure_('Expected non empty string but got %s: %s -length=.', [goog.typeOf(value), value, 'length' in value ? value.length : 0], opt_message,
+			Array.prototype.slice.call(arguments, 2));
+	}
+	return /** @type {string} */ (value);
+};
+
+goog.exportSymbol('qcurve.asserts', qcurve.asserts);
+goog.exportProperty(qcurve.asserts, 'assertInt', qcurve.asserts.assertInt);
+goog.exportProperty(qcurve.asserts, 'assertBounds', qcurve.asserts.assertBounds);
+goog.exportProperty(qcurve.asserts, 'assertNonEmptyString', qcurve.asserts.assertNonEmptyString);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue May 28 2013 20:07:58 GMT-0700 (MST)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: component.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: component.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>goog.require('goog.ui.Component');
+goog.require('goog.string');
+goog.require('goog.Timer');
+goog.require('goog.asserts');
+goog.require('goog.style');
+goog.require('qcurve.asserts');
+goog.require('qcurve.events.Event');
+
+goog.provide('qcurve.display.Component');
+
+goog.scope(function(){
+	var Stage = qcurve.display.Stage;
+	var Timer = goog.Timer;
+	var Event = qcurve.events.Event;
+	var assert = goog.asserts.assert;
+	var assertNumber = goog.asserts.assertNumber;
+	var assertNonEmptyString = qcurve.asserts.assertNonEmptyString;
+	var assertInstanceof = goog.asserts.assertInstanceof;
+
+	/**
+	* @constructor
+	* @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+	* @extends {goog.ui.Component}
+	*/
+	qcurve.display.Component = function(opt_domHelper){
+		goog.base(this, opt_domHelper);
+	};
+	goog.inherits(qcurve.display.Component, goog.ui.Component);
+
+	/** @override */
+	qcurve.display.Component.prototype.decorateInternal = function(element){
+		goog.base(this, 'decorateInternal', element);
+
+		var id = 'instance' + qcurve.display.Component.numInstances_;
+		qcurve.display.Component.numInstances_++;
+		this.setId(id);
+	};
+
+	/** @override */
+	qcurve.display.Component.prototype.setId = function(value) {
+		goog.base(this, 'setId', value);
+		this.setElementAttibute('id', value);
+	};
+
+	/** @public */
+	qcurve.display.Component.prototype.enterDocument = function(){
+		goog.base(this, 'enterDocument');
+
+		this.tryDetectStage$qcurve_display_Component_();
+	};
+
+
+	/** @public */
+	qcurve.display.Component.prototype.exitDocument = function(){
+		goog.base(this, 'exitDocument');
+
+		this.stage_ = null;
+	};
+
+	/** @private */
+	qcurve.display.Component.prototype.tryDetectStage$qcurve_display_Component_ = function(){
+		if(!this.stage_){
+			this.detectStage$qcurve_display_Component_();
+		}
+	};
+
+	/** @private */
+	qcurve.display.Component.prototype.detectStage$qcurve_display_Component_ = function(){
+		if(this.stage_){
+			return;
+		}
+
+		var topParent = this;
+
+		while(topParent.getParent()){
+			topParent = topParent.getParent();
+		}
+
+		this.stage_ = /**@type {qcurve.display.Stage} */ (qcurve.as(topParent, qcurve.display.Stage));
+	};
+
+	/** @private */
+	qcurve.display.Component.prototype.detectRoot$qcurve_display_Component_ = function(){
+		var topParent = this;
+
+		while(topParent.getParent()){
+			topParent = topParent.getParent();
+		}
+
+		this.root_ = topParent;
+	};
+
+	/**
+	* @public
+	* @param {string} str
+	* @return {string}
+	*/
+	qcurve.display.Component.prototype.getElementAttibute = function(str){
+		return this.getElement().getAttribute(str);
+	};
+
+
+	/**
+	* @public
+	* @param {string} str
+	* @param {string|number|boolean} value
+	*/
+	qcurve.display.Component.prototype.setElementAttibute = function(str, value){
+		return this.getElement().setAttribute(str, value);
+	};
+
+
+	/**
+	* @public
+	* @param {string} str
+	* @param {string|number|boolean} value
+	*/
+	qcurve.display.Component.prototype.setElementStyle = function(str, value){
+		goog.style.setStyle(this.getElement(), str, value);
+	};
+
+
+
+	/**
+	* @public
+	* @param {string} str
+	* @return {string}
+	*/
+	qcurve.display.Component.prototype.getElementStyle = function(str){
+		return goog.style.getStyle(this.getElement(), str);
+	};
+
+	/** @return {goog.ui.Component} */
+	qcurve.display.Component.prototype.getRoot = function(){
+		return this.root_;
+	};
+
+
+	/** @override */
+	qcurve.display.Component.prototype.setParent = function(value) {
+		goog.base(this, 'setParent', value);
+
+		if(!value){
+			this.dispatchEvent(Event.REMOVED);
+
+			if(this.stage_){
+				this.stage_ = null;
+				this.root_ = null;
+				this.dispatchEvent(Event.REMOVED_FROM_STAGE);
+			}
+		}
+		else{
+			assertInstanceof(value, qcurve.display.Component);
+			this.dispatchEvent(Event.ADDED);
+			this.detectRoot$qcurve_display_Component_();
+			this.tryDetectStage$qcurve_display_Component_();
+		}
+	};
+
+
+
+	/**
+	* @param {number} x
+	* @param {number} y
+	*/
+	qcurve.display.Component.prototype.setPosition = function(x, y){
+		assertNumber(x);
+		assertNumber(y);
+
+		goog.style.setPosition(this.getElement(), x, y);
+
+	};
+
+	/** @return {!goog.math.Coordinate} */
+	qcurve.display.Component.prototype.getPosition = function(){
+		return goog.style.getPosition(this.getElement());
+	};
+
+
+
+	/** @return {number} */
+	qcurve.display.Component.prototype.getX = function(){
+		return this.getPosition().x;
+	};
+
+
+	/** @param {number} value */
+	qcurve.display.Component.prototype.setX = function(value){
+		assertNumber(value);
+		goog.style.setPosition(this.getElement(), value, this.getY());
+	};
+
+
+	/** @return {number} */
+	qcurve.display.Component.prototype.getY = function(){
+		return this.getPosition().y;
+	};
+
+
+	/** @param {number} value */
+	qcurve.display.Component.prototype.setY = function(value){
+		assertNumber(value);
+		goog.style.setPosition(this.getElement(), this.getX(), value);
+		this.y_ = value;
+	};
+
+
+	/**
+	* @public
+	* @return {string}
+	*/
+	qcurve.display.Component.prototype.getName = function(){
+		return this.getElementAttibute('name') || '';
+	};
+
+
+	/**
+	* @public
+	* @param {string} value
+	*/
+	qcurve.display.Component.prototype.setName = function(value){
+		this.setElementAttibute('name', value);
+	};
+
+
+	/**
+	* @public
+	* @return {qcurve.display.Stage}
+	*/
+	qcurve.display.Component.prototype.getStage = function(){
+		return this.stage_;
+	};
+
+
+	/**
+	* @private
+	* @type {qcurve.display.Stage}
+	*/
+	qcurve.display.Component.prototype.stage_ = null;
+
+	/**
+	* @private
+	* @type {goog.ui.Component}
+	*/
+	qcurve.display.Component.prototype.root_ = null;
+
+	/**
+	* @private
+	* @type {number}
+	*/
+	qcurve.display.Component.numInstances_ = 0;
+
+	goog.exportSymbol('qcurve.display.Component', qcurve.display.Component);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getElementStyle', qcurve.display.Component.prototype.getElementStyle);
+	goog.exportProperty(qcurve.display.Component.prototype , 'enterDocument', qcurve.display.Component.prototype.enterDocument);
+	goog.exportProperty(qcurve.display.Component.prototype , 'exitDocument', qcurve.display.Component.prototype.exitDocument);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getElementAttibute', qcurve.display.Component.prototype.getElementAttibute);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setElementAttibute', qcurve.display.Component.prototype.setElementAttibute);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setElementStyle', qcurve.display.Component.prototype.setElementStyle);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getRoot', qcurve.display.Component.prototype.getRoot);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setParent', qcurve.display.Component.prototype.setParent);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setPosition', qcurve.display.Component.prototype.setPosition);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getX', qcurve.display.Component.prototype.getX);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setX', qcurve.display.Component.prototype.setX);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getY', qcurve.display.Component.prototype.getY);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setY', qcurve.display.Component.prototype.setY);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getName', qcurve.display.Component.prototype.getName);
+	goog.exportProperty(qcurve.display.Component.prototype , 'setName', qcurve.display.Component.prototype.setName);
+	goog.exportProperty(qcurve.display.Component.prototype , 'getStage', qcurve.display.Component.prototype.getStage);
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="qcurve.display.Component.html">Component</a></li><li><a href="qcurve.display.Missile.html">Missile</a></li><li><a href="qcurve.display.MissileLauncher.html">MissileLauncher</a></li><li><a href="qcurve.display.Sprite.html">Sprite</a></li><li><a href="qcurve.display.Stage.html">Stage</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue May 28 2013 20:35:09 GMT-0700 (MST)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

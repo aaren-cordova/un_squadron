@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: missilelauncher.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: missilelauncher.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>goog.provide('qcurve.display.MissileLauncher');
+goog.require('qcurve.display.Sprite');
+goog.require('goog.events.EventTarget');
+goog.require('goog.Timer');
+goog.require('goog.asserts');
+
+goog.scope(function(){
+	var Timer = goog.Timer;
+	var EventTarget = goog.events.EventTarget;
+	var assert = goog.asserts.assert;
+	var assertNumber = goog.asserts.assertNumber;
+
+	/**
+	* @constructor
+	* @param {string} name
+	* @param {number=} numXFrames
+	* @param {number=} numYFrames
+	* @param {number=} numZFrames
+	* @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+	* @extends {qcurve.display.Sprite}
+	*/
+	qcurve.display.MissileLauncher = function(name, numXFrames, numYFrames, numZFrames, opt_domHelper){
+		goog.base(this, name, numXFrames, numYFrames, numZFrames, opt_domHelper);
+		this.missiles_ = [];
+		this.defaultMissleClassParams_ = [];
+		this.autofireTimer_ = new Timer(1000);
+		this.autofireTimer_.addEventListener(Timer.TICK, this.onFireTimer$qcurve_display_MissileLauncher_, false, this);
+	};
+	goog.inherits(qcurve.display.MissileLauncher, qcurve.display.Sprite);
+
+	/** @public */
+	qcurve.display.MissileLauncher.prototype.stopAutofireTimer = function(){
+		this.autofireTimer_.stop();
+	};
+
+	/** @public */
+	qcurve.display.MissileLauncher.prototype.startAutofireTimer = function(){
+		this.autofireTimer_.start();
+	};
+
+	/** @public */
+	qcurve.display.MissileLauncher.prototype.restartAutofireTimer = function(){
+		this.stopAutofireTimer();
+		this.startAutofireTimer();
+	};
+
+	/** @param {qcurve.display.Missile} missile */
+	qcurve.display.MissileLauncher.prototype.launchMissle = function(missile){
+		if(!missile){
+			throw new Error("No missiles available");
+		}
+
+		missile.setTarget(this.getMissleTarget());
+		this.getMissleTarget().getParent().addChild(missile, true);
+
+		missile.setPosition(this.getX() - (missile.getWidth() / 2), this.getY() - (missile.getHeight() / 2));
+
+		missile.start();
+	};
+
+	/** @override */
+	qcurve.display.MissileLauncher.prototype.disposeInternal = function(){
+		goog.base(this, 'disposeInternal');
+
+		this.autofireTimer_.dispose();
+
+		delete this.missiles_;
+		delete this.missileTarget_;
+		delete this.autofireTimer_;
+	};
+
+	/** @param {!qcurve.display.Missile} value */
+	qcurve.display.MissileLauncher.prototype.addMissile = function(value){
+		assert(value);
+		this.missiles_.push(value);
+	};
+
+	/** @return {qcurve.display.Sprite} */
+	qcurve.display.MissileLauncher.prototype.getMissleTarget = function(){
+		return this.missileTarget_;
+	};
+
+	/**
+	* @public
+	* @param {qcurve.display.Sprite} value
+	*/
+	qcurve.display.MissileLauncher.prototype.setMissleTarget = function(value){
+		this.missileTarget_ = value;
+	};
+
+	/** @return {number} */
+	qcurve.display.MissileLauncher.prototype.getFireRate = function(){
+		return this.autofireTimer_.getInterval();
+	};
+
+
+	/** @param {number} value */
+	qcurve.display.MissileLauncher.prototype.setFireRate = function(value){
+		assert(value > 0, 'fireRate must be greater than 0, got %s', value);
+
+		this.autofireTimer_.setInterval(1000 / value);
+	};
+
+	/** @return {Function} */
+	qcurve.display.MissileLauncher.prototype.getDefaultMissleClass = function(){
+		return this.defaultMissleClass_;
+	};
+
+	/** @param {Function} value */
+	qcurve.display.MissileLauncher.prototype.setDefaultMissleClass = function(value){
+		if(value){
+			assert(goog.isFunction(value));
+		}
+
+		this.defaultMissleClass_ = value;
+	};
+
+	/** @param {Array} value */
+	qcurve.display.MissileLauncher.prototype.setDefaultMissleClassParams = function(value){
+		this.defaultMissleClassParams_ = value;
+	};
+
+
+	/** @private */
+	qcurve.display.MissileLauncher.prototype.onFireTimer$qcurve_display_MissileLauncher_ = function(event){
+		var missile;
+
+		if(this.missiles_.length){
+			missile = this.missiles_.shift();
+			this.launchMissle(missile);
+		}
+		else if(this.defaultMissleClass_){
+			var args = this.defaultMissleClassParams_;
+			var MissleClass = this.defaultMissleClass_;
+			missile = args ? new MissleClass(args[0], args[1], args[2], args[3]) : new MissleClass();
+			this.launchMissle(missile);
+		}
+
+		this.dispatchEvent(event);
+	};
+
+
+
+	/**
+	* @private
+	* @type {goog.Timer}
+	*/
+	qcurve.display.MissileLauncher.prototype.autofireTimer_ = null;
+
+	/**
+	* @private
+	* @type {Array.&lt;qcurve.display.Missile>}
+	*/
+	qcurve.display.MissileLauncher.prototype.missiles_ = null;
+
+	/**
+	* @private
+	* @type {Function}
+	*/
+	qcurve.display.MissileLauncher.prototype.defaultMissleClass_ = null;
+
+	/**
+	* @private
+	* @type {Array}
+	*/
+	qcurve.display.MissileLauncher.prototype.defaultMissleClassParams_ = null;
+
+	/**
+	* @private
+	* @type {qcurve.display.Sprite}
+	*/
+	qcurve.display.MissileLauncher.prototype.missileTarget_ = null;
+
+	goog.exportSymbol('qcurve.display.MissileLauncher', qcurve.display.MissileLauncher);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'stopAutofireTimer', qcurve.display.MissileLauncher.prototype.stopAutofireTimer);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'startAutofireTimer', qcurve.display.MissileLauncher.prototype.startAutofireTimer);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'restartAutofireTimer', qcurve.display.MissileLauncher.prototype.restartAutofireTimer);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'launchMissle', qcurve.display.MissileLauncher.prototype.launchMissle);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'getMissleTarget', qcurve.display.MissileLauncher.prototype.getMissleTarget);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'setMissleTarget', qcurve.display.MissileLauncher.prototype.setMissleTarget);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'getFireRate', qcurve.display.MissileLauncher.prototype.getFireRate);
+	goog.exportProperty(qcurve.display.MissileLauncher.prototype, 'setFireRate', qcurve.display.MissileLauncher.prototype.setFireRate);
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="qcurve.display.Component.html">Component</a></li><li><a href="qcurve.display.Missile.html">Missile</a></li><li><a href="qcurve.display.MissileLauncher.html">MissileLauncher</a></li><li><a href="qcurve.display.Sprite.html">Sprite</a></li><li><a href="qcurve.display.Stage.html">Stage</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue May 28 2013 20:35:09 GMT-0700 (MST)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: missile.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: missile.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>goog.provide('qcurve.display.Missile');
+goog.require('goog.asserts');
+goog.require('goog.events');
+goog.require('goog.Timer');
+goog.require('qcurve.display.Sprite');
+
+goog.scope(function(){
+	var Event = qcurve.events.Event;
+	var Coordinate = goog.math.Coordinate;
+	var Timer = goog.Timer;
+	var listen = goog.events.listen;
+	var unlisten = goog.events.unlisten;
+	var assert = goog.asserts.assert;
+
+	/**
+	* @constructor
+	* @param {string} name
+	* @param {number=} opt_numXFrames
+	* @param {number=} opt_numYFrames
+	* @param {number=} opt_numZFrames
+	* @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+	* @extends {qcurve.display.Sprite}
+	*/
+	qcurve.display.Missile = function(name, opt_numXFrames, opt_numYFrames, opt_numZFrames, opt_domHelper){
+		goog.base(
+			this,
+			name,
+			opt_numXFrames,
+			opt_numYFrames,
+			opt_numZFrames,
+			opt_domHelper
+		);
+	};
+
+	goog.inherits(qcurve.display.Missile, qcurve.display.Sprite);
+
+	/** @override */
+	qcurve.display.Missile.prototype.enterDocument = function(){
+		goog.base(this, 'enterDocument');
+	};
+
+
+	/** @override */
+	qcurve.display.Missile.prototype.exitDocument = function(){
+		goog.base(this, 'exitDocument');
+		this.stop();
+	};
+
+
+	/** @override */
+	qcurve.display.Missile.prototype.disposeInternal = function(){
+		goog.base(this, 'disposeInternal');
+
+		delete this.target_;
+	};
+
+	/** @public */
+	qcurve.display.Missile.prototype.start = function(){
+		//goog.global.console.log('start');
+
+		if(!this.running_){
+			this.running_ = true;
+			this.startInternal();
+		}
+	};
+
+
+	/** @public */
+	qcurve.display.Missile.prototype.stop = function(){
+		//goog.global.console.log('stop');
+
+		if(this.running_){
+			this.running_ = false;
+			this.stopInternal();
+		}
+	};
+
+	/** @protected */
+	qcurve.display.Missile.prototype.startInternal = function(){
+		// Do nothing
+	};
+
+	/** @protected */
+	qcurve.display.Missile.prototype.stopInternal = function(){
+		// Do nothing
+	};
+
+	/** @return {boolean} */
+	qcurve.display.Missile.prototype.getRunning = function(){
+		return this.running_;
+	};
+
+	/** @return {qcurve.display.Component|goog.math.Coordinate} */
+	qcurve.display.Missile.prototype.getTarget = function(){
+		return this.target_;
+	};
+
+	/** @param {qcurve.display.Component|goog.math.Coordinate} value */
+	qcurve.display.Missile.prototype.setTarget = function(value){
+		this.target_= value;
+	};
+
+	/** @return {!goog.math.Coordinate} */
+	qcurve.display.Missile.prototype.getTargetCoordinate = function(){
+		var target = this.getTarget();
+
+		assert(target, 'No target provided');
+
+		if(target instanceof Coordinate){
+			return target.clone();
+		}
+
+		return target.getPosition();
+	};
+
+
+
+	/**
+	* @private
+	* @type {qcurve.display.Component|goog.math.Coordinate}
+	*/
+	qcurve.display.Missile.prototype.target_ = null;
+
+	/**
+	* @private
+	* @type {boolean}
+	*/
+	qcurve.display.Missile.prototype.running_ = false;
+
+	goog.exportSymbol('qcurve.display.Missile', qcurve.display.Missile);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'enterDocument', qcurve.display.Missile.prototype.enterDocument);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'exitDocument', qcurve.display.Missile.prototype.exitDocument);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'start', qcurve.display.Missile.prototype.start);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'stop', qcurve.display.Missile.prototype.stop);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'getRunning', qcurve.display.Missile.prototype.getRunning);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'getTarget', qcurve.display.Missile.prototype.getTarget);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'setTarget', qcurve.display.Missile.prototype.setTarget);
+	goog.exportProperty(qcurve.display.Missile.prototype, 'getTargetCoordinate', qcurve.display.Missile.prototype.getTargetCoordinate);
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="qcurve.display.Component.html">Component</a></li><li><a href="qcurve.display.Missile.html">Missile</a></li><li><a href="qcurve.display.MissileLauncher.html">MissileLauncher</a></li><li><a href="qcurve.display.Sprite.html">Sprite</a></li><li><a href="qcurve.display.Stage.html">Stage</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue May 28 2013 20:35:09 GMT-0700 (MST)
+</footer>
+
+<script> prettyPrint(); </script>
+</body>
+</html>

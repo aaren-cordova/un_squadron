@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 		},
 
 		less: {
-			s6: {
+			unsquadron: {
 				options: {
 					compress: true,
 					yuicompress: true,
@@ -26,17 +26,18 @@ module.exports = function (grunt) {
 					// target.css file: source.less file
 					"../bin/css/variables.css": "../less/variables.less",
 					"../bin/css/mixins.css": "../less/mixins.less",
-					"../bin/css/main.css": "../less/main.less"
+					"../bin/css/unsquadron.css": "../less/unsquadron.less"
 				}
 			}
 		},
+
 		jsdoc: {
-			s6: {
+			unsquadron: {
 				src: [
-					'../js/s6/*.js',
-					'../js/s6/**/*.js',
-					'!../js/s6/net/*.js',
-					'!../js/s6/widgets/ArtSet.js'
+					'../js/unsquadron/*.js',
+					'../js/unsquadron/**/*.js',
+					'!../js/unsquadron/net/*.js',
+					'!../js/unsquadron/widgets/ArtSet.js'
 				],
 
 				dest: '../doc',
@@ -49,25 +50,26 @@ module.exports = function (grunt) {
 		closureBuilder: {
 			options: grunt.file.readJSON('json/closure_builder/options.json'),
 
-			s6: {
+			unsquadron: {
 				src: [
 					'../js/google/closure-library/closure/goog/',
 					'../js/google/closure-library/third_party/',
-					'../js/s6/',
-					'../js/src/'//,
-					//'../js/greensock/v12/src/exports/'
+					'../js/qcurve/',
+					'../js/unsquadron/',
+					'../js/src/',
+					'../js/greensock/v12/src/exports/'
 				],
 
-				dest: '../bin/js/s6.min.js'
+				dest: '../bin/js/unsquadron.min.js'
 			}
 		},
 
 		closureDepsWriter: {
 			options: grunt.file.readJSON('json/closure_deps_writer/options.json'),
 
-			s6: {
-				src: '../js/s6/**/.js',
-				dest: '../js/s6/deps.js'
+			unsquadron: {
+				src: '../js/unsquadron/**/.js',
+				dest: '../js/unsquadron/deps.js'
 			}
 		},
 
@@ -84,12 +86,13 @@ module.exports = function (grunt) {
 				dest: '../js/greensock/v12/bin/uncompressed/out.js'
 			},
 
-			s6: {
+			unsquadron: {
 				src: [
-					'../bin/js/s6.min.js'
+					'../js/greensock/v12/bin/uncompressed/out.js',
+					'../bin/js/unsquadron.min.js'
 				],
 
-				dest: '../bin/js/s6.concat.js'
+				dest: '../bin/js/unsquadron.concat.js'
 			},
 
 			css:{
@@ -138,7 +141,7 @@ module.exports = function (grunt) {
 		jshint: {
 			all:{
 				files: {
-					src: ['../js/s6/**/*.js']
+					src: ['../js/unsquadron/**/*.js']
 				}
 			},
 
@@ -157,19 +160,17 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('write_deps', [
-		'closureDepsWriter:s6'
+		'closureDepsWriter:unsquadron'
 	]);
 
 
 	var dev_ = [];
-	//dev_.push('jshint');
-	dev_.push('closureDepsWriter:s6');
-	dev_.push('closureBuilder:s6');
+	dev_.push('closureBuilder:unsquadron');
 
-	dev_.push('less:s6');
-	dev_.push('concat:s6');
+	dev_.push('less:unsquadron');
+	dev_.push('concat:unsquadron');
 
-	dev_.push('jsdoc:s6');
+	dev_.push('jsdoc:unsquadron');
 
 	
 	grunt.registerTask('dev', dev_);

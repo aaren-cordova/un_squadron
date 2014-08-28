@@ -2,11 +2,12 @@
 	"builder": "../js/google/closure-library/closure/bin/build/closurebuilder.py",
 
 	"inputs": [
-		"../js/s6/main.js"
+		"../js/unsquadron/main.js"
 	],
 
 	"namespaces": [
-		"s6"
+		"qcurve",
+		"unsquadron"
 	],
 
 	"compilerFile": "../js/google/closure-library/compiler/compiler.jar",

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "../js/google/closure-library/closure/bin/build/depswriter.py", line 202, in <module>
+    main()
+  File "../js/google/closure-library/closure/bin/build/depswriter.py", line 178, in main
+    path_to_source.update(_GetRelativePathToSourceDict(root, prefix=prefix))
+  File "../js/google/closure-library/closure/bin/build/depswriter.py", line 140, in _GetRelativePathToSourceDict
+    os.chdir(root)
+WindowsError: [Error 2] The system cannot find the file specified: '../js/s6'

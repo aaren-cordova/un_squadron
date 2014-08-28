@@ -1,0 +1,28 @@
+@import "../less/mixins.less";
+@import "../less/variables.less";
+
+
+html, body{
+	margin:0px 0px;
+	padding:0px 0px;
+}
+
+.stage{
+	overflow: hidden;
+
+	* {
+		position: absolute;
+	}
+
+	.game{
+		background: #000000;
+		margin:0px 0px;
+		padding:0px 0px;
+
+		width:782px;
+		height:467px;
+	}
+
+	@import "../less/unsquadron/sprite_sheet.less";
+}
+

@@ -1,0 +1,239 @@
+@import "variables.less";
+
+// Clearfix
+.clearfix(){
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Center-align a block level element
+.center-block() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center(@width, @height, @position:relative){
+	position:@position;
+	margin-top:-@height / 2;
+	margin-left:-@width / 2;
+	left:50%;
+	top:50%;
+}
+
+.center-horizontal(@width, @position:relative){
+	position:@position;
+	margin-left:-@width / 2;
+	left:50%;
+}
+
+.center-vertical(@height, @position:relative){
+	position:@position;
+	margin-top:-@height / 2;
+	top:50%;
+}
+
+.content-width-only(){
+	margin-left:0;
+	margin-right:0;
+
+	padding-left:0;
+	padding-right:0;
+
+	border-left:0;
+	border-right:0;
+}
+
+.content-height-only(){
+	margin-top:0;
+	margin-bottom:0;
+
+	padding-top:0;
+	padding-bottom:0;
+	
+	border-top:0;
+	border-bottom:0;
+}
+
+.content-size-only(){
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+// Min-height
+.min-height(@width) {
+	min-height: @width;
+	height:auto !important;
+	height: @width;
+}
+
+// Sizing shortcuts
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+
+.move(@left, @top) {
+	left: @left;
+	top: @top;
+}
+
+.square(@size) {
+	.size(@size, @size);
+}
+
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+// Single Corner Border Radius
+.border-top-left-radius(@radius) {
+	-webkit-border-top-left-radius: @radius;
+	-moz-border-radius-topleft: @radius;
+	border-top-left-radius: @radius;
+}
+.border-top-right-radius(@radius) {
+	-webkit-border-top-right-radius: @radius;
+	-moz-border-radius-topright: @radius;
+	border-top-right-radius: @radius;
+}
+.border-bottom-right-radius(@radius) {
+	-webkit-border-bottom-right-radius: @radius;
+	-moz-border-radius-bottomright: @radius;
+	border-bottom-right-radius: @radius;
+}
+.border-bottom-left-radius(@radius) {
+	-webkit-border-bottom-left-radius: @radius;
+	-moz-border-radius-bottomleft: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+// Single Side Border Radius
+.border-top-radius(@radius) {
+	.border-top-right-radius(@radius);
+	.border-top-left-radius(@radius);
+}
+.border-right-radius(@radius) {
+	.border-top-right-radius(@radius);
+	.border-bottom-right-radius(@radius);
+}
+.border-bottom-radius(@radius) {
+	.border-bottom-right-radius(@radius);
+	.border-bottom-left-radius(@radius);
+}
+.border-left-radius(@radius) {
+	.border-top-left-radius(@radius);
+	.border-bottom-left-radius(@radius);
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.transition(...){
+	@transitions: e(@arguments);
+	-webkit-transition: @transitions;
+		-moz-transition: @transitions;
+		-o-transition: @transitions;
+		-ms-transition: @transitions;
+		transition: @transitions;
+}
+
+/*
+.keyframes{
+	.frames(@name, @frames){
+		@pre: -moz-keyframes;
+		@-moz-keyframes @name,
+		@-webkit-keyframes @name,
+		@keyframes @name{
+			@frames();
+		}
+	}
+	
+	.from_to (@name, @from, @to){
+		@frames: {
+			from { @from(); }
+			to { @to(); }
+		};
+
+		.frames(@name, @frames);
+	}
+}
+*/
+
+.select(@value){
+	-moz-user-select: @value; 
+	-khtml-user-select: @value; 
+	-webkit-user-select: @value; 
+	-o-user-select: @value; 
+}
+
+
+// Fonts
+// --------------------------------------------------
+#font {
+	#slab {
+		.100() {
+			font-family: "Museo Slab 100";
+		}
+		.300() {
+			font-family: "Museo Slab 300";
+		}
+		.500() {
+			font-family: "Museo Slab 500";
+		}
+	}
+	#sans {
+		.100() {
+			font-family: "Museo Sans 100";
+		}
+		.300() {
+			font-family: "Museo Sans 300";
+		}
+		.500() {
+			font-family: "Museo Sans 500";
+		}
+		.700() {
+			font-family: "Museo Sans 700";
+		}
+	}
+
+	#fontello{
+		.s6() {
+			@font-face {
+				font-family: 'fontello';
+				src: url('/ui/fonts/fontello/font/fontello.eot?34209749');
+				src: url('/ui/fonts/fontello/font/fontello.eot?34209749#iefix') format('embedded-opentype'),
+						 url('/ui/fonts/fontello/font/fontello.woff?34209749') format('woff'),
+						 url('/ui/fonts/fontello/font/fontello.ttf?34209749') format('truetype'),
+						 url('/ui/fonts/fontello/font/fontello.svg?34209749#fontello') format('svg');
+				font-weight: normal;
+				font-style: normal;
+			}
+
+			font-family: "fontello";
+
+		}
+	}
+}

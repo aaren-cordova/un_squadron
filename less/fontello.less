@@ -1,0 +1,68 @@
+#fontello .face();
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'fontello';
+		src: url('../font/fontello.svg?34209749#fontello') format('svg');
+	}
+}
+*/
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	#fontello .font-family();
+	
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+		 
+	/* fix buttons height, for twitter bootstrap */
+	line-height: 1em;
+
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+	margin-left: .2em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+
+	/* Uncomment for 3D effect */
+	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-close_xbutton:before { content: '\e80e'; } /* '' */
+.icon-close_xbutton_basic:before { content: '\e815'; } /* '' */
+.icon-food_icon:before { content: '\e809'; } /* '' */
+.icon-ehownow_icon:before { content: '\e80a'; } /* '' */
+.icon-health_icon:before { content: '\e80b'; } /* '' */
+.icon-home_icon:before { content: '\e80c'; } /* '' */
+.icon-ehownow_logo:before { content: '\e804'; } /* '' */
+.icon-morecategories_icon:before { content: '\e813'; } /* '' */
+.icon-rightarrow:before { content: '\e802'; } /* '' */
+.icon-rightarrow_basic:before { content: '\e803'; } /* '' */
+.icon-style_icon:before { content: '\e811'; } /* '' */
+.icon-drivenbydm_logo:before { content: '\e810'; } /* '' */
+.icon-ehow_logo:before { content: '\e805'; } /* '' */
+.icon-leftarrow:before { content: '\e800'; } /* '' */
+.icon-leftarrow_basic:before { content: '\e801'; } /* '' */
+.icon-magnifying_glass:before { content: '\e814'; } /* '' */
+.icon-mom_icon:before { content: '\e806'; } /* '' */
+.icon-money_icon:before { content: '\e807'; } /* '' */
+.icon-crafts_icon:before { content: '\e808'; } /* '' */
+.icon-downarrow:before { content: '\e80f'; } /* '' */
+.icon-uparrow:before { content: '\e80d'; } /* '' */
+.icon-tech_icon:before { content: '\e812'; } /* '' */

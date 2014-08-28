@@ -23,10 +23,7 @@ module.exports = function (grunt) {
 					optimization: 2
 				},
 				files: {
-					// target.css file: source.less file
-					"../bin/css/variables.css": "../less/variables.less",
-					"../bin/css/mixins.css": "../less/mixins.less",
-					"../bin/css/unsquadron.css": "../less/unsquadron.less"
+					"../bin/css/unsquadron.css": "../less/unsquadron/main.less"
 				}
 			}
 		},
@@ -114,15 +111,15 @@ module.exports = function (grunt) {
 
 			files: [
 				'../js/**/*.js', 
-				'!../js/bin/**.js',
-				'!../js/**/alltests.js',
-				'!../js/**/deps.js'
+				'!../bin/**',
+				'!../**/alltests.js',
+				'!../**/deps.js'
 			],
 
 			tasks: ['dev'],
 
 			options: {
-				interrupt: true
+				interrupt: false
 			}
 		},
 
@@ -165,13 +162,12 @@ module.exports = function (grunt) {
 
 
 	var dev_ = [];
-	dev_.push('closureBuilder:unsquadron');
 
+	//dev_.push('closureDepsWriter:unsquadron');
+	dev_.push('closureBuilder:unsquadron');
 	dev_.push('less:unsquadron');
 	dev_.push('concat:unsquadron');
-
-	dev_.push('jsdoc:unsquadron');
-
+	//dev_.push('jsdoc:unsquadron');
 	
 	grunt.registerTask('dev', dev_);
 

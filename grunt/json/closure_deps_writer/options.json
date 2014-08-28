@@ -26,7 +26,8 @@
 	*/
 	"root_with_prefix": [
 		"\"../js/google/closure-library/closure/goog ../../../closure-library/closure/goog\"",
-		"\"../js/s6 ../../../../s6\""
+		"\"../js/qcurve ../../../../qcurve\"",
+		"\"../js/unsquadron ../../../../unsquadron\""
 	]
 
 	/*[OPTIONAL] string or array */

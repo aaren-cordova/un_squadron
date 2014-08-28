@@ -1,6 +1,8 @@
 goog.provide('qcurve.mvc.Model');
 goog.require('qcurve.events.ChangeEvent');
 goog.require('goog.events.EventTarget');
+goog.require('goog.asserts');
+goog.require('goog.object');
 
 goog.scope(function(){
 	var ChangeEvent = qcurve.events.ChangeEvent;
@@ -40,6 +42,47 @@ goog.scope(function(){
 
 			this.dispatchEvent(new ChangeEvent(ChangeEvent.CHANGE));
 		}
+	};
+
+	qcurve.mvc.Model.prototype.getProperty = function(name, opt_default){
+		return goog.object.get(this, name, opt_default)
+	}
+
+	qcurve.mvc.Model.prototype.setProperty = function(name, value){
+		if(this[name] !== value){
+			this[name] = value;
+			this.invalidateProperty(name);
+		}
+	}
+
+	qcurve.mvc.Model.prototype.getBooleanProperty = function(name, opt_default){
+		return this.getProperty(name, opt_default || false);
+	}
+
+	qcurve.mvc.Model.prototype.setBooleanProperty = function(name, bool){
+		assertBoolean(bool);
+
+		this.setProperty(name, bool || false);
+	};
+
+	qcurve.mvc.Model.prototype.getStringProperty = function(name, opt_default){
+		return this.getProperty(name, opt_default || '');
+	}
+
+	qcurve.mvc.Model.prototype.setStringProperty = function(name, str){
+		assertString(str);
+
+		this.setProperty(name, str || '');
+	};
+
+	qcurve.mvc.Model.prototype.getNumberProperty = function(name, opt_default){
+		return this.getProperty(name, opt_default || 0);
+	}
+
+	qcurve.mvc.Model.prototype.setNumberProperty = function(name, number){
+		assertNumber(number);
+
+		this.setProperty(name, number || 0);
 	};
 
 	/** 

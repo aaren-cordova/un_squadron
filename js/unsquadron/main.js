@@ -6,9 +6,8 @@ goog.require('unsquadron.display.Tank0');
 goog.require('unsquadron.display.Turrent0');
 goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Helicopter');
-goog.require('unsquadron.mvc.PlayerModel');
 
-//goog.require('TweenLite');
+//goog.require('greensock.TweenLite');
 //goog.require('greensock.TimelineMax');
 //goog.require('greensock.Linear');
 
@@ -25,7 +24,6 @@ goog.scope(function(){
 	var Turrent1 = unsquadron.display.Turrent1;
 	var Helicopter = unsquadron.display.Helicopter;
 	var Game = unsquadron.Game;
-	var PlayerModel = unsquadron.mvc.PlayerModel;
 
 	/** @constructor */
 	unsquadron.Main = function(){

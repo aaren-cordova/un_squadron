@@ -1,0 +1,1 @@
+grunt.cmd calc_deps --force

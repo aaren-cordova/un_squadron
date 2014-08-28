@@ -1,0 +1,16 @@
+{
+  "name": "unsquadron",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib": "~0.6.1",
+    "grunt-closure-tools": "~0.8.0",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-closure-linter": "~0.1.0",
+    "grunt-jsdoc": "~0.3.3",
+    "grunt-contrib-compress": "~0.5.2"
+  }
+}

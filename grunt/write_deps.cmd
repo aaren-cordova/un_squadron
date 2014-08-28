@@ -1,0 +1,1 @@
+grunt.cmd write_deps --force

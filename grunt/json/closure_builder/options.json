@@ -1,0 +1,73 @@
+{
+	"builder": "../js/google/closure-library/closure/bin/build/closurebuilder.py",
+
+	"inputs": [
+		"../js/s6/main.js"
+	],
+
+	"namespaces": [
+		"s6"
+	],
+
+	"compilerFile": "../js/google/closure-library/compiler/compiler.jar",
+	"output_mode": "compiled", /*"list | script | compiled"*/
+
+	"compile": true,
+
+	"compilerOpts": {
+		"debug": false,
+		"generate_exports" : null,
+		"compilation_level": "ADVANCED_OPTIMIZATIONS", /* "WHITESPACE_ONLY | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTIMIZATIONS"*/
+		"define": [
+			"goog.ENABLE_DEBUG_LOADER=false",
+			"goog.DEBUG=false"
+		],
+
+		"warning_level": "QUIET", /*"QUIET | DEFAULT | VERBOSE"*/
+		"jscomp_off": [],
+
+		"jscomp_error": [
+			"accessControls",
+			"checkRegExp",
+			"checkStructDictInheritance",
+			"checkTypes",
+			"checkVars",
+			"const",
+			"constantProperty",
+			"deprecated",
+			"duplicateMessage",
+			"es5Strict",
+			"externsValidation",
+			"globalThis",
+			"internetExplorerChecks",
+			"invalidCasts",
+			"misplacedTypeAnnotation",
+			"missingProperties",
+			"nonStandardJsDocs",
+			"typeInvalidation",
+			"undefinedNames",
+			"undefinedVars",
+			"unknownDefines",
+			"uselessCode",
+			"visibility"
+		],
+
+		"jscomp_warning": [
+			"fileoverviewTags",
+			"suspiciousCode"
+		],
+
+		"summary_detail_level": 3,
+
+		"externs": [
+			"../js/externs/jQuery.js",
+			"../js/externs/greensock.js"
+		],
+
+		"output_wrapper": "%output%"
+	},
+
+	"execOpts": {
+		"maxBuffer": 500
+	}
+}

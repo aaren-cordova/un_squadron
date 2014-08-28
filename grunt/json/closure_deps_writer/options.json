@@ -1,0 +1,34 @@
+{
+	"closureLibraryPath": "../js/google/closure-library",
+
+	/*
+	[OPTIONAL] Define the full path to the executable directly.
+	If set it trumps "closureLibraryPath" which will not be required.
+	*/
+	"depswriter": "../js/google/closure-library/closure/bin/build/depswriter.py",
+
+	/*[OPTIONAL] Root directory to scan. Can be string or array */
+	/*
+	"root":  [
+		
+		"../js/google/closure-library/closure/goog/",
+		"../js/google/closure-library/third_party/",
+		"../js/qcurve/"
+		
+
+	],
+	*/
+
+	/*
+	[OPTIONAL] Root with prefix takes a pair of strings separated with a space,
+	so proper way to use it is to suround with quotes.
+	can be a string or array
+	*/
+	"root_with_prefix": [
+		"\"../js/google/closure-library/closure/goog ../../../closure-library/closure/goog\"",
+		"\"../js/s6 ../../../../s6\""
+	]
+
+	/*[OPTIONAL] string or array */
+	/*path_with_depspath: "*/
+}

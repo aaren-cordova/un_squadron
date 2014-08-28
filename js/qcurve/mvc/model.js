@@ -85,6 +85,19 @@ goog.scope(function(){
 		this.setProperty(name, number || 0);
 	};
 
+	qcurve.mvc.Model.prototype.getObjectProperty = function(name, opt_default){
+		return this.getProperty(name, opt_default || null);
+	}
+
+	qcurve.mvc.Model.prototype.setObjectProperty = function(name, object){
+		assertObject(object);
+
+		this.setProperty(name, object || null);
+	};
+
+
+	
+
 	/** 
 	* @private
 	* @type {Array.<string>}

@@ -75,7 +75,7 @@ goog.scope(function(){
 		turrent1.setX(700);
 		turrent1.setY(425);
 		turrent1.setMissleTarget(this.rainbowBullet_);
-
+		
 		goog.global['rainbowBullet'] = this.rainbowBullet_;
 		setInterval(this.onInterval_, 3000);
 

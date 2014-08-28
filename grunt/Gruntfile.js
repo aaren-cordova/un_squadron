@@ -115,7 +115,7 @@ module.exports = function (grunt) {
 			},
 
 			files: [
-				'../js/**/*.js', 
+				'../js/**/*.js',
 				'!../bin/**',
 				'!../**/alltests.js',
 				'!../**/deps.js'
@@ -124,7 +124,7 @@ module.exports = function (grunt) {
 			tasks: ['dev'],
 
 			options: {
-				interrupt: false
+				interrupt: true
 			}
 		},
 

@@ -23,34 +23,34 @@
 		"jscomp_off": [],
 
 		"jscomp_error": [
-			"accessControls",
-			"checkRegExp",
-			"checkStructDictInheritance",
-			"checkTypes",
-			"checkVars",
-			"const",
-			"constantProperty",
-			"deprecated",
-			"duplicateMessage",
-			"es5Strict",
-			"externsValidation",
-			"globalThis",
-			"internetExplorerChecks",
-			"invalidCasts",
-			"misplacedTypeAnnotation",
-			"missingProperties",
-			"nonStandardJsDocs",
-			"typeInvalidation",
-			"undefinedNames",
-			"undefinedVars",
-			"unknownDefines",
-			"uselessCode",
-			"visibility"
+			"accessControls",             /* DiagnosticGroups.ACCESS_CONTROLS	Warnings when @deprecated, @private, or @protected are violated.	OFF */
+			"ambiguousFunctionDecl",      /* DiagnosticGroups.AMBIGUOUS_FUNCTION_DECL	Warnings about ambiguous definitions of functions	WARNING */
+			"checkDebuggerStatement",     /* DiagnosticGroups.DEBUGGER_STATEMENT_PRESENT	Check for the use of the debugger statement	OFF */
+			"checkRegExp",                /* DiagnosticGroups.CHECK_REGEXP	Check for regular expression literal problems	OFF */
+			"checkTypes",                 /* DiagnosticGroups.CHECK_TYPES	Type-checking	OFF by default, WARNING on --warning_level=VERBOSE */
+			"checkVars",                  /* DiagnosticGroups.CHECK_VARS	Warnings when vars are not declared.	OFF by default, ERROR on --warning_level=VERBOSE */
+			"const",                      /* DiagnosticGroups.CONST	Warnings when @const annotated properties or variables are reassigned or deleted.	OFF */
+			"constantProperty",           /* DiagnosticGroups.CONSTANT_PROPERTY	Warnings when @const annotated properties are reassigned or deleted.	OFF */
+			"deprecated",                 /* DiagnosticGroups.DEPRECATED	Warnings when non-deprecated code accesses code that's marked @deprecated	OFF by default, WARNING on --warning_level=VERBOSE */
+			"duplicate",                  /* DiagnosticGroups.DUPLICATE	Warnings when a variable is declared twice in the global scope	OFF by default, ERROR on --warning_level=VERBOSE */
+			"es5Strict",                  /* DiagnosticGroups.ES5_STRICT	Warnings about code that is invalid in EcmaScript 5 Strict mode	WARNING */
+			"externsValidation",          /* DiagnosticGroups.EXTERNS_VALIDATION	Warnings about malformed externs files	WARNING */
+			"globalThis",                 /* DiagnosticGroups.GLOBAL_THIS	Warnings about improper use of the global this.	OFF by default, WARNING on --warning_level=VERBOSE */
+			"internetExplorerChecks",     /* DiagnosticGroups.INTERNET_EXPLORER_CHECKS	Warnings about syntax errors on Internet Explorer, like trailing commas.	ERROR */
+			"invalidCasts",               /* DiagnosticGroups.INVALID_CASTS	Warnings about invalid type casts.	OFF by default, WARNING when type checking is on */
+			"missingProperties",          /* DiagnosticGroups.MISSING_PROPERTIES	Warnings about whether a property will ever be defined on an object. Part of type-checking.	OFF by default, WARNING on --warning_level=VERBOSE */
+			"nonStandardJsDocs",          /* DiagnosticGroups.NON_STANDARD_JS_DOCS	Warnings when JSDoc has annotations that the compiler thinks you misspelled.	WARNING */
+			"strictModuleDepCheck",       /* DiagnosticGroups.STRICT_MODULE_DEP_CHECK	Warnings about all references potentially violating module dependencies	OFF */
+			"undefinedNames",             /* DiagnosticGroups.UNDEFINED_NAMES	Warnings when properties of global names are undefined.	OFF by default, WARNING on --warning_level=VERBOSE */
+			"undefinedVars",              /* DiagnosticGroups.UNDEFINED_VARS	Warnings when variables are undefined.	OFF by default, ERROR on --warning_level=VERBOSE */
+			"unknownDefines",             /* DiagnosticGroups.UNKNOWN_DEFINES	Warnings when unknown @define values are specified.	WARNING */
+			"uselessCode",                /* DiagnosticGroups.USELESS_CODE	Warnings when the compiler sees useless code that it plans to remove.	WARNING */
+			"visibility"                  /* DiagnosticGroups.VISIBILITY	Warnings when @private and @protected are violated.	OFF */
 		],
 
 		"jscomp_warning": [
-			"fileoverviewTags",
-			"suspiciousCode"
+			"fileoverviewTags",           /* DiagnosticGroups.FILEOVERVIEW_JSDOC	Warnings about duplicate @fileoverview tags	WARNING */
+			"suspiciousCode"              /* DiagnosticGroups.SUSPICIOUS_CODE	Warning about things like missing missing semicolons and comparisons to NaN	WARNING */
 		],
 
 		"summary_detail_level": 3,

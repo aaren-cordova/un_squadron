@@ -8,20 +8,6 @@ goog.scope(function(){
 	*/
 	unsquadron.players.IPlayerModel = function(){};
 
-	unsquadron.players.IPlayerModel.prototype.setMode = function(){};
-
-	/** @return {number} */
-	unsquadron.players.IPlayerModel.prototype.getHorizonalDirection = function(){};
-
-	/** @param {number} horizontalDirection */
-	unsquadron.players.IPlayerModel.prototype.setHorizonalDirection = function(horizontalDirection){};
-
-	/** @return {number} */
-	unsquadron.players.IPlayerModel.prototype.getVerticalDirection = function(){};
-
-	/** @param {number} verticalDirection */
-	unsquadron.players.IPlayerModel.prototype.setVerticalDirection = function(verticalDirection){};
-
 	/** @return {number} */
 	unsquadron.players.IPlayerModel.prototype.getCurrentHealth = function(){};
 

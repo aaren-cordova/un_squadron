@@ -114,7 +114,6 @@ goog.scope(function(){
 		turrent1.setX(700);
 		turrent1.setY(400);
 		turrent1.setMissleTarget(this.rainbowBullet_);
-
 		this.playerModel_ = new PlayerModel();
 
 
@@ -126,7 +125,6 @@ goog.scope(function(){
 		//planeModel.setVerticalSpeed(1);
 
 		this.playerModel_.setPlaneModel(planeModel);
-
 
 		goog.global['rainbowBullet'] = this.rainbowBullet_;
 		setInterval(this.onInterval_, 3000);

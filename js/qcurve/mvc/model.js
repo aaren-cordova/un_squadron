@@ -82,7 +82,7 @@ goog.scope(function(){
 
 	/** 
 	 * @param  {string} name
-	 * @param  {boolean} opt_default
+	 * @param  {boolean} bool
 	 */
 	qcurve.mvc.Model.prototype.setBooleanProperty = function(name, bool){
 		assertBoolean(bool);

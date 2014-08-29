@@ -21,7 +21,6 @@ goog.scope(function(){
 	/** @param {string} description */
 	unsquadron.planes.IPlaneModel.prototype.setDescription = function(description){};
 
-
 	/** @return {number} */
 	unsquadron.planes.IPlaneModel.prototype.getHorizonalDirection = function(){};
 

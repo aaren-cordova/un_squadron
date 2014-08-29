@@ -12,7 +12,6 @@ goog.require('unsquadron.planes.PlaneModel');
 goog.provide('unsquadron.Main');
 goog.scope(function(){
 	var Linear = greensock.Linear;
-	var TimelineMax = greensock.TimelineMax;
 	var TweenLite = greensock.TweenLite;
 	var Stage = qcurve.display.Stage;
 	var Bullet0 = unsquadron.display.Bullet0;
@@ -39,45 +38,81 @@ goog.scope(function(){
 		// TODO - remove tesing characters
 		var tank = new Tank0();
 		layer4.addChild(tank, true);
+		tank.setX(100);
+		tank.setY(433);
+		tank.setMissleTarget(this.rainbowBullet_);
 
-		tank.setX(250);
-		tank.setY(430);
+		tank = new Tank0();
+		layer4.addChild(tank, true);
+		tank.setX(300);
+		tank.setY(433);
+		tank.setMissleTarget(this.rainbowBullet_);
+
+		tank = new Tank0();
+		layer4.addChild(tank, true);
+		tank.setX(500);
+		tank.setY(433);
 		tank.setMissleTarget(this.rainbowBullet_);
 
 		var turrent0 = new Turrent0();
 		layer4.addChild(turrent0, true);
-		turrent0.setX(300);
-		turrent0.setY(400);
+		turrent0.setX(50);
+		turrent0.setY(380);
 		turrent0.setMissleTarget(this.rainbowBullet_);
 
 		turrent0 = new Turrent0();
 		layer4.addChild(turrent0, true);
-		turrent0.setX(500);
-		turrent0.setY(300);
+		turrent0.setX(150);
+		turrent0.setY(380);
 		turrent0.setMissleTarget(this.rainbowBullet_);
 
 		turrent0 = new Turrent0();
 		layer4.addChild(turrent0, true);
-		turrent0.setX(0);
-		turrent0.setY(100);
+		turrent0.setX(250);
+		turrent0.setY(380);
 		turrent0.setMissleTarget(this.rainbowBullet_);
+
+		turrent0 = new Turrent0();
+		layer4.addChild(turrent0, true);
+		turrent0.setX(350);
+		turrent0.setY(380);
+		turrent0.setMissleTarget(this.rainbowBullet_);
+
+		turrent0 = new Turrent0();
+		layer4.addChild(turrent0, true);
+		turrent0.setX(450);
+		turrent0.setY(380);
+		turrent0.setMissleTarget(this.rainbowBullet_);
+
+		turrent0 = new Turrent0();
+		layer4.addChild(turrent0, true);
+		turrent0.setX(550);
+		turrent0.setY(380);
+		turrent0.setMissleTarget(this.rainbowBullet_);
+
+		turrent0 = new Turrent0();
+		layer4.addChild(turrent0, true);
+		turrent0.setX(650);
+		turrent0.setY(380);
+		turrent0.setMissleTarget(this.rainbowBullet_);
+
 
 		var turrent1 = new Turrent1();
 		layer4.addChild(turrent1, true);
-		turrent1.setX(400);
-		turrent1.setY(420);
+		turrent1.setX(15);
+		turrent1.setY(400);
 		turrent1.setMissleTarget(this.rainbowBullet_);
 
 		turrent1 = new Turrent1();
 		layer4.addChild(turrent1, true);
-		turrent1.setX(100);
-		turrent1.setY(425);
+		turrent1.setX(300);
+		turrent1.setY(400);
 		turrent1.setMissleTarget(this.rainbowBullet_);
 
 		turrent1 = new Turrent1();
 		layer4.addChild(turrent1, true);
 		turrent1.setX(700);
-		turrent1.setY(425);
+		turrent1.setY(400);
 		turrent1.setMissleTarget(this.rainbowBullet_);
 
 		this.playerModel_ = new PlayerModel();

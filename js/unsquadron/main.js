@@ -7,10 +7,6 @@ goog.require('unsquadron.display.Turrent0');
 goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Helicopter');
 
-//goog.require('greensock.TweenLite');
-//goog.require('greensock.TimelineMax');
-//goog.require('greensock.Linear');
-
 goog.provide('unsquadron.Main');
 
 goog.scope(function(){

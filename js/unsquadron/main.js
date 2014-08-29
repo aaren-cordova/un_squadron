@@ -7,6 +7,7 @@ goog.require('unsquadron.display.Turrent0');
 goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Helicopter');
 goog.require('unsquadron.players.PlayerModel');
+goog.require('unsquadron.planes.PlaneModel');
 
 goog.provide('unsquadron.Main');
 goog.scope(function(){
@@ -21,6 +22,7 @@ goog.scope(function(){
 	var Helicopter = unsquadron.display.Helicopter;
 	var Game = unsquadron.Game;
 	var PlayerModel = unsquadron.players.PlayerModel;
+	var PlaneModel = unsquadron.planes.PlaneModel;
 
 	/** @constructor */
 	unsquadron.Main = function(){
@@ -78,7 +80,19 @@ goog.scope(function(){
 		turrent1.setY(425);
 		turrent1.setMissleTarget(this.rainbowBullet_);
 
-		this.playerModel = new PlayerModel();
+		this.playerModel_ = new PlayerModel();
+
+
+		// TODO move to factory.
+		var planeModel = new PlaneModel();
+		planeModel.setName('F8E Crusader');
+		planeModel.setDescription('The most basic of all available fighter aircraft. With a good pilot, the F8E can hit both air and ground targets effectively.');
+		//planeModel.setHorizonalSpeed(1);
+		//planeModel.setVerticalSpeed(1);
+
+		this.playerModel_.setPlaneModel(planeModel);
+
+
 		goog.global['rainbowBullet'] = this.rainbowBullet_;
 		setInterval(this.onInterval_, 3000);
 

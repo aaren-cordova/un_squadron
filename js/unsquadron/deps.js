@@ -31,9 +31,10 @@ goog.addDependency('../../../../unsquadron/display/turrent0.js', ['unsquadron.di
 goog.addDependency('../../../../unsquadron/display/turrent1.js', ['unsquadron.display.Turrent1'], ['goog.Timer', 'goog.math.Coordinate', 'unsquadron.display.Bullet1', 'unsquadron.display.Turrent']);
 goog.addDependency('../../../../unsquadron/display/weapon.js', ['unsquadron.display.Weapon'], []);
 goog.addDependency('../../../../unsquadron/game.js', ['unsquadron.Game', 'unsquadron.GameLayer'], ['goog.Timer', 'goog.asserts', 'qcurve.display.Component', 'unsquadron.display.Bullet']);
-goog.addDependency('../../../../unsquadron/main.js', ['unsquadron.Main'], ['qcurve.display.Sprite', 'qcurve.display.Stage', 'unsquadron.Game', 'unsquadron.display.Bullet0', 'unsquadron.display.Helicopter', 'unsquadron.display.Tank0', 'unsquadron.display.Turrent0', 'unsquadron.display.Turrent1', 'unsquadron.players.PlayerModel']);
+goog.addDependency('../../../../unsquadron/main.js', ['unsquadron.Main'], ['qcurve.display.Sprite', 'qcurve.display.Stage', 'unsquadron.Game', 'unsquadron.display.Bullet0', 'unsquadron.display.Helicopter', 'unsquadron.display.Tank0', 'unsquadron.display.Turrent0', 'unsquadron.display.Turrent1', 'unsquadron.planes.PlaneModel', 'unsquadron.players.PlayerModel']);
 goog.addDependency('../../../../unsquadron/planes/IPlaneController.js', ['unsquadron.planes.IPlaneController'], ['goog.asserts']);
 goog.addDependency('../../../../unsquadron/planes/IPlaneModel.js', ['unsquadron.planes.IPlaneModel'], ['goog.asserts', 'goog.events.Listenable']);
+goog.addDependency('../../../../unsquadron/planes/PlaneModel.js', ['unsquadron.planes.PlaneModel'], ['goog.asserts', 'goog.events.Listenable', 'qcurve.mvc.Model', 'unsquadron.planes.IPlaneModel']);
 goog.addDependency('../../../../unsquadron/players/IPlayerController.js', ['unsquadron.players.IPlayerController'], ['goog.asserts']);
 goog.addDependency('../../../../unsquadron/players/IPlayerModel.js', ['unsquadron.players.IPlayerModel'], ['goog.events.Listenable', 'unsquadron.characters.ICharacterModel', 'unsquadron.planes.IPlaneModel']);
 goog.addDependency('../../../../unsquadron/players/PlayerModel.js', ['unsquadron.players.PlayerModel', 'unsquadron.players.PlayerModel.EventType'], ['qcurve.mvc.Model', 'unsquadron.players.IPlayerModel']);

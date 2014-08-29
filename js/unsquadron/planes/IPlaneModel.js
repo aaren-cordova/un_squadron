@@ -15,6 +15,13 @@ goog.scope(function(){
 	/** @param {string} name */
 	unsquadron.planes.IPlaneModel.prototype.setName = function(name){};
 
+	/** @return {string} */
+	unsquadron.planes.IPlaneModel.prototype.getDescription = function(){};
+
+	/** @param {string} description */
+	unsquadron.planes.IPlaneModel.prototype.setDescription = function(description){};
+
+
 	/** @return {number} */
 	unsquadron.planes.IPlaneModel.prototype.getHorizonalDirection = function(){};
 

@@ -6,6 +6,7 @@ goog.require('unsquadron.display.Tank0');
 goog.require('unsquadron.display.Turrent0');
 goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Helicopter');
+goog.require('unsquadron.players.PlayerModel');
 
 goog.provide('unsquadron.Main');
 goog.scope(function(){
@@ -19,6 +20,7 @@ goog.scope(function(){
 	var Turrent1 = unsquadron.display.Turrent1;
 	var Helicopter = unsquadron.display.Helicopter;
 	var Game = unsquadron.Game;
+	var PlayerModel = unsquadron.players.PlayerModel;
 
 	/** @constructor */
 	unsquadron.Main = function(){
@@ -75,7 +77,8 @@ goog.scope(function(){
 		turrent1.setX(700);
 		turrent1.setY(425);
 		turrent1.setMissleTarget(this.rainbowBullet_);
-		
+
+		this.playerModel = new PlayerModel();
 		goog.global['rainbowBullet'] = this.rainbowBullet_;
 		setInterval(this.onInterval_, 3000);
 

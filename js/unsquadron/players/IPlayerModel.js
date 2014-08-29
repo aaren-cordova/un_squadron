@@ -1,10 +1,12 @@
-goog.require('goog.asserts');
+goog.require('goog.events.Listenable');
+goog.require('unsquadron.characters.ICharacterModel');
+goog.require('unsquadron.planes.IPlaneModel');
 
-goog.provide('unsquadron.players.IPlayerModel')
+goog.provide('unsquadron.players.IPlayerModel');
 goog.scope(function(){
 	/** 
 	* @interface
-	* @extends {goog.disposable.Disposable}
+	* @extends {goog.events.Listenable}
 	*/
 	unsquadron.players.IPlayerModel = function(){};
 
@@ -20,16 +22,10 @@ goog.scope(function(){
 	/** @param {number} totalHealth */
 	unsquadron.players.IPlayerModel.prototype.setTotalHealth = function(totalHealth){};
 
-	/** @return {unsquadron.controls.IControlModel} */
-	unsquadron.players.IPlayerModel.prototype.getControlModel = function(){};
-
-	/** @param {unsquadron.controls.IControlModel} */
-	unsquadron.players.IPlayerModel.prototype.setControlModel = function(controlModel){};
-
 	/** @return {unsquadron.characters.ICharacterModel} */
 	unsquadron.players.IPlayerModel.prototype.getCharacterModel = function(){};
 
-	/** @param {unsquadron.characters.ICharacterModel} */
+	/** @param {unsquadron.characters.ICharacterModel} characterModel*/
 	unsquadron.players.IPlayerModel.prototype.setCharacterModel = function(characterModel){};
 
 	/** @return {unsquadron.planes.IPlaneModel} */

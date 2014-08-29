@@ -1,10 +1,11 @@
 goog.require('goog.asserts');
+goog.require('goog.events.Listenable');
 
 goog.provide('unsquadron.planes.IPlaneModel')
 goog.scope(function(){
 	/** 
 	* @interface
-	* @extends {goog.disposable.Disposable}
+	* @extends {goog.events.Listenable}
 	*/
 	unsquadron.planes.IPlaneModel = function(){};
 

@@ -1,50 +1,65 @@
-goog.require('goog.asserts');
+goog.require('qcurve.mvc.Model');
+goog.require('unsquadron.players.IPlayerModel');
 
-goog.provide('unsquadron.players.PlayerModel')
+goog.provide('unsquadron.players.PlayerModel');
+goog.provide('unsquadron.players.PlayerModel.EventType');
 goog.scope(function(){
 	/** 
-	* @interface
-	* @extends {goog.disposable.Disposable}
+	* @constructor
+	* @implements {unsquadron.players.IPlayerModel}
+	* @extends {qcurve.mvc.Model}
 	*/
-	unsquadron.players.PlayerModel = function(){};
+	unsquadron.players.PlayerModel = function(){
+		goog.base(this);
+	};
+	goog.inherits(unsquadron.players.PlayerModel, qcurve.mvc.Model);
 
-	/** @return {number} */
+	/** @enum {string} */
+	unsquadron.players.PlayerModel.EventType = {
+		'CURRENT_HEALTH': 'currentHealth',
+		'TOTAL_HEALTH': 'totalHealth',
+		'CONTROL_MODEL': 'controlModel',
+		'CHARACTER_MODEL': 'characterModel',
+		'PLANE_MODEL': 'planeModel'
+	};
+
+	/** @inheritDoc */
 	unsquadron.players.PlayerModel.prototype.getCurrentHealth = function(){
-		return this.getNumber('currentHealth');
+		return this.getNumberProperty(unsquadron.players.PlayerModel.EventType.CURRENT_HEALTH);
 	};
 
-	/** @param {number} currentHealth */
-	unsquadron.players.PlayerModel.prototype.setCurrentHealth = function(currentHealth){};
+	/** @inheritDoc */
+	unsquadron.players.PlayerModel.prototype.setCurrentHealth = function(currentHealth){
+		this.setNumberProperty(unsquadron.players.PlayerModel.EventType.CURRENT_HEALTH, currentHealth);
+	};
 
-	/** @return {number} */
+	/** @inheritDoc */
 	unsquadron.players.PlayerModel.prototype.getTotalHealth = function(){
-		return this.getNumber('totalHealth');
+		return this.getNumberProperty(unsquadron.players.PlayerModel.EventType.TOTAL_HEALTH);
 	};
 
-	/** @param {number} totalHealth */
-	unsquadron.players.PlayerModel.prototype.setTotalHealth = function(totalHealth){};
-
-	/** @return {unsquadron.controls.IControlModel} */
-	unsquadron.players.PlayerModel.prototype.getControlModel = function(){
-		return this.getObject('controlModel');
+	/** @inheritDoc */
+	unsquadron.players.PlayerModel.prototype.setTotalHealth = function(totalHealth){
+		this.setNumberProperty(unsquadron.players.PlayerModel.EventType.TOTAL_HEALTH, totalHealth);
 	};
 
-	/** @param {unsquadron.controls.IControlModel} */
-	unsquadron.players.PlayerModel.prototype.setControlModel = function(controlModel){};
-
-	/** @return {unsquadron.characters.ICharacterModel} */
+	/** @inheritDoc */
 	unsquadron.players.PlayerModel.prototype.getCharacterModel = function(){
-		return this.getObject('characterModel');
+		return this.getProperty(unsquadron.players.PlayerModel.EventType.CHARACTER_MODEL, null);
 	};
 
-	/** @param {unsquadron.characters.ICharacterModel} */
-	unsquadron.players.PlayerModel.prototype.setCharacterModel = function(characterModel){};
+	/** @inheritDoc */
+	unsquadron.players.PlayerModel.prototype.setCharacterModel = function(characterModel){
+		this.setProperty(unsquadron.players.PlayerModel.EventType.CHARACTER_MODEL, characterModel);
+	};
 
-	/** @return {unsquadron.planes.IPlaneModel} */
+	/** @inheritDoc */
 	unsquadron.players.PlayerModel.prototype.getPlaneModel = function(){
-		return this.getObject('planeModel');
+		return this.getProperty(unsquadron.players.PlayerModel.EventType.PLANE_MODEL, null);
 	};
 
-	/** @param {unsquadron.planes.IPlaneModel} planeModel */
-	unsquadron.players.PlayerModel.prototype.setPlaneModel = function(planeModel){};
+	/** @inheritDoc */
+	unsquadron.players.PlayerModel.prototype.setPlaneModel = function(planeModel){
+		this.setProperty(unsquadron.players.PlayerModel.EventType.PLANE_MODEL, planeModel);
+	};
 });

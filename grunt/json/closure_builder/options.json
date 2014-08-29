@@ -11,7 +11,7 @@
 	"compile": true,
 
 	"compilerOpts": {
-		"debug": true,
+		"debug": false,
 		"generate_exports" : null,
 		"compilation_level": "ADVANCED_OPTIMIZATIONS", /* "WHITESPACE_ONLY | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTIMIZATIONS"*/
 		"define": [
@@ -19,14 +19,13 @@
 			"goog.DEBUG=false"
 		],
 
-		"warning_level": "VERBOSE", /*"QUIET | DEFAULT | VERBOSE"*/
+		"warning_level": "DEFAULT", /*"QUIET | DEFAULT | VERBOSE"*/
 		"jscomp_off": [],
 
 		"jscomp_error": [
 			"accessControls",
 			"checkRegExp",
 			"checkStructDictInheritance",
-			"checkTypes",
 			"checkVars",
 			"const",
 			"constantProperty",
@@ -37,7 +36,6 @@
 			"globalThis",
 			"internetExplorerChecks",
 			"invalidCasts",
-			"misplacedTypeAnnotation",
 			"missingProperties",
 			"nonStandardJsDocs",
 			"typeInvalidation",
@@ -49,6 +47,8 @@
 		],
 
 		"jscomp_warning": [
+			"checkTypes",
+			"misplacedTypeAnnotation",
 			"fileoverviewTags",
 			"suspiciousCode"
 		],

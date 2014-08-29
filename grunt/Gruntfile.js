@@ -53,6 +53,9 @@ module.exports = function (grunt) {
 			unsquadron: {
 				src: [
 					'../js/google/closure-library/closure/goog/',
+					'../js/limejs/lime/',
+					'../js/limejs/box2d/src/',
+
 					'../js/google/closure-library/third_party/',
 					'../js/qcurve/',
 					'../js/unsquadron/',

@@ -1,5 +1,8 @@
-/**global module:false**/
+var BUILD_MODE = 'SCRIPT'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS
+
+
 module.exports = function (grunt) {
+	var closureBuilderOptions = getClosureBuilderOptions(grunt);
 
 	// Project configuration.
 	grunt.initConfig({
@@ -45,7 +48,7 @@ module.exports = function (grunt) {
 		},
 
 		closureBuilder: {
-			options: grunt.file.readJSON('json/closure_builder/options.json'),
+			options: closureBuilderOptions,
 
 			unsquadron: {
 				src: [
@@ -57,7 +60,7 @@ module.exports = function (grunt) {
 					'../js/greensock/v12/src/exports/'
 				],
 
-				dest: '../bin/js/unsquadron.min.js'
+				dest: '../bin/js/unsquadron.' + BUILD_MODE.toLowerCase() + '.js'
 			}
 		},
 
@@ -85,12 +88,14 @@ module.exports = function (grunt) {
 
 			unsquadron: {
 				src: [
-					'../js/greensock/v12/bin/uncompressed/out.js',
-					'../bin/js/unsquadron.min.js'
+					(closureBuilderOptions['output_mode'] === 'compiled') ? 
+						'../bin/js/unsquadron.' + BUILD_MODE.toLowerCase() + '.js' : 
+						'../bin/js/unsquadron.script.js'
 				],
 
-				dest: '../bin/js/unsquadron.concat.js'
+				dest: '../bin/js/unsquadron.build.js'
 			},
+
 
 			css:{
 				src: [
@@ -174,4 +179,56 @@ module.exports = function (grunt) {
 	grunt.registerTask('css', [
 		'concat:css'
 	]);
+
+
 };
+
+
+
+
+
+function getClosureBuilderDefaultOptions(grunt){
+	var options = grunt.file.readJSON('json/closure_builder/options.json');
+	
+	options['inputs'] = [
+		"../js/unsquadron/deps.js",
+		"../js/unsquadron/main.js"
+	];
+
+	options['namespaces'] = [
+		"qcurve",
+		"unsquadron"
+	];
+
+	return options;
+}
+
+function getClosureBuilderOptions(grunt){
+	var options = getClosureBuilderDefaultOptions(grunt);
+
+	switch(BUILD_MODE){
+		case 'LIST':
+			options['output_mode'] = 'list';
+			options['compilerOpts'] = {};
+			break;
+		case 'SCRIPT':
+			options['output_mode'] = 'script';
+			options['compilerOpts'] = {};
+			break;
+		case 'WHITESPACE_ONLY':
+			options['output_mode'] = 'compiled';
+			options['compilerOpts']['compilation_level'] = 'WHITESPACE_ONLY';
+			break;
+		case 'SIMPLE_OPTIMIZATIONS':
+			options['output_mode'] = 'compiled';
+			options['compilerOpts']['compilation_level'] = 'SIMPLE_OPTIMIZATIONS';
+			break;
+		case 'ADVANCED_OPTIMIZATIONS':
+			options['output_mode'] = 'compiled';
+			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
+			break;
+	}
+
+	options['compile'] = (options['output_mode'] === 'compiled');
+	return options;
+}

@@ -8,7 +8,6 @@ goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Helicopter');
 
 goog.provide('unsquadron.Main');
-
 goog.scope(function(){
 	var Linear = greensock.Linear;
 	var TimelineMax = greensock.TimelineMax;
@@ -81,8 +80,9 @@ goog.scope(function(){
 		setInterval(this.onInterval_, 3000);
 
 		this.onInterval_();
-
 	};
+
+	goog.addSingletonGetter(unsquadron.Main);
 
 	unsquadron.Main.prototype.onInterval_ = function (){
 		TweenLite.to(goog.global['rainbowBullet'].getElement(), 0.9, {
@@ -97,7 +97,7 @@ goog.scope(function(){
 	goog.exportSymbol('unsquadron.Main', unsquadron.Main);
 });
 
-
+var main_ = unsquadron.Main.getInstance();
 
 /*
 var cssTemplate = [

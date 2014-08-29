@@ -1,4 +1,4 @@
-var BUILD_MODE = 'ADVANCED_OPTIMIZATIONS'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS
+var BUILD_MODE = 'ADVANCED_OPTIMIZATIONS'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS, DEBUG
 
 
 module.exports = function (grunt) {
@@ -179,25 +179,17 @@ module.exports = function (grunt) {
 	grunt.registerTask('css', [
 		'concat:css'
 	]);
-
-
 };
-
-
-
-
 
 function getClosureBuilderDefaultOptions(grunt){
 	var options = grunt.file.readJSON('json/closure_builder/options.json');
 	
 	options['inputs'] = [
-		"../js/unsquadron/deps.js",
 		"../js/unsquadron/main.js"
 	];
 
 	options['namespaces'] = [
-		"qcurve",
-		"unsquadron"
+		"unsquadron.Main"
 	];
 
 	return options;
@@ -224,6 +216,11 @@ function getClosureBuilderOptions(grunt){
 			options['compilerOpts']['compilation_level'] = 'SIMPLE_OPTIMIZATIONS';
 			break;
 		case 'ADVANCED_OPTIMIZATIONS':
+			options['output_mode'] = 'compiled';
+			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
+			break;
+		case 'DEBUG':
+			options['compilerOpts']['debug'] = true;
 			options['output_mode'] = 'compiled';
 			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
 			break;

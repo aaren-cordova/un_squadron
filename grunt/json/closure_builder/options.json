@@ -1,14 +1,9 @@
 {
 	"builder": "../js/google/closure-library/closure/bin/build/closurebuilder.py",
 
-	"inputs": [
-		"../js/unsquadron/main.js"
-	],
+	"inputs": [],
 
-	"namespaces": [
-		"qcurve",
-		"unsquadron"
-	],
+	"namespaces": [],
 
 	"compilerFile": "../js/google/closure-library/compiler/compiler.jar",
 	"output_mode": "compiled", /*"list | script | compiled"*/
@@ -16,7 +11,7 @@
 	"compile": true,
 
 	"compilerOpts": {
-		"debug": false,
+		"debug": true,
 		"generate_exports" : null,
 		"compilation_level": "ADVANCED_OPTIMIZATIONS", /* "WHITESPACE_ONLY | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTIMIZATIONS"*/
 		"define": [
@@ -65,7 +60,7 @@
 			"../js/externs/greensock.js"
 		],
 
-		"output_wrapper": "%output%"
+		"output_wrapper": "+function(){%output%}()"
 	},
 
 	"execOpts": {

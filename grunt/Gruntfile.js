@@ -124,7 +124,7 @@ module.exports = function (grunt) {
 			tasks: ['dev'],
 
 			options: {
-				interrupt: true
+				interrupt: false
 			}
 		},
 

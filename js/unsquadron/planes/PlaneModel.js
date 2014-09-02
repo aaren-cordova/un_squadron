@@ -4,6 +4,9 @@ goog.require('qcurve.mvc.Model');
 goog.require('unsquadron.planes.IPlaneModel');
 
 goog.provide('unsquadron.planes.PlaneModel');
+goog.provide('unsquadron.planes.PlaneModel.EventType');
+
+
 
 goog.scope(function(){
 	/** 

@@ -1,12 +1,16 @@
 goog.scope(function(){
-	goog.require('goog.disposable.Disposable');
+	goog.require('goog.disposable.IDisposable');
+	goog.require('unsquadron.planes.IPlaneModel');
 	goog.provide('unsquadron.planes.IPlaneController')
 	
 	/** 
 	* @interface
-	* @extends {goog.disposable.Disposable}
+	* @extends {goog.disposable.IDisposable}
 	*/
 	unsquadron.planes.IPlaneController = function(){};
+
+	/** @param {unsquadron.planes.IPlaneModel} planeModel */
+	unsquadron.planes.IPlaneController.prototype.setPlaneModel = function(planeModel){};
 
 	// L
 	unsquadron.planes.IPlaneController.prototype.onPreviousSpecialWeaponButtonDown = function(event){};

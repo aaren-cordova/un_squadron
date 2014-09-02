@@ -1,5 +1,4 @@
-Playing with the closure compiler
-
+Playing with the Closure Compiler
 	// TODO - Elevator pitch
 
 	Rules:
@@ -8,29 +7,47 @@ Playing with the closure compiler
 
 		Rule #2 :
 			The second rule of the Closure Compiler, code must run without the closure compiler!
+	
 		Rule #3 :
-			Code must be EcmaScript compliant
+			Code must be EcmaScript 3* compliant
 
-			*1 - Can be set to ES4, ES5 or ES6 though this would not ensure compatibility to browser version before 2009
+			*1 - Can be set to ES4, ES5 or ES6 though that would not ensure browser compatibility before 2009
 
 	Purpose of the compiler:
-		Efficiency
-			The compiler outputs Java
-			Byte size
-			GZip size
-		Code Checking
+		- Increase efficiency through minification
+			[ Move to section ]
+			HTTP Requests - Reduces the number of HTTP requests by concatinating JS files together
+			Byte size - Lowers the total number of bytes transfered by removing whitespace, renaming functions, properties, inlining JS and eliminating unreachable code.
+			GZip size - Optimizations are targeted towards the final gzip size (not bytes), though it will often win in both areas when compared to other compilers.
+
+		- Obfuscation
+			[Move to section]
+			Reversibility
+				Though no JavaScript is beyond reversibility, obfuscation deters 99.99% of thieves trying to crack it.
+				Software is expensive to develop, tedious to QA and devastating when stolen.
+				Do you write your pass-code on the back of the phone?
+				Ever see a computer hardware company keep it's 
+				Expose a multi-million dollar software companies ... software?
+				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
+			[Move to section]
+			Security
+				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase as well.
+
+		- Code checks during compilation
+			[ Move to Section]
 			Linting
-				Similar to JS lint, the compiler utilizes a separate tool called the closure linter.
-				A deep dive into the linter is beyond the scope of this post, but a brief overview includes checks for the following
-					EcmaScript compliant syntax (default set to ES3)
-					- Variable references
+				Linting is the process of removing suspicious or non-portable constructs.  
+				Similar to JS lint [link], the compiler utilizes a separate tool called the closure linter [link].  
+				A deep dive into the linter is beyond the scope of this post, but a brief overview includes checks for the following:
+					- EcmaScript compliant syntax (default set to ES3)
 					- Common JavaScript pitfalls (trailing commas, hasOwnProptery not used in for in loops, missing semicolons, ect.)
-					- Use of undeclared vars
-					- Follows a 
-							coding style guide 
+					- Use of undeclared vars (spelling errors)
+					- Follows a coding style guide [optional] 
 								[http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml]
+			[ Move to Section]
 			Data Type Checking
-				Data type checking is not linting!
+				Data type checking is not linting!  As the name implies, a value supplied is the correct data type (classification) and the methods / properties used on that data type exsist are used properly.  Because  
+				[Move to section or delete]
 				JavaScript does not natively support features we've come to know:
 					Access control keywords: public, private, protected, final
 					Mutation control keywords: constant 
@@ -40,9 +57,10 @@ Playing with the closure compiler
 					Package statements: package, import, export
 					Required vs Optional parameters
 				To get around this, JavaDocs can be used to enforce the rules and regulations of some of the missing keywords DURING COMPILATION.
-				It CANNOT change the language itself, and DOES NOT add additional JavaScript @see rule #1.
+				It CANNOT change the language itself, and DOES NOT add additional JavaScript in an attempt to fix the language @see rule #1.
+				
+				[collapse]
 				So for features such as import/export/package you can either use the methods provided by the google closure library:
-
 					Import: 
 						{code}
 							goog.require('dmd.ui.Component');
@@ -94,8 +112,7 @@ Playing with the closure compiler
 							childClass.prototype.constructor = childClass.prototype;
 						}
 					{code}
-
-				This gives the developer an added incentive to document their code as well 
+				This gives the developer an added incentive to document their code as well as create the interface  
 				The compiler follows path of execution through the prototype chain and validates the following:
 					The property exists on a given object
 					The function was called with the correct number of arguments
@@ -103,20 +120,11 @@ Playing with the closure compiler
 					Private methods are not used outside of the file
 					Overridden methods are explicitly marked for override
 					That a class adheres to a given interface
-		Obfuscation
-			Security
-				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase.
-			Reversibility
-				Though no JavaScript is beyond reversibility, obfuscation deters 99.99% of thieves trying to crack it.
-				Software is expensive to develop, tedious to QA and devastating when stolen.
-				Do you write your pass-code on the back of the phone?
-				Ever see a computer hardware company keep it's 
-				Expose a multi-million dollar software companies ... software?
-				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
-
 	How the closure compiler is different
 		Written in Python / Java
-
+		Extensible
+		Open Source
+		[Move to section]
 		Multiple compilation modes
 			Level 0 - Development / Un-compiled 
 				Auto generates a dependency file to be used inline with HTML.

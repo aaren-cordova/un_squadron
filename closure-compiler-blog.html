@@ -1,0 +1,184 @@
+Playing with the closure compiler
+
+	// TODO - Elevator pitch
+
+	Rules:
+		Rule #1 :
+			The first rule of the Closure Compiler, code must run without the closure compiler.
+
+		Rule #2 :
+			The second rule of the Closure Compiler, code must run without the closure compiler!
+		Rule #3 :
+			Code must be EcmaScript compliant
+
+			*1 - Can be set to ES4, ES5 or ES6 though this would not ensure compatibility to browser version before 2009
+
+	Purpose of the compiler:
+		Efficiency
+			The compiler outputs Java
+			Byte size
+			GZip size
+		Code Checking
+			Linting
+				Similar to JS lint, the compiler utilizes a separate tool called the closure linter.
+				A deep dive into the linter is beyond the scope of this post, but a brief overview includes checks for the following
+					EcmaScript compliant syntax (default set to ES3)
+					- Variable references
+					- Common JavaScript pitfalls (trailing commas, hasOwnProptery not used in for in loops, missing semicolons, ect.)
+					- Use of undeclared vars
+					- Follows a 
+							coding style guide 
+								[http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml]
+			Data Type Checking
+				Data type checking is not linting!
+				JavaScript does not natively support features we've come to know:
+					Access control keywords: public, private, protected, final
+					Mutation control keywords: constant 
+					Implicit data type keywords: interface, implements
+					Explicit data type keywords: class, extends
+					Inheritance keywords: override, super
+					Package statements: package, import, export
+					Required vs Optional parameters
+				To get around this, JavaDocs can be used to enforce the rules and regulations of some of the missing keywords DURING COMPILATION.
+				It CANNOT change the language itself, and DOES NOT add additional JavaScript @see rule #1.
+				So for features such as import/export/package you can either use the methods provided by the google closure library:
+
+					Import: 
+						{code}
+							goog.require('dmd.ui.Component');
+						{code}
+						[http://docs.closure-library.googlecode.com/git/local_closure_goog_base.js.source.html#line428]
+
+					Export: 
+						{code}
+							goog.provide('dmd.ui.TabComponent');
+						{code}
+						[http://docs.closure-library.googlecode.com/git/local_closure_goog_base.js.source.html#line226]
+					
+					Package:
+						{code}
+							goog.scope(function(){/* YOUR PACKAGE HERE*/});
+						{code}
+						[http://docs.closure-library.googlecode.com/git/local_closure_goog_base.js.source.html#line1686]
+					
+					Class: 
+						{code}
+							goog.inherits();
+						{code}
+						[http://docs.closure-library.googlecode.com/git/local_closure_goog_base.js.source.html#line1686]
+				
+				or write your own
+					Import:
+					{code}
+						if(!dmd.loadedModules_['dmd.ui.Component']){
+							throw new Error('Module dmd.ui.Component not yet loaded.')
+						}
+						var Component = dmd.ui.Component;
+					{code}
+
+					Export:
+						{code}
+							var dmd = dmd || {};
+							dmd.ui = dmd.ui || {};
+							dmd.ui.TabComponent = function(){/*...*/};
+						{code}
+
+				
+					Inherits:
+						[See why this works | http://stackoverflow.com/questions/14564155/javascript-prototypal-inheritance-descendants-override-each-other/14576273]
+					{code}
+						function inherits(childClass, parentClass){
+							var Temp = function(){};
+							Temp.prototype = parentClass.prototype;
+							childClass.prototype = new Temp();
+							childClass.prototype.constructor = childClass.prototype;
+						}
+					{code}
+
+				This gives the developer an added incentive to document their code as well 
+				The compiler follows path of execution through the prototype chain and validates the following:
+					The property exists on a given object
+					The function was called with the correct number of arguments
+					The all parameters are the correct data type (boolean, string, number, Array, Object, SomeCustomClass, IAnyMadeUpInterface ...)
+					Private methods are not used outside of the file
+					Overridden methods are explicitly marked for override
+					That a class adheres to a given interface
+		Obfuscation
+			Security
+				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase.
+			Reversibility
+				Though no JavaScript is beyond reversibility, obfuscation deters 99.99% of thieves trying to crack it.
+				Software is expensive to develop, tedious to QA and devastating when stolen.
+				Do you write your pass-code on the back of the phone?
+				Ever see a computer hardware company keep it's 
+				Expose a multi-million dollar software companies ... software?
+				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
+
+	How the closure compiler is different
+		Written in Python / Java
+
+		Multiple compilation modes
+			Level 0 - Development / Un-compiled 
+				Auto generates a dependency file to be used inline with HTML.
+				This allows you to dynamically load the JS files in the proper build order without having to run it though the compiler each and every time or manually maintain a build order list.
+				@see deps writer.
+
+			Level 1 - Script
+				The fully concatenated unminified file - <a href="http://stevesouders.com/hpws/rule-min-http.php">Making fewer HTTP Requests</a>
+
+			Level 2 - Whitespace
+				Removes unnecessary whitespace characters along with superfluous braces and semicolons.
+
+			Level 3 - Simple
+				Renames variables (and <a href="http://en.wikipedia.org/wiki/Closure_(computer_programming)">closures</a>) within functions to shorter names.
+				Removal of dead or unreachable code (@see defined vars)
+
+			Level 4 - Advance
+				The crown jewel of the compiler, the size of the file is not relative to total size of the included files, but the size of the functions in use.
+				Given a list of files and the insertion points, the closure compiler will scan the execution path and include only functions / inlined scripts that will be used or are explicitly exported.
+				@see metrics
+
+			The Lost Level - Debug
+				If you've ever dealt with minified code, then at some point in your career you may have seen something like the following:
+					Parse error. Semi-colon expected at line 1 character 4511984
+
+			Level Editor - List
+
+		Deps writer
+			Dependency grid is automatically generated for both compiled and uncompiled modes
+
+		Validation
+			Type checking at build time, not run time
+			Design by Interface
+			Pseudo private vars
+			Validate method calls
+		Minification
+			Multiple compilation modes to choose from
+			Not just bytes, optimized for GZip size
+			Support for minified code to still maintain a public API
+			In lined methods
+			Removal of dead or unused code
+			Renaming of all variables (Not just closure based vars)
+
+		Frequently asked questions:
+			Do I (really) have to use JavaDocs for the compiler to work?
+				No you don't, but you should.
+				You get better type checking at compile time, 
+				You should be documenting your code anyway.
+			Is the closure library required to run the closure compiler?
+				No. The compiler and the library we're written to work independently of one another.
+				That being said, the closure library is written with the compiler in mind.
+				That means more type annotations, more data type checks, and more compression.
+			Does it support features beyond EcmaScript 4?
+				--language=ECMASCRIPT5_STRICT
+				That being said, you probably don't want to use the latest and greatest feature if it's not widely supported (unless you control the JavaScript that's installed).
+				I'll take that back when I see wide spread use of the class keyword in the client side code in production.
+			Is it compatible with third party libraries
+				Extern files prevent rewrites of external code while allowing type checking.
+			Global vars renamed, rending library useless
+				Exports
+			Fully qualified names are slower to access
+				All fully qualified names are renamed to one level deep.
+	[http://code.google.com/p/closure-compiler/wiki/DesignDocuments]
+	[http://code.google.com/p/closure-compiler/wiki/FAQ]
+

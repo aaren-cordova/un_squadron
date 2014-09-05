@@ -1,6 +1,7 @@
 goog.scope(function(){
 	goog.require('goog.events');
 	goog.require('goog.ui.Component');
+	goog.require('goog.events.KeyHandler');
 	goog.provide('unsquadron.planes.PlaneModel')
 	goog.provide('unsquadron.planes.PlaneView')
 	
@@ -9,8 +10,8 @@ goog.scope(function(){
 	var listen = goog.events.listen;
 	var unlisten = goog.events.unlisten;
 
-	var EventType = unsquadron.planes.PlaneModel.EventType;
-
+	var PlaneModelEventType = unsquadron.planes.PlaneModel.EventType;
+	var KeyHandlerEventType = unsquadron.planes.PlaneModel.KeyHandlerEventType;
 
 	/** 
 	* @implements {unsquadron.planes.IPlaneView}
@@ -23,27 +24,44 @@ goog.scope(function(){
 
 	unsquadron.planes.PlaneView.prototype.disposeInteral = function(){
 		this.setPlaneModel(null);
+		this.setPlaneController(null);
 	};
 
 	/** @param {unsquadron.planes.IPlaneModel} planeModel */
 	unsquadron.planes.PlaneView.prototype.setPlaneModel = function(planeModel){
 		if(this.planeModel_){
-			unlisten(this.planeModel_, this.onHorizonalDirectionChange_, EventType.HORIZONAL_DIRECTION, false, this);
-			unlisten(this.planeModel_, this.onVerticalDirectionChange_, EventType.VERTICAL_DIRECTION, false, this);
-			unlisten(this.planeModel_, this.onHorizonalDirectionChange_, EventType.HORIZONAL_SPEED, false, this);
-			unlisten(this.planeModel_, this.onVerticalSpeedChange_, EventType.VERTICAL_SPEED, false, this);
+			unlisten(this.planeModel_, PlaneModelEventType.HORIZONAL_DIRECTION, this.onHorizonalDirectionChange_, false, this);
+			unlisten(this.planeModel_, PlaneModelEventType.VERTICAL_DIRECTION, this.onVerticalDirectionChange_, false, this);
+			unlisten(this.planeModel_, PlaneModelEventType.HORIZONAL_SPEED, this.onHorizonalDirectionChange_, false, this);
+			unlisten(this.planeModel_, PlaneModelEventType.VERTICAL_SPEED, this.onVerticalSpeedChange_, false, this);
 
 		}
 
 		this.planeModel_ = planeModel;
 
 		if(this.planeModel_){
-			listen(this.planeModel_, this.onHorizonalDirectionChange_, EventType.HORIZONAL_DIRECTION, false, this);
-			listen(this.planeModel_, this.onVerticalDirectionChange_, EventType.VERTICAL_DIRECTION, false, this);
-			listen(this.planeModel_, this.onHorizonalDirectionChange_, EventType.HORIZONAL_SPEED, false, this);
-			listen(this.planeModel_, this.onVerticalSpeedChange_, EventType.VERTICAL_SPEED, false, this);
+			listen(this.planeModel_, PlaneModelEventType.HORIZONAL_DIRECTION, this.onHorizonalDirectionChange_, false, this);
+			listen(this.planeModel_, PlaneModelEventType.VERTICAL_DIRECTION, this.onVerticalDirectionChange_, false, this);
+			listen(this.planeModel_, PlaneModelEventType.HORIZONAL_SPEED, this.onHorizonalDirectionChange_, false, this);
+			listen(this.planeModel_, PlaneModelEventType.VERTICAL_SPEED, this.onVerticalSpeedChange_, false, this);
 		}
 	};
+
+	/** @param {unsquadron.planes.IPlaneController} planeController */
+	unsquadron.planes.PlaneView.prototype.setPlaneController = function(planeController){
+		this.planeController_ = planeModel;
+	};
+
+
+
+
+
+
+
+
+
+
+
 
 	/** @inheritDoc*/
 	unsquadron.planes.PlaneView.prototype.createDom = function(){
@@ -57,6 +75,32 @@ goog.scope(function(){
 	/** @inheritDoc */
 	unsquadron.planes.PlaneView.prototype.decorateInternal = function(rootElement){
 		this.setElementInternal(element);
+
+		this.keyHandler_ = new goog.events.KeyHandler(document.body);
+		listen(this.keyHandler_, KeyHandlerEventType.KEY)
+		if(this.planeController_){
+			listen(docu)
+			onPreviousSpecialWeaponButtonDown
+			onPreviousSpecialWeaponButtonUp
+			onNextSpecialWeaponButtonDown
+			onNextSpecialWeaponButtonUp
+			onUseStandardWeaponButtonDown
+			onUseStandardWeaponButtonUp
+			onUseSpecialWeaponButtonDown
+			onUseSpecialWeaponButtonUp
+			onLeftButtonDown
+			onLeftButtonUp
+			onRightButtonDown
+			onRightButtonUp
+			onUpButtonDown
+			onUpButtonUp
+			onDownButtonDown
+			onDownButtonUp
+			onPauseButtonDown
+			onPauseButtonUp
+			onSelectButtonDown
+			onSelectButtonUp
+		}
 		this.invalidate();
 	};
 
@@ -94,66 +138,7 @@ goog.scope(function(){
 			goog.dom.setProperties(element, {'data-vertical-speed': this.planeModel_.getVerticalSpeed()});
 		}
 	};
-
-	// L
-	unsquadron.planes.PlaneView.prototype.onPreviousSpecialWeaponButtonDown = function(event){};
-	unsquadron.planes.PlaneView.prototype.onPreviousSpecialWeaponButtonUp = function(event){};
-
-	// R
-	unsquadron.planes.PlaneView.prototype.onNextSpecialWeaponButtonDown = function(event){};
-	unsquadron.planes.PlaneView.prototype.onNextSpecialWeaponButtonUp = function(event){};
-
-	// Y / X
-	unsquadron.planes.PlaneView.prototype.onUseStandardWeaponButtonDown = function(event){};
-	unsquadron.planes.PlaneView.prototype.onUseStandardWeaponButtonUp = function(event){};
-
-	// B / A
-	unsquadron.planes.PlaneView.prototype.onUseSpecialWeaponButtonDown = function(event){};
-	unsquadron.planes.PlaneView.prototype.onUseSpecialWeaponButtonUp = function(event){};
-
-	// <
-	unsquadron.planes.PlaneView.prototype.onLeftButtonDown = function(event){
-		this.planeModel_.setHorizonalDirection(-1);
-	};
-	unsquadron.planes.PlaneView.prototype.onLeftButtonUp = function(event){
-		this.planeModel_.setHorizonalDirection(0);
-	};
-
-	// >
-	unsquadron.planes.PlaneView.prototype.onRightButtonDown = function(event){
-		this.planeModel_.setHorizonalDirection(1);
-	};
-	unsquadron.planes.PlaneView.prototype.onRightButtonUp = function(event){
-		this.planeModel_.setHorizonalDirection(0);
-	};
-
-	// ^
-	unsquadron.planes.PlaneView.prototype.onUpButtonDown = function(event){
-		this.planeModel_.setVerticalDirection(1);
-	};
-	unsquadron.planes.PlaneView.prototype.onUpButtonUp = function(event){
-		this.planeModel_.setVerticalDirection(0);
-	};
-
-	// v
-	unsquadron.planes.PlaneView.prototype.onDownButtonDown = function(event){
-		this.planeModel_.setVerticalDirection(-1);
-	};
-	unsquadron.planes.PlaneView.prototype.onDownButtonUp = function(event){
-		this.planeModel_.setVerticalDirection(0);
-	};
-
-	// pause
-	unsquadron.planes.PlaneView.prototype.onPauseButtonDown = function(event){
-		// TODO
-	};
-	unsquadron.planes.PlaneView.prototype.onPauseButtonUp = function(event){};
-
-	// select
-	unsquadron.planes.PlaneView.prototype.onSelectButtonDown = function(event){
-		// TODO
-	};
-	unsquadron.planes.PlaneView.prototype.onSelectButtonUp = function(event){
-		// TODO
-	};
 });
+
+
+	

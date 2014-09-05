@@ -1,0 +1,33 @@
+Working Title:
+	Playing with the Closure Compiler
+
+Quick Overview:
+	Go over the capabilities of the Google Closure Compiler: 
+		how it fits in the closure tools suite
+		how it differs from other JS compilers
+		how it works
+		compare output results
+Review pros / cons
+		Frequently asked questions / common misconceptions
+	Demonstrate the differences between the build modes through the use grunt and of a live demo of a SNES game written in JS
+
+Description (pulled from site) :
+	The Closure Compiler is a tool for making JavaScript download and run faster. 
+	It is a true compiler for JavaScript.
+	Instead of compiling from a source language to machine code, it compiles from JavaScript to better JavaScript. 
+	It parses your JavaScript, analyzes it, removes dead code and rewrites and minimizes what's left.
+	It also checks syntax, variable references, and types, and warns about common JavaScript pitfalls.
+
+Future Dojo topics on remaining Google closure tools (if interest is expressed): 
+	The Closure Library
+		A comprehensive JavaScript library
+
+	Closure Templates
+		An easy templating system for both Java & JavaScript
+
+	The Closure Linter
+		A JavaScript style checker and style fixer, it enforces the guidelines set by the Google JavaScript Style Guide. 
+		The linter handles style issues so that you can focus on coding.
+
+	Closure Stylesheets
+		An enhanced stylesheet language

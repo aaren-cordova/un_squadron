@@ -1,0 +1,176 @@
+[http://www.inc.com/kevin-daum/5-tips-for-giving-really-amazing-presentations.html]1. 
+1. Give it Focus
+2. Tell Compelling Stories
+3. Give an Entertaining Performance
+4. Use Media Only to Enhance
+5. Create a Worthy Leave-Behind
+
+
+[http://www.inc.com/kevin-daum/make-a-mediocre-experience-awesome-3-steps.html]
+- It Must Be Positive
+- It Must Be Meaningful
+- It Must Be Memorable
+	- Fulfill The Need
+	- Provide Entertainment
+	- Create the Unexpected
+
+1. He begins by acknowledging the crowd.
+Jobs realizes that he’s there for the audience, and he shows his awareness by focusing on the crowd. He waits for them to react, to finish their applause. He doesn’t rush their responses. That’s how you establish a rapport with the people in front of you.
+
+2. He uses mostly open gestures.
+Jobs is a seasoned presenter, and he doesn’t betray much nervousness. But he does tip us off to his nerves in the beginning with some awkward hand gestures: he can’t quite decide where to put them. But soon he settles down and makes his gestures mostly open. Aside from a tendency to put his hands behind his back when he doesn’t know what else to do, which is not very effective, most of his gestures are strong and open.
+
+3. He frames the talk at a high level at the opening.
+Jobs begins by saying, “I’ve got some updates to talk about, and then a major product announcement. So let’s get started.” And then he’s off and running. He doesn’t make the mistake so many inexperienced presenters make by wasting those first critical minutes in a detailed examination of the agenda. That’s boring. Instead, tell us why we’re there, in a quick framing sentence or two – or story – and then get on it with it.
+
+4. He keeps his remarks both emotional and grounded.
+
+5. He uses visuals well – including video.
+
+6. He’s focused on the audience.
+
+7. He tells a good story.
+
+8. He doesn’t use jargon.
+
+9. Finally, he has fun.
+
+
+
+
+Slide #1 - Overview
+	Image: Closure Compiler
+
+	I'm going to go over some of the key features of Googles JavaScript minifier.
+	Then go over the more advanced features that can change how you think and write JavaScript.
+	Finally I'm going to show you on how it measures up against other compilers by using a game demo I created when I first started working here.
+
+[Optional]
+Slide #2 - What is a JavaScript Compiler
+	Image: JS Compiler
+		/* Are those my clocks I hear? */   >>>
+		var hour = 8;                       >>> var a=8
+		hour += 25 / 60;                    >>>   1.21e9
+
+	JavaScript compilers take JavaScript as input, verify that the syntax is valid, then output smaller JavaScript.
+	Smaller JavaScript is achieved through the removal of whitespace characters, comments and the renaming of locally declared variables and their values.
+
+	There are three main reasons to use a JS compiler:
+		#1 Efficiency.
+			Reduced number of HTTP requests by delivering a single JS file
+			Reduced bandwidth consumption through minification
+			Increase execution time by removing unnecessary characters such as comments and whitespace.
+		#2 Code checking
+			Compilers provide warnings for illegal JavaScript and warnings for potentially dangerous operations
+			helping you to produce JavaScript that is less buggy and easier to maintain.
+		#3 Obfuscation
+			Security
+				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase.
+			Reversibility
+				Though no JavaScript is beyond reversibility, obfuscation deters 99.99% of thieves trying to crack it.
+				Software is expensive to develop, tedious to QA and devastating when stolen.
+				Do you write your pass-code on the back of the phone?
+				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
+
+Slide #3 - Where does it fit in:
+	Some well known JavaScript minifiers include:
+		- UglifyJS
+		- YUI Compressor
+		- JSMin
+		- Packer
+
+Slide #4 - How is the Closure Compiler different
+	- Minification is targeted towards the GZIP size not byte size, though it's often a win for both.
+
+	- Multiple levels of compilation
+		Everything from
+			- Ordered script tags during development
+			- The smallest file size in production
+			- Even the ability to debug minified code
+
+	- Complex data type checking, enhancing the language without the burden of enforcing
+	- Comes with a built in dependency management system, native support with RequireJS and is easy enough to put together a custom system.
+		JavaScript dependency is resolved before concatenation, preventing duplicate files or plug-ins from being included.
+
+	- A much more aggressive renaming of symbols and properties, including those at the global level.
+		Beyond simple var renaming, google takes it up a notch with object property and method renaming, and renaming values in the global namespace.
+
+	- The ability to change JavaScript values from the command line
+
+	- The largest difference that sets it apart is the removal of dead code.
+		The finalized file size is not directly proportionate to the number of total characters used, but follows the path of execution and delet
+
+Slide #6 - Build Modes
+	Level 0 - RAW
+		Main purpose: Development
+			Auto generates a dependency file to be used inline with HTML.
+			This allows you to dynamically load the JS files in the proper build order 
+				without having to run it though the compiler each and every time or manually maintain a build order list.
+			@see deps writer.
+
+	Level 1 - Script
+		Main purpose: Staging
+			The fully concatenated unminified file
+
+	Level 2 - Whitespace
+		Main purpose: Pre-production / Paranoia
+			Removes unnecessary whitespace characters along with superfluous braces and semicolons.
+
+				The WHITESPACE_ONLY compilation level removes comments from your code and also removes line breaks, unnecessary spaces, extraneous punctuation (such as parentheses and semicolons), and other whitespace. The output JavaScript is functionally identical to the source JavaScript.
+				This compilation level provides the least compression of the three levels.
+
+	Level 3 - Simple
+		Main purpose: Production Ready
+			Renames variables (and <a href="http://en.wikipedia.org/wiki/Closure_(computer_programming)">closures</a>) within functions to shorter names.
+			Removal of dead or unreachable code (@see defined vars)
+
+				The SIMPLE_OPTIMIZATIONS compilation level performs the same whitespace and comment removal as WHITESPACE_ONLY, but it also performs optimizations within expressions and functions, including renaming local variables and function parameters to shorter names. Renaming variables to shorter names makes code significantly smaller. Because the SIMPLE_OPTIMIZATIONS level renames only symbols that are local to functions, it does not interfere with the interaction between the compiled JavaScript and other JavaScript.
+				Compilation with SIMPLE_OPTIMIZATIONS always preserves the functionality of syntactically valid JavaScript, provided that the code does not access local variables using string names (by using eval() statements, for example).
+				SIMPLE_OPTIMIZATIONS is the default compilation level.
+
+	Level 4 - Advance
+		Main purpose: Production Optimization
+			The crown jewel of the compiler, the size of the file is not relative to total size of the included files, but the size of the functions in use.
+			Given a list of files and the insertion points, the closure compiler will scan the execution path and include only functions / inlined scripts that will be used or are explicitly exported.
+			@see metrics
+
+				The ADVANCED_OPTIMIZATIONS compilation level performs the same transformations as SIMPLE_OPTIMIZATIONS, but adds a variety of more aggressive global transformations to achieve the highest compression of all three levels. The ADVANCED_OPTIMIZATIONS level compresses JavaScript well beyond what is possible with other tools.
+
+				To enable this extreme compression, ADVANCED_OPTIMIZATIONS makes strong assumptions about the compiled code. If your code does not conform to those assumptions, ADVANCED_OPTIMIZATIONS will produce code that does not run.
+
+				For example, code compiled with ADVANCED_OPTIMIZATIONS may not work with uncompiled code unless you take special steps to ensure interoperability. If you do not flag external functions and properties referenced in your code, Closure Compiler will inappropriately rename references in your code, causing mismatches between the names in your code and in the external code.
+
+				To learn more about how to prepare your code for ADVANCED_OPTIMIZATIONS, read Advanced Compilation and Externs.
+
+				The ADVANCED_OPTIMIZATIONS transformations include:
+
+				- more aggressive renaming:
+					Compilation with SIMPLE_OPTIMIZATIONS only renames parameters and variables within functions. ADVANCED_OPTIMIZATIONS also renames global variables, function names, and properties.
+
+				- dead code removal:
+					Compilation with ADVANCED_OPTIMIZATIONS removes code that is provably unreachable. This is especially useful in combination with large libraries. If you use only a few functions from a large library file, the compiler can remove everything except those functions from its output.
+
+				- global inlining:
+					Compilation with ADVANCED_OPTIMIZATIONS replaces some function calls with the body of the function. This transformation is known as "inlining". The compiler only inlines functions when it determines that inlining is safe and saves space. Compilation with ADVANCED_OPTIMIZATIONS also inlines constants and some variables when the compiler determines that it can do so safely
+
+	The Lost Level - Debug
+		Main purpose: Debugging code that has been minified
+		If you've ever dealt with minified code, then at some point in your career you may have seen something like the following:
+			Parse error. Semi-colon expected at line 1 character 4511984
+
+
+Slide #5 - Rules of the Compiler:
+	Rule #1 :
+		The first rule of the Closure Compiler, code must run without the closure compiler.
+
+	Rule #2 :
+		The second rule of the Closure Compiler, code MUST RUN WITHOUT the closure compiler!
+			You will receive errors and warnings you about illegal or error prone JavaScript, it will make no attempt to correct it.
+			In case you were curious as to what it considers illegal, you can configure it to target EcmaScript 3, 4 and 5 so please don't complain when it tells you that you're breaking the rules.
+			That being said, you should thank be thankful a machine tells you during compilation rather than users yelling at you in production.
+
+	Rule #3 :
+		With great power comes great responsibility
+			I know that's not the same movie, but it still holds true.
+			Much of the misconception of this compiler in advance mode stems from people not following rules.
+			In advance mode, you must understand how it views your JavaScript to understand what will stay and what will go.

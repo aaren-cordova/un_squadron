@@ -1,21 +1,87 @@
+[title]
 Playing with the closure compiler
 
-	// TODO - Elevator pitch
+[Who made it]
+	Developed by Google
+
+What is the Closure Compiler?
+	The Closure Compiler is a tool for making JavaScript download and run faster.
+	It is a true compiler for JavaScript.
+	Instead of compiling from a source language to machine code, it compiles from JavaScript to better JavaScript.
+	It parses your JavaScript, analyzes it, removes dead code and rewrites and minimizes what's left.
+	It also checks syntax, variable references, and types, and warns about common JavaScript pitfalls.
+
+What is the Closure Deps writer (deprecated)?
+	DepsWriter automates the process of writing dependency files by scanning files to find namespaces provided and required with goog.require and goog.provide.
+	[Getting Started | https://developers.google.com/closure/library/docs/depswriter]
+
+How does Deps writer compare [RequireJS | http://requirejs.org/]?
+	Deps writer compiles a single deps.js that defines the dependency tree from a list of input directories and input files.
+	The advantage being that namespaces are more granular than the file as a whole allowing for better minification*.
+	The disadvantage being that new imports / exports require running depswriter.py again.
+	RequireJS asynchronously loads files at runtime and can be compiled to concatenate file requirements after compilation.
+	The advantage is that during development, no script has to be run on additional imports and exports.
+	The disadvantage is that the final minification may suffer because the file is imported as a whole.
+	Conclusion: Use whichever you like, depswriter.py is not required to run the google closure compiler and [RequireJS can be configured to target the closure compiler | http://requirejs.org/docs/optimization.html]
+
+	*Though advance mode removes dead code (unused code), it leaves code explicitly exported.
+
+
+What is the Closure Builder?
+
+[How can I use the Closure Compiler?]
+	You can use the Closure Compiler as:
+		A simple web application.
+			[Getting Started | https://developers.google.com/closure/compiler/docs/gettingstarted_ui]
+			[App URL | http://closure-compiler.appspot.com/home]
+
+		Closure Compiler (Java) - An open source Java application that you can run from the command line.
+			[Getting Started | https://developers.google.com/closure/compiler/docs/gettingstarted_app]
+			[Jar file | https://closure-compiler.googlecode.com/files/compiler-latest.zip]
+			[Github | https://github.com/google/closure-compiler]
+
+		Closure Compiler (Node)
+			[Getting Started | https://www.npmjs.org/package/grunt-closure-compiler]
+
+		Closure Builder (Python) - An open source Python application that utilizes the Java application
+			[Getting Started | https://developers.google.com/closure/library/docs/closurebuilder]
+
+		Closure Builder (Node) - An Node module that utilizes the Python application
+			[Node - Getting Started | https://www.npmjs.org/package/grunt-closure-tools]
+
+			[PHP Storm - Getting Started | http://www.jetbrains.com/phpstorm/webhelp/minifying-javascript.html]
+			[PHP Storm - NodeJS | http://plugins.jetbrains.com/plugin/6098?pr=phpStorm]
+
+			[Grunt - Closure Tools | https://github.com/thanpolas/grunt-closure-tools]
+
+
+			[Grunt - Closure Compiler | https://github.com/thanpolas/grunt-closure-compiler]
+
+		A RESTful API.
+			[App URL | http://closure-compiler.appspot.com/compile]
+			[Getting Started | https://developers.google.com/closure/compiler/docs/gettingstarted_api]
+
+
+[Why use it]
+	Efficiency.
+		The Closure Compiler reduces the size of your JavaScript files and makes them more efficient, helping your application to load faster and reducing your bandwidth needs.
+
+	Code checking.
+		The Closure Compiler provides warnings for illegal JavaScript and warnings for potentially dangerous operations, helping you to produce JavaScript that is less buggy and easier to maintain.
 
 	Rules:
 		Rule #1 :
 			The first rule of the Closure Compiler, code must run without the closure compiler.
 
 		Rule #2 :
-			The second rule of the Closure Compiler, code must run without the closure compiler!
-		Rule #3 :
-			Code must be EcmaScript compliant
+			The second rule of the Closure Compiler, code must run without the closure compiler! @see rule 1
 
+		Rule #3 :
+			Code must be EcmaScript compliant @see rule 2
 			*1 - Can be set to ES4, ES5 or ES6 though this would not ensure compatibility to browser version before 2009
 
 	Purpose of the compiler:
 		Efficiency
-			The compiler outputs Java
 			Byte size
 			GZip size
 		Code Checking
@@ -118,7 +184,7 @@ Playing with the closure compiler
 		Written in Python / Java
 
 		Multiple compilation modes
-			Level 0 - Development / Un-compiled 
+			Level 0 - RAW Development / Un-compiled 
 				Auto generates a dependency file to be used inline with HTML.
 				This allows you to dynamically load the JS files in the proper build order without having to run it though the compiler each and every time or manually maintain a build order list.
 				@see deps writer.

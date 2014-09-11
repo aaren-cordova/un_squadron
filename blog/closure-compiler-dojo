@@ -6,7 +6,7 @@ Slide #1 - Overview
 	Finally I'm going to show you on how it measures up against other compilers by using a game demo I created when I first started working here.
 
 [Optional]
-Slide #X - What is a JavaScript Compiler
+Slide #2 - What is a JavaScript Compiler
 	Image: JS Compiler
 
 	JavaScript compilers take JavaScript as input, verify that the syntax is valid, then output smaller JavaScript.

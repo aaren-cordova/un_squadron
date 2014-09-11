@@ -18,10 +18,7 @@ Slide #X - Why use JavaScript Compiler
 			- Reduced number of HTTP requests by delivering a single JS file
 			- Reduced bandwidth consumption through minification
 			- Increase execution time by removing unnecessary characters such as comments and whitespace.
-		#2 Code checking
-			- Compilers provide warnings for illegal JavaScript and warnings for potentially dangerous operations
-			  helping you to produce JavaScript that is less buggy and easier to maintain.
-		#3 Obfuscation
+		#2mm Obfuscation
 			- Security
 				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase.
 			- Reversibility
@@ -29,6 +26,10 @@ Slide #X - Why use JavaScript Compiler
 				Software is expensive to develop, tedious to QA and devastating when stolen.
 				Do you write your pass-code on the back of the phone?
 				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
+		#3 Code checking
+			- Compilers provide warnings for illegal JavaScript and warnings for potentially dangerous operations
+			  helping you to produce JavaScript that is less buggy and easier to maintain.
+		
 
 Slide #X - Where does it fit in:
 	Some well known JavaScript minifiers include:
@@ -101,30 +102,30 @@ Slide #X - Basic rules:
 			If you're trying to do use conditional comments, you will need to find alternative methods.
 
 Slide #X - Build Modes
-	[Image] Sushi
+					[Image] Sushi
 	Level 0 - RAW
 			Auto generates a dependency file to be used inline with HTML.
 			This allows you to dynamically load the JS files in the proper build order 
 				without having to run it though the compiler each and every time or manually maintain a build order list.
 			@see deps writer.
-		Use | Development
+	Use : Development
 {raw demo}
 
-	[Image] PlayScript
+					[Image] PlayScript
 	Level 1 - Script
 			The fully concatenated unminified file
-		Use | Staging
+	Use : Staging
 {script demo}
 
 
-
-	[Image] Optical illusion
-	Level 2 - Whitespace | Production (Refactoring and testing is not an option) - Refusal to give up eval or the with statement
+					[Image] Optical illusion
+	Level 2 - Whitespace
 				Removes unnecessary whitespace characters along with extraneous punctuation.
 				
 				The output JavaScript is functionally identical to the source JavaScript.
 																		#The WHITESPACE_ONLY compilation level removes comments from your code and also removes line breaks, unnecessary spaces, extraneous punctuation (such as parentheses and semicolons), and other whitespace. The output JavaScript is functionally identical to the source JavaScript.
 																		#This compilation level provides the least compression of the three levels.
+		Use : Production (Refactoring and testing is not an option) - Refusal to give up eval or the with statement
 {whitespace demo}
 	[Image] Kiss
 	Level 3 - Simple [Default]
@@ -141,7 +142,7 @@ Slide #X - Build Modes
 			Rule #6 :
 				The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
 
-	Use | Production - No misused evals present
+	Use : Production - No misused evals present
 				
 				Functionally identical with one exception, eval statements used to access local variables.
 					Rule #3 - Strings are not modified

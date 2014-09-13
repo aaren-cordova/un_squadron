@@ -194,11 +194,11 @@ SlidingPuzzle.prototype.random_move = function (){
 };
 	
 	var puzzle_timer = 0;
-	var image_size = new Size(320, 320);
-	var puzzle_size = new Size(4, 4);
+	var image_size = new Size(300, 300);
+	var puzzle_size = new Size(10, 10);
 	var hard_stop_timer = false;
 	var sliding_puzzle = new SlidingPuzzle(
-		'http://faqsmedia.ign.com/faqs/image/simalcrum_re4-ashleyslide.jpg',
+		'http://ocpsoft.org/wp-content/uploads/2013/01/javascript_logo_unofficial-300x300.png?b704a8',
 		image_size,
 		puzzle_size
 	);

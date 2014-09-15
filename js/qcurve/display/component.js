@@ -35,9 +35,9 @@ goog.scope(function(){
 	qcurve.display.Component.prototype.decorateInternal = function(element){
 		goog.base(this, 'decorateInternal', element);
 
-		var id = 'instance' + qcurve.display.Component.numInstances_;
+		//var id = 'instance' + qcurve.display.Component.numInstances_;
 		qcurve.display.Component.numInstances_++;
-		this.setId(id);
+		//this.setId(id);
 	};
 
 	/** @override */

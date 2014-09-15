@@ -1,37 +1,37 @@
-	//goog.provide('greensock.Ease');
+	goog.provide('greensock.Ease');
 	greensock.Ease = GreenSockGlobals['Ease'];
 
-	//goog.provide('greensock.Power4');
+	goog.provide('greensock.Power4');
 	greensock.Power4 = GreenSockGlobals['Power4'];
 
-	//goog.provide('greensock.Strong');
+	goog.provide('greensock.Strong');
 	greensock.Strong = GreenSockGlobals['Strong'];
 
-	//goog.provide('greensock.Quint');
+	goog.provide('greensock.Quint');
 	greensock.Quint = GreenSockGlobals['Quint'];
 
-	//goog.provide('greensock.Power3');
+	goog.provide('greensock.Power3');
 	greensock.Power3 = GreenSockGlobals['Power3'];
 
-	//goog.provide('greensock.Quart');
+	goog.provide('greensock.Quart');
 	greensock.Quart = GreenSockGlobals['Quart'];
 
-	//goog.provide('greensock.Power2');
+	goog.provide('greensock.Power2');
 	greensock.Power2 = GreenSockGlobals['Power2'];
 
-	//goog.provide('greensock.Cubic');
+	goog.provide('greensock.Cubic');
 	greensock.Cubic = GreenSockGlobals['Cubic'];
 
-	//goog.provide('greensock.Power1');
+	goog.provide('greensock.Power1');
 	greensock.Power1 = GreenSockGlobals['Power1'];
 
-	//goog.provide('greensock.Quad');
+	goog.provide('greensock.Quad');
 	greensock.Quad = GreenSockGlobals['Quad'];
 
-	//goog.provide('greensock.Power0');
+	goog.provide('greensock.Power0');
 	greensock.Power0 = GreenSockGlobals['Power0'];
 
-	//goog.provide('greensock.Linear');
+	goog.provide('greensock.Linear');
 	greensock.Linear = GreenSockGlobals['Linear'];
 	greensock.Linear.easeIn = GreenSockGlobals['Linear']['easeIn'];
 	greensock.Linear.easeInOut = GreenSockGlobals['Linear']['easeInOut'];
@@ -39,15 +39,13 @@
 	greensock.Linear.easeNone = GreenSockGlobals['Linear']['easeNone'];
 
 
-	//goog.provide('greensock.TweenLite');
+	goog.provide('greensock.TweenLite');
 	greensock.TweenLite = GreenSockGlobals['TweenLite'];
 
-	//goog.provide('greensock.TweenPlugin');
+	goog.provide('greensock.TweenPlugin');
 	greensock.TweenPlugin = GreenSockGlobals['TweenPlugin'];
 
-	//goog.provide('greensock.TweenMax');
-
-
+	goog.provide('greensock.TweenMax');
 	/**
 	* @constructor
 	* @param {!*} target
@@ -64,100 +62,100 @@
 	*/
 	greensock.TweenMax.to = GreenSockGlobals['TweenMax']['to'];
 
-	//goog.provide('greensock.TimelineLite');
+	goog.provide('greensock.TimelineLite');
 	greensock.TimelineLite = GreenSockGlobals['TimelineLite'];
 
-	//goog.provide('greensock.TimelineMax');
+	goog.provide('greensock.TimelineMax');
 	greensock.TimelineMax = GreenSockGlobals['TimelineMax'];
 
-	//goog.provide('greensock.BezierPlugin');
+	goog.provide('greensock.BezierPlugin');
 	greensock.BezierPlugin = GreenSockGlobals['BezierPlugin'];
 
-	//goog.provide('greensock.CSSPlugin');
+	goog.provide('greensock.CSSPlugin');
 	greensock.CSSPlugin = GreenSockGlobals['CSSPlugin'];
 
-	//goog.provide('greensock.BackOut');
+	goog.provide('greensock.BackOut');
 	greensock.BackOut = GreenSockGlobals['BackOut'];
 
-	//goog.provide('greensock.BackIn');
+	goog.provide('greensock.BackIn');
 	greensock.BackIn = GreenSockGlobals['BackIn'];
 
-	//goog.provide('greensock.BackInOut');
+	goog.provide('greensock.BackInOut');
 	greensock.BackInOut = GreenSockGlobals['BackInOut'];
 
-	//goog.provide('greensock.Back');
+	goog.provide('greensock.Back');
 	greensock.Back = GreenSockGlobals['Back'];
 
-	//goog.provide('greensock.SlowMo');
+	goog.provide('greensock.SlowMo');
 	greensock.SlowMo = GreenSockGlobals['SlowMo'];
 
-	//goog.provide('greensock.SteppedEase');
+	goog.provide('greensock.SteppedEase');
 	greensock.SteppedEase = GreenSockGlobals['SteppedEase'];
 
-	//goog.provide('greensock.RoughEase');
+	goog.provide('greensock.RoughEase');
 	greensock.RoughEase = GreenSockGlobals['RoughEase'];
 
-	//goog.provide('greensock.BounceOut');
+	goog.provide('greensock.BounceOut');
 	greensock.BounceOut = GreenSockGlobals['BounceOut'];
 
-	//goog.provide('greensock.BounceIn');
+	goog.provide('greensock.BounceIn');
 	greensock.BounceIn = GreenSockGlobals['BounceIn'];
 
-	//goog.provide('greensock.BounceInOut');
+	goog.provide('greensock.BounceInOut');
 	greensock.BounceInOut = GreenSockGlobals['BounceInOut'];
 
-	//goog.provide('greensock.Bounce');
+	goog.provide('greensock.Bounce');
 	greensock.Bounce = GreenSockGlobals['Bounce'];
 
-	//goog.provide('greensock.CircOut');
+	goog.provide('greensock.CircOut');
 	greensock.CircOut = GreenSockGlobals['CircOut'];
 
-	//goog.provide('greensock.CircIn');
+	goog.provide('greensock.CircIn');
 	greensock.CircIn = GreenSockGlobals['CircIn'];
 
-	//goog.provide('greensock.CircInOut');
+	goog.provide('greensock.CircInOut');
 	greensock.CircInOut = GreenSockGlobals['CircInOut'];
 
-	//goog.provide('greensock.Circ');
+	goog.provide('greensock.Circ');
 	greensock.Circ = GreenSockGlobals['Circ'];
 
-	//goog.provide('greensock.ElasticOut');
+	goog.provide('greensock.ElasticOut');
 	greensock.ElasticOut = GreenSockGlobals['ElasticOut'];
 
-	//goog.provide('greensock.ElasticIn');
+	goog.provide('greensock.ElasticIn');
 	greensock.ElasticIn = GreenSockGlobals['ElasticIn'];
 
-	//goog.provide('greensock.ElasticInOut');
+	goog.provide('greensock.ElasticInOut');
 	greensock.ElasticInOut = GreenSockGlobals['ElasticInOut'];
 
-	//goog.provide('greensock.Elastic');
+	goog.provide('greensock.Elastic');
 	greensock.Elastic = GreenSockGlobals['Elastic'];
 
-	//goog.provide('greensock.ExpoOut');
+	goog.provide('greensock.ExpoOut');
 	greensock.ExpoOut = GreenSockGlobals['ExpoOut'];
 
-	//goog.provide('greensock.ExpoIn');
+	goog.provide('greensock.ExpoIn');
 	greensock.ExpoIn = GreenSockGlobals['ExpoIn'];
 
-	//goog.provide('greensock.ExpoInOut');
+	goog.provide('greensock.ExpoInOut');
 	greensock.ExpoInOut = GreenSockGlobals['ExpoInOut'];
 
-	//goog.provide('greensock.Expo');
+	goog.provide('greensock.Expo');
 	greensock.Expo = GreenSockGlobals['Expo'];
 
-	//goog.provide('greensock.SineOut');
+	goog.provide('greensock.SineOut');
 	greensock.SineOut = GreenSockGlobals['SineOut'];
 
-	//goog.provide('greensock.SineIn');
+	goog.provide('greensock.SineIn');
 	greensock.SineIn = GreenSockGlobals['SineIn'];
 
-	//goog.provide('greensock.SineInOut');
+	goog.provide('greensock.SineInOut');
 	greensock.SineInOut = GreenSockGlobals['SineInOut'];
 
-	//goog.provide('greensock.Sine');
+	goog.provide('greensock.Sine');
 	greensock.Sine = GreenSockGlobals['Sine'];
 
-	//goog.provide('greensock.EaseLookup');
+	goog.provide('greensock.EaseLookup');
 	greensock.EaseLookup = GreenSockGlobals['EaseLookup'];
 
 	/*

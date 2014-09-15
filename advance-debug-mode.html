@@ -7,23 +7,15 @@
 
 		<!-- [optional] External lib -->
 		<script src='./js/greensock/v12/bin/uncompressed/out.js' type='text/javascript'></script>
-		
-		<!-- base file -->
-		<script src='./js/google/closure-library/closure/goog/base.js' type='text/javascript'></script>
-		
-		<!-- dependancy graph file -->
-		<script src='./deps.js' type='text/javascript'></script>
-		
-		<!-- program dependency -->
-		<script type='text/javascript'>
-			goog.require('unsquadron.Main');
-		</script>
 	</head>
 	<body>
-	<!-- entry point -->
+		<!-- src -->
+		<script src='./bin/js/unsquadron.debug.js' type='text/javascript'></script>
+		<!-- entry point -->
 		<script type='text/javascript'>
 			var main_ = unsquadron.Main.getInstance();
 		</script>
+
 		<div class='links'>
 			<a href="uncompiled-mode.html">Uncompiled Mode</a>
 			<a href="script-mode.html">Script Mode</a>

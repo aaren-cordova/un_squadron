@@ -1,4 +1,4 @@
-var BUILD_MODE = 'ADVANCED_OPTIMIZATIONS'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS, DEBUG
+var BUILD_MODE = 'SCRIPT'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS, DEBUG
 
 
 module.exports = function (grunt) {
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
 					'../js/google/closure-library/third_party/',
 					'../js/qcurve/',
 					'../js/unsquadron/',
-					'../js/greensock/v12/src/exports/'
+					'../js/greensock/v12/src/uncompressed/'
 				],
 
 				dest: '../bin/js/unsquadron.' + BUILD_MODE.toLowerCase() + '.js'
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
 
 			unsquadron: {
 				src: '../js/unsquadron/**/.js',
-				dest: '../js/unsquadron/deps.js'
+				dest: '../deps.js'
 			}
 		},
 
@@ -167,7 +167,7 @@ module.exports = function (grunt) {
 
 	var dev_ = [];
 
-	//dev_.push('closureDepsWriter:unsquadron');
+	dev_.push('closureDepsWriter:unsquadron');
 	dev_.push('closureBuilder:unsquadron');
 	//dev_.push('less:unsquadron');
 	dev_.push('concat:unsquadron');
@@ -201,6 +201,7 @@ function getClosureBuilderOptions(grunt){
 		case 'LIST':
 			options['output_mode'] = 'list';
 			options['compilerOpts'] = {};
+
 			break;
 		case 'SCRIPT':
 			options['output_mode'] = 'script';
@@ -217,6 +218,7 @@ function getClosureBuilderOptions(grunt){
 		case 'ADVANCED_OPTIMIZATIONS':
 			options['output_mode'] = 'compiled';
 			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
+			options['compilerOpts']['output_wrapper']= '!function(){%output%}();'
 			break;
 		case 'DEBUG':
 			options['compilerOpts']['debug'] = true;
@@ -226,5 +228,12 @@ function getClosureBuilderOptions(grunt){
 	}
 
 	options['compile'] = (options['output_mode'] === 'compiled');
+
+	options["compilerOpts"]["define"] = [
+		'goog.DEBUG=false',
+		'goog.ENABLE_DEBUG_LOADER=false',
+		'COMPILED=' + options['compile']
+	];
+	
 	return options;
 }

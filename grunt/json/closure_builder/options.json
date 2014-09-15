@@ -14,10 +14,7 @@
 		"debug": false,
 		"generate_exports" : null,
 		"compilation_level": "ADVANCED_OPTIMIZATIONS", /* "WHITESPACE_ONLY | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTIMIZATIONS"*/
-		"define": [
-			"goog.ENABLE_DEBUG_LOADER=false",
-			"goog.DEBUG=false"
-		],
+		"define": [],
 
 		"warning_level": "VERBOSE", /*"QUIET | DEFAULT | VERBOSE"*/
 		"jscomp_off": [],
@@ -60,7 +57,7 @@
 			"../js/externs/greensock.js"
 		],
 
-		"output_wrapper": "+function(){%output%}()"
+		"output_wrapper": ""
 	},
 
 	"execOpts": {

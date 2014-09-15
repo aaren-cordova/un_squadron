@@ -10,16 +10,17 @@ goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Mountain0');
 goog.require('unsquadron.display.Mountain1');
 goog.require('goog.events.EventType');
+goog.require('greensock.TweenMax');
 goog.require('goog.Timer');
+
+
 goog.provide('unsquadron.Main');
 goog.scope(function(){
 	var listen = goog.events.listen;
 	var unlisten = goog.events.unlisten;
 	var EventType = goog.events.EventType;
 	var Linear = greensock.Linear;
-	var TimelineMax = greensock.TimelineMax;
 	var TweenMax = greensock.TweenMax;
-	var TweenLite = greensock.TweenLite;
 	var Stage = qcurve.display.Stage;
 	var Bullet0 = unsquadron.display.Bullet0;
 	var Tank0 = unsquadron.display.Tank0;
@@ -242,59 +243,4 @@ goog.scope(function(){
 	unsquadron.Main.prototype.playerTarget_ = null;
 
 	goog.exportSymbol('unsquadron.Main', unsquadron.Main);
-
-
 });
-
-var main_ = unsquadron.Main.getInstance();
-
-
-/*
-var cssTemplate = [
-	'.sprite_sheet[data-name="%s"][data-x-frame="%s"][data-y-frame="%s"][data-z-frame="%s"]{',
-	'	background: url(\'%s\') no-repeat %spx %spx;',
-	'	width: %spx;',
-	'	height: %spx;',
-	'}'
-].join('\n');
-
-function getSpriteCSS(name, xFrame, yFrame, zFrame, x, y, width, height, url){
-	return goog.string.subs(cssTemplate, name, xFrame, yFrame, zFrame, url, x, y, width, height);
-}
-
-goog.require('goog.string');
-jQuery(document).ready(function(){
-	var cssBlocs = [];
-
-	jQuery.getJSON( './media/sprite_sheet.json', function(data){
-		alert('dson')
-		var frames = data.frames;
-		
-		for(var i = 0; i < frames.length; ++i){
-			var frameData = frames[i];
-
-			var frameName = frameData.filename;
-			var frame = frameData.frame;
-			var rotated = !!frameData.rotated;
-			var trimmed = !!frameData.trimmed;
-			var spriteSourceSize = frameData.spriteSourceSize;
-			var sourceSize = frameData.sourceSize;
-			var name = frameName.replace(/_\d+y_\d+z\d+$/, '').toLowerCase();
-			var frameXYZ = frameName.replace(/^.*_(\d+y_\d+z\d+)$/, '$1');
-			var frameX = frameXYZ.replace(/^\d+y_\d+z(\d+)$/, '$1') | 0;
-			var frameY = frameXYZ.replace(/^(\d+)y_\d+z\d+$/, '$1') | 0;
-			var frameZ = frameXYZ.replace(/^\d+y_(\d+)z\d+$/, '$1') | 0;
-
-			cssBlocs.push(
-				getSpriteCSS(name, frameX, frameY, frameZ, frame.x, frame.y, frame.w, frame.h, '../media/sprite_sheet.png')
-			);
-		}
-
-		jQuery('<style>')
-		.append(
-			cssBlocs.join('\n')
-		)
-		.appendTo('head');
-	});
-});
-*/

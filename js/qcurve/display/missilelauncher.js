@@ -87,8 +87,10 @@ goog.scope(function(){
 		var x = qcurve.asInt(position.x);
 		var y = qcurve.asInt(position.y);
 
-		var targetCoordinate = missileTarget.getPosition();
-		var targetAngle = angle(x, y, targetCoordinate.x, targetCoordinate.y);
+		var target = this.missileTarget_;
+		var localToGlobal = this.sprite_.getLocalToGlobal();
+		var targetGlobalToLocal = target.getGlobalToLocal(localToGlobal);
+		var targetAngle = goog.math.angle(localToGlobal.x, localToGlobal.y, target.getX(), target.getY());
 
 		var rate = missile.getRate();
 		var distance = missile.getMaxDistance();
@@ -109,7 +111,6 @@ goog.scope(function(){
 		var target = this.missileTarget_;
 		var localToGlobal = this.sprite_.getLocalToGlobal();
 		var targetGlobalToLocal = target.getGlobalToLocal(localToGlobal);
-
 		var targetAngle = goog.math.angle(target.getX(), target.getY(), localToGlobal.x, localToGlobal.y);
 		var clampedTargetAngle = qcurve.math.clampAngle(targetAngle, this.angleFloor_, this.angleCeil_);
 		this.angle_ = targetAngle;
@@ -119,7 +120,6 @@ goog.scope(function(){
 			this.snappedAngle_ = snapAngle(clampedTargetAngle, this.angleVarience_);
 		}
 	};
-
 
 	/** @private */
 	qcurve.display.MissileLauncher.prototype.positionMissile_ = function (missle){
@@ -254,7 +254,7 @@ goog.scope(function(){
 		if(this.missiles_.length){
 			return this.missiles_.shift();
 		}
-		else if(this.defaultMissleType_){		
+		else if(this.defaultMissleType_){
 			return MissileFactory.getMissile(this.defaultMissleType_);
 		}
 

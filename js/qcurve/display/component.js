@@ -185,10 +185,11 @@ goog.scope(function(){
 	};
 
 	/**
-	* @param {goog.math.Coordinate=} opt_offset
+	* @param {number|goog.math.Coordinate=} opt_tx
+	* @param {number=} opt_ty
 	* @return {goog.math.Coordinate}
 	*/
-	qcurve.display.Component.prototype.getLocalToGlobal = function(opt_offset){
+	qcurve.display.Component.prototype.getLocalToGlobal = function(opt_tx, opt_ty){
 		var child = this;
 		var root = this.root_;
 		var position = child.getPosition();
@@ -200,18 +201,18 @@ goog.scope(function(){
 			position.translate(childPosition);
 		}
 
-		if(opt_offset){
-			position.translate(opt_offset);
+		if(opt_tx){
+			position.translate(opt_tx, opt_ty);
 		}
 
 		return position;
 	};
 
 	/**
-	* @param {goog.math.Coordinate=} opt_offset
+	* @param {number|goog.math.Coordinate=} opt_tx
 	* @return {goog.math.Coordinate}
 	*/
-	qcurve.display.Component.prototype.getGlobalToLocal = function(opt_offset){
+	qcurve.display.Component.prototype.getGlobalToLocal = function(opt_tx, opt_ty){
 		var child = this;
 		var root = this.root_;
 		var position = child.getPosition();
@@ -223,8 +224,10 @@ goog.scope(function(){
 			position.translate(-childPosition.x, -childPosition.y);
 		}
 
-		if(opt_offset){
-			position.translate(-opt_offset.x, -opt_offset.y);
+		if(opt_tx){
+			var x = goog.isNumber(opt_tx) ? opt_tx : opt_tx.x;
+			var y = goog.isNumber(opt_ty) ? opt_ty : opt_tx.y;
+			position.translate(x, y);
 		}
 
 		return position;

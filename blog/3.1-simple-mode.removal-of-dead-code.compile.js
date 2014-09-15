@@ -8,20 +8,12 @@
 
 console.log("Mario starts his quest.");
 
-function zombie_apocalypse(){
-	console.log(
-		"Zombie Bowser eat's Mario." + 
-		"The mushroom kingdom is doomed!" +
-		"In the land of the dead, Big Boo is king."
-	);
-}
-
 function throw_example(){
 	console.log("Mario beats the castle . . .");
 	throw new Error("I'm sorry but the princess is in another castle");
 
 	//Dead code
-	zombie_apocalypse("Bowser defeats Mario.");
+	zombie_apocalypse();
 };
 
 function break_example(world){
@@ -30,7 +22,7 @@ function break_example(world){
 		break;
 
 		//Dead code
-		zombie_apocalypse("Bowser defeats Mario.");
+		zombie_apocalypse();
 	}
 };
 
@@ -39,7 +31,7 @@ function return_example(){
 	return;
 
 	//Dead code
-	zombie_apocalypse("Bowser defeats Mario.");
+	zombie_apocalypse();
 };
 
 function continue_example(){
@@ -49,9 +41,16 @@ function continue_example(){
 		continue;
 
 		//Dead code
-		zombie_apocalypse("Bowser defeats Mario.");
+		zombie_apocalypse();
 	}
 };
+
+function zombie_apocalypse(){
+	console.log(
+		"Zombie Bowser eat's Mario's brains." + 
+		"In the land of the dead, Big Boo is king."
+	);
+}
 
 break_example(8);
 return_example();

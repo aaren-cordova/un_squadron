@@ -1,8 +1,11 @@
 Slide #0 - Playing with the Google Closure Compiler
 
-	I'm going to show you two quick slides, followed by a series of js demos and snippets.
-	A bulk of the demos will center around small snippets JavaScript that we will compile and this proof of concept game {show preview}.
+	I'm going to show you two quick slides, followed by a series of demos of js snippets compiled on the spot.
+	
+	After that I will show you how I
+	{show preview}.
 	They demonstrate how I was able to take a (142k gzip | 823k) js file and reduce it's size by 98.7% | 92.3% (11k gzip | 30k uncompressed)
+
 	Most of the concepts I will talk about can be applied to both the closure compiler and to uglify JS, so
 	whichever you choose at the end of the day there's a little something for everyone.
 
@@ -136,9 +139,10 @@ Slide #3 - Ways it can be used
 		This code technically should not exist, it's usually the result of a leftover from refactoring.
 
 	Result:
-		Functionally identical, along with optional warnings or errors if they are enabled.
+		Functionally identical
+		Will display warnings if they are enabled.
 
-
+{3.2-simple-mode.conditional-compilation-shallow.sample}
 
 
 Level 3 - Simple [Default]

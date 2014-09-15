@@ -18,6 +18,8 @@ goog.addDependency('../../../../qcurve/style/style.js', ['qcurve.style'], ['goog
 goog.addDependency('../../../../unsquadron/base.js', ['unsquadron'], []);
 goog.addDependency('../../../../unsquadron/characters/ICharacterModel.js', ['unsquadron.characters.ICharacterModel'], ['goog.asserts']);
 goog.addDependency('../../../../unsquadron/display/bullet.js', ['unsquadron.display.Bullet'], ['goog.Timer', 'goog.events', 'goog.math.Coordinate', 'qcurve.display', 'qcurve.display.Missile', 'qcurve.display.Sprite']);
+goog.addDependency('../../../../unsquadron/display/mountain0.js', ['unsquadron.display.Mountain0'], ['qcurve.display.Sprite']);
+goog.addDependency('../../../../unsquadron/display/mountain1.js', ['unsquadron.display.Mountain1'], ['qcurve.display.Sprite']);
 goog.addDependency('../../../../unsquadron/display/bullet0.js', ['unsquadron.display.Bullet0'], ['goog.math', 'goog.math.Coordinate', 'unsquadron.display.Bullet']);
 goog.addDependency('../../../../unsquadron/display/bullet1.js', ['unsquadron.display.Bullet1'], ['goog.math', 'goog.math.Coordinate', 'unsquadron.display.Bullet']);
 goog.addDependency('../../../../unsquadron/display/helicopter.js', ['unsquadron.display.Helicopter'], ['qcurve.display.Sprite', 'qcurve.events.Event']);
@@ -30,7 +32,7 @@ goog.addDependency('../../../../unsquadron/display/turrent0.js', ['unsquadron.di
 goog.addDependency('../../../../unsquadron/display/turrent1.js', ['unsquadron.display.Turrent1'], ['goog.Timer', 'goog.math.Coordinate', 'unsquadron.display.Bullet1', 'unsquadron.display.Turrent']);
 goog.addDependency('../../../../unsquadron/display/weapon.js', ['unsquadron.display.Weapon'], []);
 goog.addDependency('../../../../unsquadron/game.js', ['unsquadron.Game', 'unsquadron.GameLayer'], ['goog.Timer', 'goog.asserts', 'qcurve.display.Component', 'unsquadron.display.Bullet']);
-goog.addDependency('../../../../unsquadron/src/main.js', ['unsquadron.Main'], ['qcurve.display.Sprite', 'qcurve.display.Stage', 'unsquadron.Game', 'unsquadron.display.Bullet0', 'unsquadron.display.Helicopter', 'unsquadron.display.Tank0', 'unsquadron.display.Turrent0', 'unsquadron.display.Turrent1']);
+goog.addDependency('../../../../unsquadron/src/main.js', ['unsquadron.Main'], ['qcurve.display.Sprite', 'qcurve.display.Stage', 'unsquadron.Game', 'unsquadron.display.Bullet0', 'unsquadron.display.Tank0', 'unsquadron.display.Turrent0', 'unsquadron.display.Turrent1', 'unsquadron.display.Mountain0', 'unsquadron.display.Mountain1']);
 goog.addDependency('../../../../unsquadron/planes/IPlaneController.js', ['unsquadron.planes.IPlaneController'], ['goog.asserts']);
 goog.addDependency('../../../../unsquadron/planes/IPlaneModel.js', ['unsquadron.planes.IPlaneModel'], ['goog.asserts']);
 goog.addDependency('../../../../unsquadron/players/IPlayerController.js', ['unsquadron.players.IPlayerController'], ['goog.asserts']);

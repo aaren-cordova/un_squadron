@@ -50,6 +50,11 @@ goog.scope(function(){
 		return unsquadron.Game.layers_[index];
 	};
 
+	/** @return {number} */
+	unsquadron.Game.prototype.getNumLayers = function(index){
+		return unsquadron.Game.layers_.length
+	};
+
 	/**
 	* @type {Array.<unsquadron.GameLayer>}
 	*/
@@ -80,10 +85,12 @@ goog.scope(function(){
 		var element = this.getElement();
 
 		if(!element){
-			element = this.dom_.createDom('div', {'name' : 'layer_' + this.getIndex()});
+			element = this.dom_.createDom('div');
 		}
 
 		this.decorateInternal(element);
+
+		this.setName('layer_' + this.getIndex());
 	};
 
 	/** @return {number} */

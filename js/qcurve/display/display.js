@@ -42,7 +42,7 @@ goog.scope(function(){
 	qcurve.display.frameRate_ = 0;
 
 	/** @define {number} */
-	qcurve.display.DEFAULT_FRAME_RATE = 8;
+	qcurve.display.DEFAULT_FRAME_RATE = 12;
 
 	qcurve.display.setFrameRate(qcurve.display.DEFAULT_FRAME_RATE);
 	qcurve.display.enterFrameTimer_.start();

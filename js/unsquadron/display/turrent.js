@@ -36,20 +36,25 @@ goog.scope(function(){
 	/** @override */
 	unsquadron.display.Turrent.prototype.enterDocument = function(){
 		goog.base(this, 'enterDocument');
-
-		var fireTimer = this.missileLauncher_.getFireTimer();
-		fireTimer.start();
-
 		listen(getEnterFrameTimer(), Timer.TICK, this.onEnterFrameTimer_, false, this);
-
+		this.invalidateFireTimer_();
 	};
 
 	/** @override */
 	unsquadron.display.Turrent.prototype.exitDocument = function(){
 		goog.base(this, 'exitDocument');
+		unlisten(getEnterFrameTimer(), Timer.TICK, this.onEnterFrameTimer_, false, this);
+		this.invalidateFireTimer_();
+	};
 
+	unsquadron.display.Turrent.prototype.invalidateFireTimer_ = function(){
 		var fireTimer = this.missileLauncher_.getFireTimer();
-		fireTimer.stop();
+		if(this.isInDocument() && this.getMissleTarget()){
+			fireTimer.start();
+		}
+		else{
+			fireTimer.stop();
+		}
 	};
 
 	/** @override */
@@ -81,8 +86,8 @@ goog.scope(function(){
 	* @param {qcurve.display.Component} value
 	*/
 	unsquadron.display.Turrent.prototype.setMissleTarget = function(value){
-		this.missileTarget_ = value;
 		this.missileLauncher_.setMissleTarget(value);
+		this.invalidateFireTimer_();
 	};
 
 	/**
@@ -90,7 +95,7 @@ goog.scope(function(){
 	* @return {qcurve.display.Component}
 	*/
 	unsquadron.display.Turrent.prototype.getMissleTarget = function(){
-		return this.missileTarget_;
+		return this.missileLauncher_.getMissleTarget();
 	};
 
 	/**

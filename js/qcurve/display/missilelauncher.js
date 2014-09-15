@@ -69,7 +69,12 @@ goog.scope(function(){
 			throw new Error("No missiles available");
 		}
 
-		this.getMissleTarget().getParent().addChild(missile, !missile.getElement());
+		var missileTarget = this.getMissleTarget();
+		if(!missileTarget || !missileTarget.getParent()){
+			return;
+		}
+
+		missileTarget.getParent().addChild(missile, !missile.getElement());
 
 		this.invalidateTargetAngle();
 		this.positionMissile_(missile);
@@ -82,7 +87,7 @@ goog.scope(function(){
 		var x = qcurve.asInt(position.x);
 		var y = qcurve.asInt(position.y);
 
-		var targetCoordinate = this.missileTarget_.getPosition();
+		var targetCoordinate = missileTarget.getPosition();
 		var targetAngle = angle(x, y, targetCoordinate.x, targetCoordinate.y);
 
 		var rate = missile.getRate();

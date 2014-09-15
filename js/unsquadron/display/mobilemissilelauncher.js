@@ -86,7 +86,11 @@ goog.scope(function(){
 
 	/** @private */
 	unsquadron.display.MobileMissileLauncher.prototype.travelToTarget_ = function (){
-		var target = this.missileTarget_;
+		var target = this.getMissleTarget();
+		if(!target){
+			return;
+		}
+
 		var targetX = qcurve.asInt(target.getX());
 		var x = qcurve.asInt(this.getX());
 		var minDistanceToMove = 75;
@@ -139,9 +143,13 @@ goog.scope(function(){
 	};
 
 	/** @public */
+	unsquadron.display.MobileMissileLauncher.prototype.getMissleTarget = function(){
+		return this.getMissleLauncher().getMissleTarget();
+	};
+
+	/** @public */
 	unsquadron.display.MobileMissileLauncher.prototype.setMissleTarget = function(value){
-		this.missileTarget_ = value;
-		this.missileLauncher_.setMissleTarget(value);
+		this.getMissleLauncher().setMissleTarget(value);
 	};
 
 	/**

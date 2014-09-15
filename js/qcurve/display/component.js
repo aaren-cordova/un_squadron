@@ -339,6 +339,7 @@ goog.scope(function(){
 	*/
 	qcurve.display.Component.prototype.setName = function(value){
 		this.setElementAttibute('name', value);
+		//this.setElementAttibute('data-name', value);
 	};
 
 	/**

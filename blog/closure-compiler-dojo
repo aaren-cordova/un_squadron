@@ -90,17 +90,47 @@ Slide #3 - Ways it can be used
 			> Web Api
 
 {Example 1.0: hello-world.compile}
-	Removes unnecessary whitespace characters along with extraneous punctuation.
-	Only preserves javadocs that are marked with the @preserve type annotation
-
-	The output JavaScript is functionally identical to the source JavaScript.
-
-	Use : Production
-		Refactoring and testing is not an option
-		Refusal to give up the with statement or the eval statement (in some cases)
+	The online api uses a simple comment code block marked 'ClosureCompiler', changing the form values only modifies that comment.
+	This should only be used for experimentation
+	It will reject you if you try to use the public rest api too many times in a short time span
 
 {Example 2.0: hello-world.compile}
+	Removes unnecessary whitespace characters along with extraneous punctuation.
 
+	The output JavaScript is functionally identical to the source JavaScript.
+	
+	Rule #1: 
+		Comments are not preserved unless explicitly reserved.
+
+	Use : Production
+		Refusal to give up: 
+			The with statement 
+			The eval statement (in some cases)
+			Refactoring and testing is not an option
+
+{Example 3.0:simple-mode.local-var-renames.compile}
+	
+	Rule #4 :
+		Strings are left unaltered (for the most part)
+			They are in-lined in some cases but it's but it's safe to say that the value of the string is constant
+
+	Rule #5 :
+		Strings are left UNALTERED, so eval will not work if you're expect to read local vars that have since been renamed
+
+	Rule #6 :
+		The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
+
+
+
+
+
+
+
+
+
+	Use : Production
+		Refusal to give up the with statement or the eval statement (in some cases)
+		Refactoring and testing is not an option
 
 Slide #X - How is the Closure Compiler different
 	- Minification is targeted towards the GZIP size not byte size, though it's often a win for both.

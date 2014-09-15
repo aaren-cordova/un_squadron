@@ -8,19 +8,18 @@ Slide #0 - Playing with the Google Closure Compiler
 
 	Are there any questions before we begin?
 
-[Optional]
 Slide #1 - Closure Tools - A collection of open source web applications, each tool works independently of one another.
 
 	(Top Left)
 	The Closure Library
 		A general purpose, cross platform JavaScript library.
-									If you're wondering how general, it's what powers:
-										Google search
-										Gmail
-										maps
-										Google docs 
-										Along with all the products you see in the top left just to name a few
-			jQuery, YUI, 
+		If you're wondering how general, it's what powers:
+			Google search
+			Gmail
+			maps
+			Google docs 
+			Along with all the products you see in the top left just to name a few
+
 	(Top Right)
 	Closure Linter
 		A JavaScript style checker and style fixer, it's comparable to JSLint.
@@ -94,35 +93,73 @@ Slide #3 - Ways it can be used
 	This should only be used for experimentation
 	It will reject you if you try to use the public rest api too many times in a short time span
 
+
 {Example 2.0: hello-world.compile}
-	Removes unnecessary whitespace characters along with extraneous punctuation.
+	Description:
+		Removes unnecessary whitespace characters along with extraneous punctuation.
 
-	The output JavaScript is functionally identical to the source JavaScript.
-	
-	Rule #1: 
-		Comments are not preserved unless explicitly reserved.
+	Result:
+		The output JavaScript is functionally identical to the source JavaScript.
 
-	Use : Production
-		Refusal to give up: 
-			The with statement 
-			The eval statement (in some cases)
-			Refactoring and testing is not an option
+	Rules:
+		Rule #1:
+			Comments are not preserved unless explicitly marked for preservation.
+
+	Use:
+		Production - Refactoring is not an option
+			Refusal to give up the with statement
+			Refusal to give up the eval statement (in some cases)
+
 
 {Example 3.0:simple-mode.local-var-renames.compile}
-	
-	Rule #4 :
-		Strings are left unaltered (for the most part)
-			They are in-lined in some cases but it's but it's safe to say that the value of the string is constant
+	Description:
+		Renaming local variables, parameters and optimizes expressions, preserves the functionality
 
-	Rule #5 :
-		Strings are left UNALTERED, so eval will not work if you're expect to read local vars that have since been renamed
+	Result:
+		Functionally identical with one exception, eval statements used to access local variables.
 
-	Rule #6 :
-		The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
+	Rules:
+		Rule #2 :
+			Strings are left unaltered (for the most part)
+				They are in-lined in some cases but it's but it's safe to say that the value of the string is is the same as the intended value.
+				That also means eval will not work if you're expect to read local vars that have since been renamed.
+		Rule #3 :
+			Avoid the with statement
+				Because it changes lexical scope rules, the with statement confuses the compiler and compression may suffer as a result.
+
+	Use: Production - No misused evals present, with statement used with caution
+
+{3.1-simple-mode.removal-of-dead-code.compile}
+	Description:
+		All dead code is removed.
+		This includes all code that couldn't possible execute because it followed a throw, break, continue or return statement.
+		This code technically should not exist, it's usually the result of a leftover from refactoring.
+
+	Result:
+		Functionally identical, along with optional warnings or errors if they are enabled.
 
 
 
 
+Level 3 - Simple [Default]
+		
+
+		Simple Mode Rules:
+			Rule #4 :
+				Strings are left unaltered (for the most part)
+					They are in-lined in some cases but it's but it's safe to say that the value of the string is constant
+
+			Rule #5 :
+				Strings are left UNALTERED, so eval will not work if you're expect to read local vars that have since been renamed
+
+			Rule #6 :
+				The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
+
+	Use : Production - No misused evals present
+				
+				Functionally identical with one exception, eval statements used to access local variables.
+					Rule #3 - Strings are not modified
+					If the local var is renamed while the string of the eval statement remains the same, the program will fail.
 
 
 
@@ -221,25 +258,7 @@ Slide #X - Build Modes
 		Use : Production (Refactoring and testing is not an option) - Refusal to give up eval or the with statement
 {whitespace demo}
 	[Image] Kiss
-	Level 3 - Simple [Default]
-		renaming local variables, parameters and optimizes expressions, preserves the functionality
-
-		Simple Mode Rules:
-			Rule #4 :
-				Strings are left unaltered (for the most part)
-					They are in-lined in some cases but it's but it's safe to say that the value of the string is constant
-
-			Rule #5 :
-				Strings are left UNALTERED, so eval will not work if you're expect to read local vars that have since been renamed
-
-			Rule #6 :
-				The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
-
-	Use : Production - No misused evals present
-				
-				Functionally identical with one exception, eval statements used to access local variables.
-					Rule #3 - Strings are not modified
-					If the local var is renamed while the string of the eval statement remains the same, the program will fail.
+	
 
 																		# The SIMPLE_OPTIMIZATIONS compilation level performs the same whitespace and comment removal as WHITESPACE_ONLY, 
 																		# but it also performs optimizations within expressions and functions, including renaming local variables and function parameters to shorter names. Renaming variables to shorter names makes code significantly smaller. Because the SIMPLE_OPTIMIZATIONS level renames only symbols that are local to functions, 

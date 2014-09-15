@@ -11,7 +11,7 @@
 	"compile": true,
 
 	"compilerOpts": {
-		"debug": true,
+		"debug": false,
 		"generate_exports" : null,
 		"compilation_level": "ADVANCED_OPTIMIZATIONS", /* "WHITESPACE_ONLY | SIMPLE_OPTIMIZATIONS | ADVANCED_OPTIMIZATIONS"*/
 		"define": [

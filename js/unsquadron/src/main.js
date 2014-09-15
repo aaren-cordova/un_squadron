@@ -8,6 +8,7 @@ goog.require('unsquadron.display.Tank0');
 goog.require('unsquadron.display.Turrent0');
 goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Mountain0');
+goog.require('unsquadron.display.Mountain1');
 goog.require('goog.events.EventType');
 goog.require('goog.Timer');
 goog.provide('unsquadron.Main');
@@ -15,8 +16,6 @@ goog.scope(function(){
 	var listen = goog.events.listen;
 	var unlisten = goog.events.unlisten;
 	var EventType = goog.events.EventType;
-
-
 	var Linear = greensock.Linear;
 	var TimelineMax = greensock.TimelineMax;
 	var TweenMax = greensock.TweenMax;
@@ -32,21 +31,22 @@ goog.scope(function(){
 	var Mountain1 = unsquadron.display.Mountain1;
 	var Timer = goog.Timer;
 
-	var STAGE_WIDTH = 510;
-	var LEVEL_TIME = 50;
+	
 	/** @constructor */
 	unsquadron.Main = function(){
 		var stage = Stage.getInstance();
 		var game = Game.getInstance();
 		stage.addChild(game, true);
 
-		var game = Game.getInstance();
 		this.addSky(game.getLayerAt(0));
 		this.addMountains(game.getLayerAt(1));
 		this.addGround(game.getLayerAt(5));
 		this.addPlayerTarget(game.getLayerAt(6));
 		this.addEnemies(game.getLayerAt(6));
 		this.addPlayerAvatar(game.getLayerAt(7));
+
+		var STAGE_WIDTH = 510;
+		var LEVEL_TIME = 50;
 		this.enableHorizontalParrallax(game.getLayerAt(5), LEVEL_TIME, -1, this.ground_.getWidth() - STAGE_WIDTH);
 		this.enableHorizontalParrallax(game.getLayerAt(6), LEVEL_TIME, -1, this.ground_.getWidth() - STAGE_WIDTH);
 		this.enableHorizontalParrallax(this.mountains_, LEVEL_TIME * 2, -1, this.mountains_.getWidth() - STAGE_WIDTH);
@@ -56,7 +56,6 @@ goog.scope(function(){
 		}
 
 		listen(stage.getElement(), EventType.MOUSEMOVE, this.onMouseMove_, false, this);
-		//listen(qcurve.display.getEnterFrameTimer(), Timer.TICK, this.onEnterFrameTimer_, false, this);
 		qcurve.display.setFrameRate(8);
 	}
 	goog.addSingletonGetter(unsquadron.Main);
@@ -106,7 +105,7 @@ goog.scope(function(){
 	};
 
 	unsquadron.Main.prototype.addPlayerTarget = function(layer){
-		this.playerTarget_ = new Sprite();
+		this.playerTarget_ = new Sprite('player0Target');
 		layer.addChild(this.playerTarget_, true);
 		this.playerTarget_.setX(50);
 		this.playerTarget_.setY(30);
@@ -225,14 +224,10 @@ goog.scope(function(){
 
 	unsquadron.Main.prototype.onMouseMove_ = function (event){
 		this.mouseMoveEvent_ = event;
-		this.onEnterFrameTimer_(event);
-	};
 
-	unsquadron.Main.prototype.onEnterFrameTimer_ = function (){
 		if(!this.mouseMoveEvent_){
 			return;
 		}
-
 
 		this.playerTarget_.setXY(
 			this.mouseMoveEvent_.clientX,
@@ -242,6 +237,7 @@ goog.scope(function(){
 		this.playerAvatar_.setX(this.mouseMoveEvent_.clientX -16);
 		this.playerAvatar_.setY(this.mouseMoveEvent_.clientY);
 	};
+
 
 	unsquadron.Main.prototype.playerTarget_ = null;
 

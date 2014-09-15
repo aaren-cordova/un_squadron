@@ -37,7 +37,6 @@ goog.scope(function(){
 		this.numYFrames_ = numYFrames;
 		this.numZFrames_ = numZFrames;
 	};
-
 	goog.inherits(qcurve.display.Sprite, Component);
 
 	/** @override */

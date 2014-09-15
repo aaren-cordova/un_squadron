@@ -1,9 +1,9 @@
-goog.require('goog.disposable.Disposable');
+goog.require('goog.Disposable');
 goog.provide('unsquadron.controls.ISnesGamePadController')
 goog.scope(function(){
 	/** 
 	* @interface
-	* @extends {goog.disposable.Disposable}
+	* @extends {goog.Disposable}
 	*/
 	unsquadron.controls.ISnesGamePadController = function(){};
 

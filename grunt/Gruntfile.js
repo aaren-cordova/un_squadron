@@ -56,7 +56,6 @@ module.exports = function (grunt) {
 					'../js/google/closure-library/third_party/',
 					'../js/qcurve/',
 					'../js/unsquadron/',
-					'../js/src/',
 					'../js/greensock/v12/src/exports/'
 				],
 
@@ -170,7 +169,7 @@ module.exports = function (grunt) {
 
 	//dev_.push('closureDepsWriter:unsquadron');
 	dev_.push('closureBuilder:unsquadron');
-	dev_.push('less:unsquadron');
+	//dev_.push('less:unsquadron');
 	dev_.push('concat:unsquadron');
 	//dev_.push('jsdoc:unsquadron');
 	
@@ -185,7 +184,7 @@ function getClosureBuilderDefaultOptions(grunt){
 	var options = grunt.file.readJSON('json/closure_builder/options.json');
 	
 	options['inputs'] = [
-		"../js/unsquadron/main.js"
+		"../js/unsquadron/src/main.js"
 	];
 
 	options['namespaces'] = [

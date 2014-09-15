@@ -25961,7 +25961,6 @@ goog.require('goog.events.EventType');
 goog.require('greensock.TweenMax');
 goog.require('goog.Timer');
 
-
 goog.provide('unsquadron.Main');
 goog.scope(function(){
 	var listen = goog.events.listen;

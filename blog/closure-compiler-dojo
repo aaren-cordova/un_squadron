@@ -1,35 +1,73 @@
-Slide #1 - Overview
-	Image: Closure Compiler
+Slide #1 - Playing with the Google Closure Compiler
 
-	I'm going to go over some of the key features of Googles JavaScript minifier.
-	Then go over the more advanced features that can change how you think and write JavaScript.
-	Finally I'm going to show you on how it measures up against other compilers by using a game demo I created when I first started working here.
+	I'm going to show you two quick slides, followed by a series of js demos and snippets.
+	A bulk of the demos will center around small snippets JavaScript that we will compile and this proof of concept game {show preview}.
+	They demonstrate how I was able to take an 823k js file and reduce it's size by 98.7% (11k gzip)
+	Most of the concepts I will talk about can be applied to both the closure compiler and to uglify JS, so
+	whichever you choose at the end of the day there's a little something for everyone.
+
+	Are there any questions before we begin?
 
 [Optional]
-Slide #2 - What is a JavaScript Compiler
-	Image: JS Compiler
+Slide #2 - Closure Tools - A collection of open source web applications, each tool works independently of one another.
 
-	JavaScript compilers take JavaScript as input, verify that the syntax is valid, then output smaller JavaScript.
-	Smaller JavaScript is achieved through the removal of whitespace characters, comments and the renaming of locally declared variables and their values.
+	(Top Left)
+	The Closure Library
+		A general purpose, cross platform JavaScript library.
+									If you're wondering how general, it's what powers:
+										Google search
+										Gmail
+										maps
+										Google docs 
+										Along with all the products you see in the top left just to name a few.
+	(Top Right)
+	Closure Linter
+		A JavaScript style checker and style fixer, it's comparable to JSLint.
+
+	(Bottom Left)
+	Closure Templates
+		An easy temperating system for both Java & JavaScript, you may compare it to handlebarsJS
+
+	(Bottom Right)
+	Closure Style Sheets
+		An enhanced style-sheet language similar to LESS CSS
+
+	(Bottom Center)
+	The Closure Compiler
+		A JavaScript optimizer, this is comparable to Uglify, JSMin, PackerJS
+
+	Again, I want to point out that none of these are dependent on one another. 
+	That being said, they were built with the knowledge of each others existence and with that came an inherent synergy.
+	For example, the closure library:
+		- Enforces all rules imposed by the linter
+		- Uses the optimization techniques for the compiler
+		- Has additional optimization hooks built into the compiler itself
+		- Directly integrates with both closure style sheets and closure templates
+
+		This results in even higher compression rates on JS, CSS and HTML
+
+	Does anyone have any questions before I move on to the final slide?
 
 Slide #X - Why use JavaScript Compiler
 	There are three main reasons to use a JS compiler:
 		#1 Efficiency
+			- This is where a bulk of our focus will be today
 			- Reduced number of HTTP requests by delivering a single JS file
 			- Reduced bandwidth consumption through minification
 			- Increase execution time by removing unnecessary characters such as comments and whitespace.
-		#2mm Obfuscation
+
+		#2 Obfuscation
 			- Security
-				Because the original source structure is not maintained after minification, there is a level of added security that keeps others from getting their hands on the entire codebase.
+				Because the original source structure is not maintained after minification, there is a
+				level of added security that keeps others from getting their hands on the entire codebase.
 			- Reversibility
 				Though no JavaScript is beyond reversibility, obfuscation deters 99.99% of thieves trying to crack it.
-				Software is expensive to develop, tedious to QA and devastating when stolen.
-				Do you write your pass-code on the back of the phone?
-				Either obfuscate all of your JavaScript or mark it as free (as in beer) for all.
+				That being said, I will briefly cover how to view your minified code with the fully qualified property names still intact
+
 		#3 Code checking
-			- Compilers provide warnings for illegal JavaScript and warnings for potentially dangerous operations
-			  helping you to produce JavaScript that is less buggy and easier to maintain.
-		
+			- Both linters and compilers validate that your JavaScript is EcmaScript 3 compliant
+			- If time permits, I will go cover how the compiler utilizes javadocs to do data type and encapsulation checks on the prototype chain.
+
 
 Slide #X - Where does it fit in:
 	Some well known JavaScript minifiers include:

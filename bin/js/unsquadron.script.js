@@ -28,7 +28,7 @@
  * @define {boolean} Overridden to true by the compiler when --closure_pass
  *     or --mark_as_compiled is specified.
  */
-var COMPILED = true;
+var COMPILED = false;
 
 
 /**
@@ -25960,7 +25960,6 @@ goog.require('unsquadron.display.Mountain1');
 goog.require('goog.events.EventType');
 goog.require('greensock.TweenMax');
 goog.require('goog.Timer');
-
 
 goog.provide('unsquadron.Main');
 goog.scope(function(){

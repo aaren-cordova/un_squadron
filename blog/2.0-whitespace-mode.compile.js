@@ -3,46 +3,40 @@
 // @compilation_level WHITESPACE_ONLY
 // ==/ClosureCompiler==
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Whitespace mode
+// Example 2.0 - Whitespace mode
 
 /**
-* @preserve Property of Demand Media, all rights reserved
+* @license
+* Property of Demand Media, all rights reserved
+* 
+* All of Googles Closure Tools are under the Apache License, Version 2.0
+* Subject to the terms and conditions of this License, each Contributor hereby grants to You 
+* a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to 
+* reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and 
+* distribute the Work and such Derivative Works in Source or Object form
 */
 
+// All work
+// and no play
+
 /**
+* @preserve
+* Don't be evil.
+*/
+
+// makes Jack
+// a dull boy
+
+
+/**
+ * All work and no play makes Jack a dull boy.
+ * ALL WORK AND NO PLAY MAKES JACK A DULL BOY.
+ * All work and play makes Jck a dull boy.
+ * All work and no ply makes Jack a dull boy.
+ * Aol work and no play makes Jack a dull boy.
+ *   All work and no play makes Jack a dull boy.
+ * All work and no play makes Jack adull boy.
+ * 
  * @param  {number} player_number
  * @return {!Object}
  */

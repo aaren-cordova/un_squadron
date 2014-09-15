@@ -1,15 +1,15 @@
-Slide #1 - Playing with the Google Closure Compiler
+Slide #0 - Playing with the Google Closure Compiler
 
 	I'm going to show you two quick slides, followed by a series of js demos and snippets.
 	A bulk of the demos will center around small snippets JavaScript that we will compile and this proof of concept game {show preview}.
-	They demonstrate how I was able to take an 823k js file and reduce it's size by 98.7% (11k gzip)
+	They demonstrate how I was able to take a (142k gzip | 823k) js file and reduce it's size by 98.7% | 92.3% (11k gzip | 30k uncompressed)
 	Most of the concepts I will talk about can be applied to both the closure compiler and to uglify JS, so
 	whichever you choose at the end of the day there's a little something for everyone.
 
 	Are there any questions before we begin?
 
 [Optional]
-Slide #2 - Closure Tools - A collection of open source web applications, each tool works independently of one another.
+Slide #1 - Closure Tools - A collection of open source web applications, each tool works independently of one another.
 
 	(Top Left)
 	The Closure Library
@@ -19,14 +19,15 @@ Slide #2 - Closure Tools - A collection of open source web applications, each to
 										Gmail
 										maps
 										Google docs 
-										Along with all the products you see in the top left just to name a few.
+										Along with all the products you see in the top left just to name a few
+			jQuery, YUI, 
 	(Top Right)
 	Closure Linter
 		A JavaScript style checker and style fixer, it's comparable to JSLint.
 
 	(Bottom Left)
 	Closure Templates
-		An easy temperating system for both Java & JavaScript, you may compare it to handlebarsJS
+		An easy temperating system for both Java & JavaScript, you may akin it to handlebarsJS, mustache
 
 	(Bottom Right)
 	Closure Style Sheets
@@ -34,9 +35,13 @@ Slide #2 - Closure Tools - A collection of open source web applications, each to
 
 	(Bottom Center)
 	The Closure Compiler
-		A JavaScript optimizer, this is comparable to Uglify, JSMin, PackerJS
+		A JavaScript optimizer, this is comparable
+			- UglifyJS
+			- YUI Compressor
+			- JSMin
+			- Packer
 
-	Again, I want to point out that none of these are dependent on one another. 
+	Again, I want to point out that none of these are dependent on the other.
 	That being said, they were built with the knowledge of each others existence and with that came an inherent synergy.
 	For example, the closure library:
 		- Enforces all rules imposed by the linter
@@ -48,7 +53,7 @@ Slide #2 - Closure Tools - A collection of open source web applications, each to
 
 	Does anyone have any questions before I move on to the final slide?
 
-Slide #X - Why use JavaScript Compiler
+Slide #2 - Why use JavaScript Compiler
 	There are three main reasons to use a JS compiler:
 		#1 Efficiency
 			- This is where a bulk of our focus will be today
@@ -69,13 +74,33 @@ Slide #X - Why use JavaScript Compiler
 			- If time permits, I will go cover how the compiler utilizes javadocs to do data type and encapsulation checks on the prototype chain.
 
 
-Slide #X - Where does it fit in:
-	Some well known JavaScript minifiers include:
-		Image (Github Graphs)
-		- UglifyJS
-		- YUI Compressor
-		- JSMin
-		- Packer
+Slide #3 - Ways it can be used
+	Java
+		> Command line
+		> Python
+			> Closure Builder
+			> Deps Writer
+		> Ant
+		> Java
+			> DigiArea Closure FX Builder
+			> DigiArea Closure IDE
+	NodeJS
+		> Grunt
+	Rest API
+			> Web Api
+
+{Example 1.0: hello-world.compile}
+	Removes unnecessary whitespace characters along with extraneous punctuation.
+	Only preserves javadocs that are marked with the @preserve type annotation
+
+	The output JavaScript is functionally identical to the source JavaScript.
+
+	Use : Production
+		Refactoring and testing is not an option
+		Refusal to give up the with statement or the eval statement (in some cases)
+
+{Example 2.0: hello-world.compile}
+
 
 Slide #X - How is the Closure Compiler different
 	- Minification is targeted towards the GZIP size not byte size, though it's often a win for both.

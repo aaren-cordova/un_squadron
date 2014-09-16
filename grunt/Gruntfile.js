@@ -201,7 +201,6 @@ function getClosureBuilderOptions(grunt){
 		case 'LIST':
 			options['output_mode'] = 'list';
 			options['compilerOpts'] = {};
-
 			break;
 		case 'SCRIPT':
 			options['output_mode'] = 'script';

@@ -14,8 +14,6 @@ function princess_is_captured(){
 function goto_castle(){
 	console.log("Mario beats the castle . . .");
 	throw new Error("I'm sorry but the princess is in another castle");
-
-	//Dead code
 	zombie_apocalypse();
 };
 
@@ -23,8 +21,6 @@ function skip_to_world(world){
 	while(true){
 		console.log("he takes warp pipe directly to world " + world);
 		break;
-
-		//Dead code
 		zombie_apocalypse();
 	}
 };
@@ -32,8 +28,6 @@ function skip_to_world(world){
 function enter_bowsers_castle(){
 	console.log("There's a face off with Bowser . . .");
 	return;
-
-	//Dead code
 	zombie_apocalypse();
 };
 
@@ -41,12 +35,10 @@ function win_game(){
 	for(var i = 0; i < 100; ++i){
 		console.log("He uses his jumping skills . . .");
 		continue;
-
-		//Dead code
 		zombie_apocalypse();
 	}
-		console.log("Mario saves the princess . . .");
-	console.log("Thank you for playing?");
+
+	console.log("Mario saves the princess!");
 };
 
 function zombie_apocalypse(){

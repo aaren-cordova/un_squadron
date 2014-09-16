@@ -47,10 +47,14 @@ function get_player_by_id(player_number){
 		player.weight = 600;
 	}
 
+
+
 	console.log(
 		"Hello " + player.name + "! \n" +
 		"Welcome to the mushroom kingdom?"
 	);
+
+	eval('player.name');
 
 	return player;
 };

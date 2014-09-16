@@ -8,7 +8,7 @@
 // Mode: Simple Mode
 // Overview: Removal of unreachable code
 
-function unreachable_if(player_number){
+function unreachable_if(){
 	reach();
 
 	if(false){
@@ -18,7 +18,7 @@ function unreachable_if(player_number){
 };
 
 
-function unreachable_if_else_if(player_number){
+function unreachable_if_else_if(){
 	if(false){
 		//Unreachable code
 		grasp();
@@ -33,7 +33,7 @@ function unreachable_if_else_if(player_number){
 };
 
 
-function unreachable_conditional_constant_folding(player_number){
+function unreachable_conditional_constant_folding(){
 	if(false || false){
 		//Unreachable code
 		grasp();

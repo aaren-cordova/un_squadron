@@ -3,7 +3,8 @@
 // @compilation_level WHITESPACE_ONLY
 // ==/ClosureCompiler==
 
-// Example 2.0 - Whitespace mode
+// Example 2.0 : Whitespace mode
+// Overview: Removes superfluous characters 
 
 /**
  * @license

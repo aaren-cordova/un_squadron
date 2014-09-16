@@ -1,4 +1,45 @@
-// ehow core definitions 
+// Possible ehow core definitions 
+
+dmjs.maintenance = {
+	"author_profile": true,
+	"comments": {
+		"enabled": true,
+		"facebook_comments": true
+	},
+	"dart": false,
+	"demdex": false,
+	"facebook_login": true,
+	"google_ads": true,
+	"hnh": true,
+	"community": {
+		"index": {
+			"enabled": true
+		},
+		"discussion": {
+			"enabled": true
+		},
+		"article": {
+			"enabled": true
+		}
+	},
+	"js_logging": true,
+	"search": {
+		"botcheck": false,
+		"box": {
+			"channel_filter": false,
+			"suggest": false
+		},
+		"query_filter": true,
+		"record_query": false,
+		"record_results": false,
+		"throttling": true,
+		"useragent_blacklist": false,
+		"related-searches": true
+	},
+	"show_omniture_link_set": true,
+	"social_proof": true
+};
+
 dmjs.setting = {
 	"i18n": {
 		"lang": "en-us"
@@ -70,42 +111,3 @@ dmjs.setting = {
 	}
 };
 
-dmjs.maintenance = {
-	"author_profile": true,
-	"comments": {
-		"enabled": true,
-		"facebook_comments": true
-	},
-	"dart": false,
-	"demdex": false,
-	"facebook_login": true,
-	"google_ads": true,
-	"hnh": true,
-	"community": {
-		"index": {
-			"enabled": true
-		},
-		"discussion": {
-			"enabled": true
-		},
-		"article": {
-			"enabled": true
-		}
-	},
-	"js_logging": true,
-	"search": {
-		"botcheck": false,
-		"box": {
-			"channel_filter": false,
-			"suggest": false
-		},
-		"query_filter": true,
-		"record_query": false,
-		"record_results": false,
-		"throttling": true,
-		"useragent_blacklist": false,
-		"related-searches": true
-	},
-	"show_omniture_link_set": true,
-	"social_proof": true
-};

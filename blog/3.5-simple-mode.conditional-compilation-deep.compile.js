@@ -4,7 +4,9 @@
 // @formatting pretty_print
 // ==/ClosureCompiler==
 
-// Removal of unreachable code (deep)
+// Example 3.4: Symbol Definition
+// Mode: Simple Mode
+// Overview: (Closure Only) - Values are resolved by path of execution.
 
 (function(){
 	function get_player_number(){
@@ -45,11 +47,6 @@
 			'Thank You ' + player_name + ', ' +
 			'But Our Princess is in Another Castle!'
 		);
-
-		return;
-
-		// Dead code
-		console.log("Bowser defeats " + player_name + "...");
 	};
 
 	get_player_name();

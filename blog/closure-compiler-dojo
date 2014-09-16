@@ -1,17 +1,21 @@
 Slide #0 - Playing with the Google Closure Compiler
-
-	I'm going to show you two quick slides, followed by a series of demos of js snippets compiled on the spot.
-	
-	After that I will show you how I
-	{show preview}.
-	They demonstrate how I was able to take a (142k gzip | 823k) js file and reduce it's size by 98.7% | 92.3% (11k gzip | 30k uncompressed)
-
 	Most of the concepts I will talk about can be applied to both the closure compiler and to uglify JS, so
 	whichever you choose at the end of the day there's a little something for everyone.
 
+	I'm going to show you two quick slides, followed by a series of demos of js snippets compiled on the spot.
+
+	After that I will show you how I will show you how I was able to go from 823k to 11k, a savings of 98.7%.
+	For that, I will use a game I built as a learning exercise to gain insight all closure tools, JS OOP, HTML and CSS when
+	I first started working here as a ad unit contractor with a online gaming background.
+
+{show preview}
+
+{Ask for Questions}
 	Are there any questions before we begin?
 
-Slide #1 - Closure Tools - A collection of open source web applications, each tool works independently of one another.
+Slide #1 - Closure Tools
+	Description:
+		A collection of open source web applications, each tool works independently of one another.
 
 	(Top Left)
 	The Closure Library
@@ -44,7 +48,9 @@ Slide #1 - Closure Tools - A collection of open source web applications, each to
 			- Packer
 
 	Again, I want to point out that none of these are dependent on the other.
-	That being said, they were built with the knowledge of each others existence and with that came an inherent synergy.
+	That being said, they were built with the knowledge of each others existence and
+	with that came an inherent synergy.
+
 	For example, the closure library:
 		- Enforces all rules imposed by the linter
 		- Uses the optimization techniques for the compiler
@@ -53,7 +59,8 @@ Slide #1 - Closure Tools - A collection of open source web applications, each to
 
 		This results in even higher compression rates on JS, CSS and HTML
 
-	Does anyone have any questions before I move on to the final slide?
+{Ask for Questions}
+	Are there any questions the closure tools before I move on to the final slide?
 
 Slide #2 - Why use JavaScript Compiler
 	There are three main reasons to use a JS compiler:
@@ -61,7 +68,7 @@ Slide #2 - Why use JavaScript Compiler
 			- This is where a bulk of our focus will be today
 			- Reduced number of HTTP requests by delivering a single JS file
 			- Reduced bandwidth consumption through minification
-			- Increase execution time by removing unnecessary characters such as comments and whitespace.
+			- Increase execution time by removing unnecessary characters.
 
 		#2 Obfuscation
 			- Security
@@ -74,44 +81,45 @@ Slide #2 - Why use JavaScript Compiler
 		#3 Code checking
 			- Both linters and compilers validate that your JavaScript is EcmaScript 3 compliant
 			- If time permits, I will go cover how the compiler utilizes javadocs to do data type and encapsulation checks on the prototype chain.
+			For now, just keep it in your mind that DATA TYPE CHECKING IS NOT THE SAME AS LINTING
 
-
-Slide #3 - Ways it can be used
-	Java
-		> Command line
-		> Python
-			> Closure Builder
-			> Deps Writer
-		> Ant
-		> Java
-			> DigiArea Closure FX Builder
-			> DigiArea Closure IDE
-	NodeJS
-		> Grunt
-	Rest API
-			> Web Api
+{Ask for Questions}
+	Last chance
 
 {Example 1.0: hello-world.compile}
-	The online api uses a simple comment code block marked 'ClosureCompiler', changing the form values only modifies that comment.
+	The online API uses a simple comment code block marked 'ClosureCompiler', changing the form values only modifies that comment.
 	This should only be used for experimentation
 	It will reject you if you try to use the public rest api too many times in a short time span
 
 
-{Example 2.0: hello-world.compile}
+{Note}
+	Before I get into the following examples, please remember that rules mentioned 
+	here can be used for both Uglify and the closure compiler unless I say otherwise.
+
+
+{Example 2.0-whitespace-mode.compile}
 	Description:
 		Removes unnecessary whitespace characters along with extraneous punctuation.
 
 	Result:
 		The output JavaScript is functionally identical to the source JavaScript.
 
+	Use:
+		Production - Refactoring is not an option - will cover in next example
+			Refusal to give up the with statement
+			Refusal to give up the eval statement (in some cases)
+
 	Rules:
 		Rule #1:
 			Comments are not preserved unless explicitly marked for preservation.
+{Example 2.1-simple-mode.targeted-towards-gzip.compile}
+	Closure is targeted towards gzip size, NOT bytes size.
+	Though it is often will get better compression in both, it is possible for the byte size of the file to increase.
 
-	Use:
-		Production - Refactoring is not an option
-			Refusal to give up the with statement
-			Refusal to give up the eval statement (in some cases)
+	To understand why this is a good thing, you have to understand how the GZip algorithm works.
+	GZip finds duplicated strings in the input data.
+	The second occurrence of a string is replaced by a pointer to the previous string.
+	The more you repeat a string, the less it costs.
 
 
 {Example 3.0:simple-mode.local-var-renames.compile}
@@ -120,6 +128,8 @@ Slide #3 - Ways it can be used
 
 	Result:
 		Functionally identical with one exception, eval statements used to access local variables.
+
+	Use: Production - No misused evals present, with statement used with caution
 
 	Rules:
 		Rule #2 :
@@ -130,9 +140,8 @@ Slide #3 - Ways it can be used
 			Avoid the with statement
 				Because it changes lexical scope rules, the with statement confuses the compiler and compression may suffer as a result.
 
-	Use: Production - No misused evals present, with statement used with caution
 
-{3.1-simple-mode.removal-of-dead-code.compile}
+{3.1-simple-mode.removal-of-dead-code-explicit.compile}
 	Description:
 		All dead code is removed.
 		This includes all code that couldn't possible execute because it followed a throw, break, continue or return statement.
@@ -142,36 +151,59 @@ Slide #3 - Ways it can be used
 		Functionally identical
 		Will display warnings if they are enabled.
 
+
 {3.2-simple-mode.conditional-compilation-shallow.sample}
+	It's easy to recognizing dead code and obvious why it would be removed.
+	The concept of unreachable code becomes more apparent when you combine it
+	with compiler definitions.
+	For now, just understand that all the code blocks that are impossible to reach are removed entirely
+
+{3.3-simple-mode.conditional-compilation-shallow.compile}
+	Description:
+		All code blocks that have an absolute certainty will never execute in at runtime are removed.
+		The constants are included in this snippet for sake of clarity, next I'll review how this knowledge is actually used.
+
+		This is particularly useful for including and excluding modules that are significant in size if
+		their use can be determined on the server-side at the time of request.
+
+{3.4-simple-mode.symbol-definition.compile}
+	Description:
+		Both uglify and the closure compiler support setting the value of a JS symbol, allowing the code blocks to be remove.
+		In the this example, the if block is removed if the browser is known.
+
+		{Note about Uglify: the init}
+		In Uglify, the init function will also be included if it is not wrapped in the if statement
+		Closure will detect that the function is unused in the local scope and eliminate it.
+
+{3.4a-simple-mode.ehow-definition-canidates.sample}
+	Please take a minute to digest that some values are known at the time of request.
+	Utilizing this knowledge of conditional compilation, we have the potential to eliminate
+	entire blocks of code such as jQuery plugins, tokenizers and browser specific features.
+
+{3.5-simple-mode.conditional-compilation-deep.compile}
+	Description:
+		* ! The remaining examples are specific to the closure compiler.
+
+		Most compilers will only perform constant folding when the constant is known and directly in the if statement.
+		One of the ways the closure compiler differs is the generation of a dependency graph through the global scope and the prototype chain.
+		Constant values is resolved though path of execution, that also includes methods in an instances prototype chain.
+		This means complex constant folding can occur in a method, including the feature detection as a last resort.
+
+{3.6-simple-mode.ehow-conditional-compilation-canidate.sample}
+	If you put methods that contain compiler definitions to the front of your if statement, large blocks of code can be excluded.
+	Refactoring this sample code with our new found knowledge, we can prevent copied and pasted code from platform to platform,
+	creating a unified code-base with only platform specific changes wrapped in an if statement.
+
+{3.7-simple-mode.ehow-conditional-compilation-canidate.sample}
+	Here we have a 92kb conditional block on the ehow homepage that can be removed with the proper configuration and delivered that that specific browser.
 
 
-Level 3 - Simple [Default]
-		
 
-		Simple Mode Rules:
-			Rule #4 :
-				Strings are left unaltered (for the most part)
-					They are in-lined in some cases but it's but it's safe to say that the value of the string is constant
+{Note}
+	Time for my favorite feature!!!
 
-			Rule #5 :
-				Strings are left UNALTERED, so eval will not work if you're expect to read local vars that have since been renamed
-
-			Rule #6 :
-				The with statement confuses the compiler because it changes lexical scope rules, compression may suffer as a result
-
-	Use : Production - No misused evals present
-				
-				Functionally identical with one exception, eval statements used to access local variables.
-					Rule #3 - Strings are not modified
-					If the local var is renamed while the string of the eval statement remains the same, the program will fail.
-
-
-
-
-
-	Use : Production
-		Refusal to give up the with statement or the eval statement (in some cases)
-		Refactoring and testing is not an option
+{4.0-advance-mode-example.1.removal-of-unreachable-code.compile}
+	The closure compiler can be supplied the entry point of a program, and from this point create a dependancy graph.
 
 Slide #X - How is the Closure Compiler different
 	- Minification is targeted towards the GZIP size not byte size, though it's often a win for both.
@@ -306,3 +338,24 @@ Slide #X - Build Modes
 			Parse error. Semi-colon expected at line 1 character 4511984
 
 
+
+
+
+
+
+
+
+Slide #3 - Ways it can be used
+															Java
+																> Command line
+																> Python
+																	> Closure Builder
+																	> Deps Writer
+																> Ant
+																> Java
+																	> DigiArea Closure FX Builder
+																	> DigiArea Closure IDE
+															NodeJS
+																> Grunt
+															Rest API
+																	> Web Api

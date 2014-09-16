@@ -1,38 +1,11 @@
 // ==ClosureCompiler==
 // @output_file_name default.js
 // @compilation_level SIMPLE_OPTIMIZATIONS
+// @formatting pretty_print
 // ==/ClosureCompiler==
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Local vars are renamed
-
-/**
-* @preserve Property of Demand Media, all rights reserved
-*/
+// Example 3.0: Renaming of local vars
+// Overview: Renaming of local vars keeping properties intact
 
 /**
  * @param  {number} player_number

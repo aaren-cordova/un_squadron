@@ -4,49 +4,46 @@
 // @formatting pretty_print
 // ==/ClosureCompiler==
 
-// Conditional compilation - The removal of unreachable code (shallow)
+
+// Example 3.3: Conditional compilation (shallow)
+// Mode: Simple Mode
+// Overview: Removal of unreachable code
 
 (function(){
 	function get_player_name(){
-		var player_name;
 
 		var player_number = 2;
 
 		if(player_number === 1){
-			player_name = "Mario";
+			return "Mario";
 		}
 		else if(player_number === 2){
-			player_name = "Luigi";
+			return "Luigi";
 		}
 		else if(player_number === 3){
-			player_name = "Toad";
+			return "Toad";
 		}
 		else if(player_number === 4){
-			player_name = "Yoshi";
+			return "Yoshi";
 		}
 		else if(player_number === 5){
-			player_name = "Wario";
+			return "Wario";
 		}
 		else if(player_number === 6){
-			player_name = "Waluigi";
+			return "Waluigi";
 		}
 		else if(player_number === 7){
-			player_name = "Toadette";
+			return "Toadette";
 		}
 		else {
-			player_name = "Shyguy";
+			return "Shyguy";
 		}
-
-		console.log(
-			'Thank You ' + player_name + ', ' +
-			'But Our Princess is in Another Castle!'
-		);
-
-		return;
-
-		// Dead code
-		console.log("Bowser defeats " + player_name + "...");
 	};
 
-	get_player_name();
+	var player_name = get_player_name();
+
+	console.log(
+		'Thank You ' + player_name + ', ' +
+		'But Our Princess is in Another Castle!'
+	);
 }());

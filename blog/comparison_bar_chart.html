@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load("visualization", "1", {packages:["corechart"]});
+			google.setOnLoadCallback(drawChart);
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					['Build Modes', 'Byte Size', 'GZip Size'],
+					['Packer JS',273, 50],
+					['YUI JS',231, 45],
+					['Uglify JS',224, 43],
+					['Google Closure Simple Mode', 208,  42],
+					['Google Closure Advance Debug Mode', 141, 19],
+					['Google Closure Advance Mode', 30, 11],
+					['Google Closure Specific', 27, 10]
+				]);
+
+				var options = {
+					title: 'Compression Rates',
+					vAxis: {title: 'Build Modes',	titleTextStyle: {color: 'red'}}
+				};
+
+				var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+				chart.draw(data, options);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="chart_div" style="width: 900px; height: 500px;"></div>
+	</body>
+</html>

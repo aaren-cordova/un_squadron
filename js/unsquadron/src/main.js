@@ -1,3 +1,7 @@
+/** @define {boolean} */
+unsquadron.autoInitialize = false;
+
+
 goog.require('unsquadron.Game');
 goog.require('qcurve.display');
 goog.require('goog.events');
@@ -10,10 +14,11 @@ goog.require('unsquadron.display.Turrent1');
 goog.require('unsquadron.display.Mountain0');
 goog.require('unsquadron.display.Mountain1');
 goog.require('goog.events.EventType');
-goog.require('greensock.TweenMax');
 goog.require('goog.Timer');
 
 goog.provide('unsquadron.Main');
+
+
 goog.scope(function(){
 	var listen = goog.events.listen;
 	var unlisten = goog.events.unlisten;
@@ -46,7 +51,7 @@ goog.scope(function(){
 		this.addPlayerAvatar(game.getLayerAt(7));
 
 		var STAGE_WIDTH = 510;
-		var LEVEL_TIME = 50;
+		var LEVEL_TIME = 50 / qcurve.display.FRAME_RATE_RATIO;
 		this.enableHorizontalParrallax(game.getLayerAt(5), LEVEL_TIME, -1, this.ground_.getWidth() - STAGE_WIDTH);
 		this.enableHorizontalParrallax(game.getLayerAt(6), LEVEL_TIME, -1, this.ground_.getWidth() - STAGE_WIDTH);
 		this.enableHorizontalParrallax(this.mountains_, LEVEL_TIME * 2, -1, this.mountains_.getWidth() - STAGE_WIDTH);
@@ -56,7 +61,6 @@ goog.scope(function(){
 		}
 
 		listen(stage.getElement(), EventType.MOUSEMOVE, this.onMouseMove_, false, this);
-		qcurve.display.setFrameRate(8);
 	}
 	goog.addSingletonGetter(unsquadron.Main);
 
@@ -242,4 +246,11 @@ goog.scope(function(){
 	unsquadron.Main.prototype.playerTarget_ = null;
 
 	goog.exportSymbol('unsquadron.Main', unsquadron.Main);
+	goog.exportProperty(unsquadron.Main, 'getInstance', unsquadron.Main.getInstance);
+
+	if(unsquadron.autoInitialize){
+		unsquadron.Main.getInstance();
+	}
 });
+
+

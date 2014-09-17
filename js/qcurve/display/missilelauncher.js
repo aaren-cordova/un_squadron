@@ -9,7 +9,6 @@ goog.require('qcurve.display.Component');
 goog.require('qcurve.math');
 goog.require('qcurve.asserts');
 goog.require('qcurve.math');
-goog.require('greensock.TweenMax');
 goog.require('unsquadron.display.MissileFactory');
 
 goog.scope(function(){

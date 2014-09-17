@@ -1,4 +1,4 @@
-var BUILD_MODE = 'WHITESPACE_ONLY'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS, DEBUG
+var BUILD_MODE = 'SPECIFIC'; // LIST, SCRIPT, WHITESPACE_ONLY, SIMPLE_OPTIMIZATIONS, ADVANCED_OPTIMIZATIONS, DEBUG, SPECIFIC
 
 
 module.exports = function (grunt) {
@@ -55,8 +55,7 @@ module.exports = function (grunt) {
 					'../js/google/closure-library/closure/goog/',
 					'../js/google/closure-library/third_party/',
 					'../js/qcurve/',
-					'../js/unsquadron/',
-					'../js/greensock/v12/src/uncompressed/'
+					'../js/unsquadron/'
 				],
 
 				dest: '../bin/js/unsquadron.' + BUILD_MODE.toLowerCase() + '.js'
@@ -224,15 +223,27 @@ function getClosureBuilderOptions(grunt){
 			options['output_mode'] = 'compiled';
 			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
 			break;
+		case 'SPECIFIC':
+			options['output_mode'] = 'compiled';
+			options['compilerOpts']['compilation_level'] = 'ADVANCED_OPTIMIZATIONS';
+			options['compilerOpts']['output_wrapper']= '!function(){%output%}();';
+
+			options["compilerOpts"]["define"] = [
+				"'goog.DEBUG=false'",
+				"'goog.ENABLE_DEBUG_LOADER=false'",
+				"'goog.userAgent.ASSUME_WEBKIT=true'",
+				"'goog.userAgent.ASSUME_WINDOWS=true'",
+				"'goog.dom.ASSUME_STANDARDS_MODE=true'",
+				"'qcurve.display.FRAME_RATE=48'",
+
+
+				"'goog.EXPORT_API=true'",
+				"'unsquadron.autoInitialize=true'",
+				"'COMPILED=true'"
+			];
+			break;
 	}
 
 	options['compile'] = (options['output_mode'] === 'compiled');
-
-	options["compilerOpts"]["define"] = [
-		'goog.DEBUG=false',
-		'goog.ENABLE_DEBUG_LOADER=false',
-		'COMPILED=' + options['compile']
-	];
-	
 	return options;
 }

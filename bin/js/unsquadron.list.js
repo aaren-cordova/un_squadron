@@ -59,7 +59,6 @@
 ..\js\unsquadron\display\bullet0.js
 ..\js\unsquadron\display\bullet1.js
 ..\js\unsquadron\display\missilefactory.js
-..\js\greensock\v12\src\uncompressed\provides.js
 ..\js\qcurve\math\math.js
 ..\js\qcurve\display\missilelauncher.js
 ..\js\unsquadron\display\turrent.js

@@ -1,0 +1,11 @@
+Advance Mode
+-renames global
+--variables
+--functions
+-removes global
+--variables
+--functions
+--unused modules
+-exports (for public API)
+--symbols
+--properties

@@ -1,0 +1,35 @@
+SCRIPT_MODE
+	concats all files in correct order											http://localhost/un_squadron/bin/js/unsquadron.script.js
+
+
+
+
+
+WHITESPACE_ONLY
+	removes superfluous characters\n(whitespace, semicolons, braces...)			2.0-whitespace-mode.compile
+	optimized for gzip															2.1-all-modes.targeted-towards-gzip.compile
+	keeps special javadocs
+		@license																2.0-whitespace-mode.compile
+		@preserve																2.0-whitespace-mode.compile
+
+
+
+
+SIMPLE_MODE
+	local renames
+		parameters																3.0.0-simple-mode.local-var-renames.compile
+		variables																3.0.0-simple-mode.local-var-renames.compile
+		values\npassed by copy\n (!0, 3.21e+47)									3.0.0-simple-mode.local-var-renames.compile
+	in lining
+		concatenates strings
+		return values
+		local functions
+	keeps external
+		methods
+		symbols
+	conditional compilation
+		constant folding
+			shallow
+				removal of dead code
+			deep
+				removal of dead code

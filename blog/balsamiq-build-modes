@@ -1,0 +1,7 @@
+WHITESPACE_ONLY
+-SIMPLE_MODE
+--renames local vars
+--renames parameters
+--concatenates strings
+--shortens values passed by copy
+--conditional compliation

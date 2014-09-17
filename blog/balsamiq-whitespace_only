@@ -1,0 +1,6 @@
+WHITESPACE_ONLY
+-removes superfluous characters\n(whitespace, semicolons, braces...)
+-optimized for gzip
+-keeps special javadocs
+--@license
+--@preserve
